@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "mstv-base:cherry_stick"
+            "items": ["mstv-base:cherry_stick"]
           }
         ]
       },

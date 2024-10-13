@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "mstv-base:mangrove_stick"
+            "items": ["mstv-base:mangrove_stick"]
           }
         ]
       },

@@ -4,19 +4,16 @@ import de.pnku.mstv_mframev.item.MoreFrameVariantItem;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Item;
 import org.apache.commons.text.WordUtils;
 
-import java.util.concurrent.CompletableFuture;
-
 public class MoreFrameVariantLangGenerator extends FabricLanguageProvider {
-    public MoreFrameVariantLangGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(dataOutput, registryLookup);
+    public MoreFrameVariantLangGenerator(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(TranslationBuilder translationBuilder) {
         for (Item paintingVariant : MoreFrameVariantItems.more_paintings) {
             String paintingName = WordUtils.capitalizeFully(((MoreFrameVariantItem) paintingVariant).mframevWoodType + " Painting");
             translationBuilder.add(paintingVariant, paintingName);
