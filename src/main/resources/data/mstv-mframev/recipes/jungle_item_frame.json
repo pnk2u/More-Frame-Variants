@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "item_frames",
+  "key": {
+    "/": {
+      "item": "mstv-base:jungle_stick"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "///",
+    "/L/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:jungle_item_frame"
+  }
+}

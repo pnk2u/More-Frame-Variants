@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "map=false": { "model": "mstv-mframev:block/cherry_item_frame" },
+        "map=true":  { "model": "mstv-mframev:block/cherry_item_frame_map" }
+    }
+}

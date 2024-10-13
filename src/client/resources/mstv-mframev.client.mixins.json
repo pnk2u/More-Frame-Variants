@@ -1,0 +1,14 @@
+{
+  "required": false ,
+  "package": "de.pnku.mstv_mframev.mixin.client" ,
+  "compatibilityLevel": "JAVA_21" ,
+  "client": [
+    "ModelBakeryMixin" ,
+    "renderer.ItemFrameRendererMixin" ,
+    "renderer.PaintingRendererMixin" ,
+    "util.TextureAtlasHolderAccessor"
+  ] ,
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

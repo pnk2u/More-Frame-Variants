@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mstv-mframev:item/acacia_painting"
+  }
+}

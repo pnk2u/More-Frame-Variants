@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "paintings",
+  "key": {
+    "/": {
+      "item": "mstv-base:cherry_stick"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "///",
+    "/W/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:cherry_painting"
+  }
+}

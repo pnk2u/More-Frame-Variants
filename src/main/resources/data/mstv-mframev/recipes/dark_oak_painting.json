@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "paintings",
+  "key": {
+    "/": {
+      "item": "mstv-base:dark_oak_stick"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "///",
+    "/W/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:dark_oak_painting"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "item_frames",
+  "key": {
+    "/": {
+      "item": "minecraft:bamboo"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "///",
+    "/L/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:bamboo_item_frame"
+  }
+}

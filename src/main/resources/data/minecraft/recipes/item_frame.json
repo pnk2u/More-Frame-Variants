@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "item_frames",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "mstv-mframev:birch_stick"
+    },
+    "X": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:item_frame"
+  }
+}

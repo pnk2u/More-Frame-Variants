@@ -1,0 +1,14 @@
+{
+  "values": [
+    "mstv-mframev:acacia_glow_item_frame",
+    "mstv-mframev:bamboo_glow_item_frame",
+    "minecraft:glow_item_frame",
+    "mstv-mframev:cherry_glow_item_frame",
+    "mstv-mframev:crimson_glow_item_frame",
+    "mstv-mframev:dark_oak_glow_item_frame",
+    "mstv-mframev:jungle_glow_item_frame",
+    "mstv-mframev:mangrove_glow_item_frame",
+    "mstv-mframev:oak_glow_item_frame",
+    "mstv-mframev:warped_glow_item_frame"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "pnku"
+  ],
+  "contact": {
+    "homepage": "https://pnku.de",
+    "email": "contact@pnku.de",
+    "sources": "https://github.com/pnk2u/More-Frame-Variants",
+    "issues": "https://github.com/pnk2u/More-Frame-Variants/issues"
+  },
+  "license": "${mod_license}",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.pnku.mstv_mframev.MoreFrameVariants"
+    ],
+    "client": [
+      "de.pnku.mstv_mframev.MoreFrameVariantsClient"
+    ],
+    "fabric-datagen": [
+      "de.pnku.mstv_mframev.MoreFrameVariantDatagen"
+    ]
+  },
+  "mixins": [
+    "mstv-mframev.mixins.json" ,
+    {
+			"config": "mstv-mframev.client.mixins.json" ,
+			"environment": "client"
+		}
+  ],
+  "depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": ">=${minecraft_version}",
+		"java": ">=21",
+		"fabric-api": "*",
+        "mstv-base": "*"
+	},
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.com/invite/sA42pp6cuX"
+      }
+    }
+  }
+}

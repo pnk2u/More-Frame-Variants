@@ -1,0 +1,14 @@
+{
+  "values": [
+    "mstv-mframev:acacia_item_frame",
+    "mstv-mframev:bamboo_item_frame",
+    "minecraft:item_frame",
+    "mstv-mframev:cherry_item_frame",
+    "mstv-mframev:crimson_item_frame",
+    "mstv-mframev:dark_oak_item_frame",
+    "mstv-mframev:jungle_item_frame",
+    "mstv-mframev:mangrove_item_frame",
+    "mstv-mframev:oak_item_frame",
+    "mstv-mframev:warped_item_frame"
+  ]
+}
