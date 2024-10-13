@@ -52,7 +52,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
 
 	// MStV (modImplementation datagen only -> modCompileOnly for release)
-	modImplementation files("res/MoreStickVariants-${project.mstv_version}+${project.minecraft_version}-Fabric.jar")
+	modCompileOnly files("res/MoreStickVariants-${project.mstv_version}+${project.minecraft_version}-Fabric.jar")
 }
 
 processResources {
