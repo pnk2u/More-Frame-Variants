@@ -4,14 +4,13 @@ import de.pnku.mstv_mframev.util.IItemFrame;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -59,9 +58,9 @@ public class MoreFrameVariantItem extends HangingEntityItem {
                 hangingEntity = new GlowItemFrame(level, blockPos2, direction);
             }
 
-            CustomData customData = (CustomData)itemStack.getOrDefault(DataComponents.ENTITY_DATA, CustomData.EMPTY);
-            if (!customData.isEmpty()) {
-                EntityType.updateCustomEntityTag(level, player, (Entity)hangingEntity, customData);
+            CompoundTag compoundTag = itemStack.getTag();
+            if (compoundTag != null) {
+                EntityType.updateCustomEntityTag(level, player, (Entity)hangingEntity, compoundTag);
             }
 
             if (((HangingEntity)hangingEntity).survives()) {

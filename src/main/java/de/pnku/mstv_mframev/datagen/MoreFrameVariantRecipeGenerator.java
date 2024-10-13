@@ -5,7 +5,6 @@ import de.pnku.mstv_mframev.MoreFrameVariants;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -14,13 +13,11 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
-import java.util.concurrent.CompletableFuture;
-
 import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.*;
 
 public class MoreFrameVariantRecipeGenerator extends FabricRecipeProvider {
-    public MoreFrameVariantRecipeGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
+    public MoreFrameVariantRecipeGenerator(FabricDataOutput output) {
+        super(output);
     }
 
     @Override

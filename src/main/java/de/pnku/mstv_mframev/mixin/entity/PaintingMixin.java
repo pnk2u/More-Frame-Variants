@@ -33,8 +33,8 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
     protected PaintingMixin(EntityType<? extends HangingEntity> entityType, Level level) {super(entityType, level);}
 
     @Inject(method = "defineSynchedData", at = @At("TAIL"))
-    protected void defineSynchedData(SynchedEntityData.Builder builder, CallbackInfo ci) {
-        builder.define(DATA_ID_TYPE, "default");
+    protected void defineSynchedData(CallbackInfo ci) {
+        this.entityData.define(DATA_ID_TYPE, "default");
     }
 
     @Unique
@@ -78,13 +78,13 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
                 case "oak" -> itemStack = new ItemStack(MoreFrameVariantItems.OAK_PAINTING);
                 case "spruce" -> itemStack = new ItemStack(MoreFrameVariantItems.SPRUCE_PAINTING);
                 case "warped" -> itemStack = new ItemStack(MoreFrameVariantItems.WARPED_PAINTING);
-                case null, default -> itemStack = new ItemStack(Items.PAINTING);
+                default -> itemStack = new ItemStack(Items.PAINTING);
             }
             if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                 this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
                 if (brokenEntity instanceof Player) {
                     Player player = (Player)brokenEntity;
-                    if (player.hasInfiniteMaterials()) {
+                    if (player.getAbilities().instabuild) {
                         return;
                     }
                 }

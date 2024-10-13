@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "mstv-base:birch_stick"
+            "items": ["mstv-base:birch_stick"]
           }
         ]
       },

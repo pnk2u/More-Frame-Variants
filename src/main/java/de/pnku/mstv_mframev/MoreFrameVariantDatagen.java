@@ -13,8 +13,8 @@ public class MoreFrameVariantDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
 		FabricDataGenerator.Pack pack = generator.createPack();
 
-		pack.addProvider(MoreFrameVariantLangGenerator::new);
-        pack.addProvider(MoreFrameVariantModelGenerator::new);
-        pack.addProvider(MoreFrameVariantRecipeGenerator::new);
+		//pack.addProvider(MoreFrameVariantLangGenerator::new);
+        //pack.addProvider(MoreFrameVariantModelGenerator::new);
+        //pack.addProvider(MoreFrameVariantRecipeGenerator::new);
     }
 }

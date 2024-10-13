@@ -2,7 +2,7 @@
   "required": false ,
   "minVersion": "0.8" ,
   "package": "de.pnku.mstv_mframev.mixin" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "compatibilityLevel": "JAVA_17" ,
   "mixins": [
     "entity.ItemFrameMixin" ,
     "entity.PaintingMixin"

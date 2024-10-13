@@ -47,8 +47,8 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
 
 
     @Inject(method = "defineSynchedData", at = @At("TAIL"))
-    protected void defineSynchedData(SynchedEntityData.Builder builder, CallbackInfo ci) {
-        builder.define(DATA_ID_TYPE, "birch");
+    protected void defineSynchedData(CallbackInfo ci) {
+        this.entityData.define(DATA_ID_TYPE, "birch");
     }
 
     @Unique
@@ -88,7 +88,7 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
             case "mangrove" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.MANGROVE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.MANGROVE_ITEM_FRAME);}
             case "spruce" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.SPRUCE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.SPRUCE_ITEM_FRAME);}
             case "warped" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.WARPED_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.WARPED_ITEM_FRAME);}
-            case null, default -> {return isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);}
+            default -> {return isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);}
         }
     }
 
