@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.MOD_ID;
+import static de.pnku.mstv_mframev.MoreFrameVariants.*;
 
 @Environment(value = EnvType.CLIENT)
 @Mixin(ItemFrameRenderer.class)
@@ -32,7 +32,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame> {
             boolean isGlow = itemFrame.getType() == EntityType.GLOW_ITEM_FRAME;
             String mapVariantBl = (item.is(Items.FILLED_MAP)) ? "map=true" : "map=false";
             String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
-            ModelResourceLocation modelResourceLocation = new ModelResourceLocation("mstv-mframev", woodVariant + frameBaseName, mapVariantBl);
+            ModelResourceLocation modelResourceLocation = new ModelResourceLocation(asId(woodVariant + frameBaseName), mapVariantBl);
             //LOGGER.info(modelResourceLocation.toString());
             cir.setReturnValue(modelResourceLocation);
         }

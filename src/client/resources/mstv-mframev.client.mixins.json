@@ -3,7 +3,7 @@
   "package": "de.pnku.mstv_mframev.mixin.client" ,
   "compatibilityLevel": "JAVA_21" ,
   "client": [
-    "ModelBakeryMixin" ,
+    "BlockStateModelLoaderMixin" ,
     "renderer.ItemFrameRendererMixin" ,
     "renderer.PaintingRendererMixin" ,
     "util.TextureAtlasHolderAccessor"
