@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "paintings",
   "category": "misc",
   "ingredients": [{
       "tag": "mstv-mframev:paintings"
