@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "minecraft:bamboo"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "minecraft:bamboo",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

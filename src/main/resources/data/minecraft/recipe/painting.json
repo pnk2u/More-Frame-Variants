@@ -1,9 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "ingredients": [{
-      "tag": "mstv-mframev:paintings"
-    }],
+  "ingredients": ["#mstv-mframev:paintings"],
   "result": {
     "count": 1,
     "id": "minecraft:painting"

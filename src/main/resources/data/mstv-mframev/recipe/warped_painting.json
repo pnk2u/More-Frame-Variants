@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "mstv-base:warped_stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "mstv-base:warped_stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

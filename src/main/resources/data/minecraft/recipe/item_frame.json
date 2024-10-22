@@ -3,12 +3,8 @@
   "group": "item_frames",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "mstv-base:birch_stick"
-    },
-    "X": {
-      "item": "minecraft:leather"
-    }
+    "#": "mstv-base:birch_stick",
+    "X": "minecraft:leather"
   },
   "pattern": [
     "###",

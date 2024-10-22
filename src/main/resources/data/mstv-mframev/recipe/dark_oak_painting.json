@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "mstv-base:dark_oak_stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "mstv-base:dark_oak_stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

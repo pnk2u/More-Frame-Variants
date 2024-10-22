@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -61,14 +63,14 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
     }
 
     @Inject(method = "dropItem", at = @At("HEAD"), cancellable = true)
-    private void injectedDropItem(Entity brokenEntity, CallbackInfo ci) {
+    private void injectedDropItem(ServerLevel serverLevel, @Nullable Entity brokenEntity, CallbackInfo ci) {
         String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
         if (woodVariant != null) {
             // debug
             LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
 
             ItemStack itemStack = stackFromPWoodVariant(woodVariant);
-            if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+            if (serverLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                 this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
                 if (brokenEntity instanceof Player) {
                     Player player = (Player)brokenEntity;
@@ -77,7 +79,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
                     }
                 }
 
-                this.spawnAtLocation(itemStack);
+                this.spawnAtLocation(serverLevel, itemStack);
             }
         }
         ci.cancel();
