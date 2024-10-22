@@ -1,10 +1,13 @@
 package de.pnku.mstv_mframev.item;
 
+import de.pnku.mstv_mframev.MoreFrameVariants;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,13 +22,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
+import static de.pnku.mstv_mframev.MoreFrameVariants.*;
 
 public class MoreFrameVariantItem extends HangingEntityItem {
     public final String mframevWoodType;
     private final EntityType<? extends HangingEntity> type;
 
     public MoreFrameVariantItem(String mframevWoodType, EntityType<? extends HangingEntity> type, Item.Properties properties) {
-        super(type, properties);
+        super(type, properties.setId(ResourceKey.create(Registries.ITEM, MoreFrameVariants.asId(mframevWoodType + "_" + type.toShortString()))));
         this.mframevWoodType = mframevWoodType;
         this.type = type;
     }
@@ -53,7 +57,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
                 hangingEntity = new ItemFrame(level, blockPos2, direction);
             } else {
                 if (this.type != EntityType.GLOW_ITEM_FRAME) {
-                    return InteractionResult.sidedSuccess(level.isClientSide);
+                    return InteractionResult.SUCCESS;
                 }
 
                 hangingEntity = new GlowItemFrame(level, blockPos2, direction);
@@ -76,7 +80,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
                 }
 
                 itemStack.shrink(1);
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                return InteractionResult.SUCCESS;
             } else {
                 return InteractionResult.CONSUME;
             }

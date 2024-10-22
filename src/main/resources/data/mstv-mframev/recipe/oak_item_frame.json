@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "item_frames",
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "L": {
-      "item": "minecraft:leather"
-    }
+    "/": "minecraft:stick",
+    "L": "minecraft:leather"
   },
   "pattern": [
     "///",

@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "mstv-base:mangrove_stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "mstv-base:mangrove_stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "mstv-base:acacia_stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "mstv-base:acacia_stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

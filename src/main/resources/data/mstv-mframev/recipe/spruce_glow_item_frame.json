@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "glow_item_frames",
   "ingredients": [
-    {
-      "item": "mstv-mframev:spruce_item_frame"
-    },
-    {
-      "item": "minecraft:glow_ink_sac"
-    }
+    "mstv-mframev:spruce_item_frame",
+    "minecraft:glow_ink_sac"
   ],
   "result": {
     "count": 1,

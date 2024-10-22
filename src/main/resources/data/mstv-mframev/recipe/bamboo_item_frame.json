@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "item_frames",
   "key": {
-    "/": {
-      "item": "minecraft:bamboo"
-    },
-    "L": {
-      "item": "minecraft:leather"
-    }
+    "/": "minecraft:bamboo",
+    "L": "minecraft:leather"
   },
   "pattern": [
     "///",

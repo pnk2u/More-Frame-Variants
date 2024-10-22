@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "mstv-base:birch_stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "mstv-base:birch_stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

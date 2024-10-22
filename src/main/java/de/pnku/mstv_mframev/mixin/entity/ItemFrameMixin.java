@@ -73,7 +73,7 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
         }
     }
 
-    @Redirect(method = "dropItem(Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
+    @Redirect(method = "dropItem(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
     protected ItemStack redirectedGetFrameItemStack(ItemFrame itemFrame) {
         boolean isGlow = itemFrame.getType().equals(EntityType.GLOW_ITEM_FRAME);
 

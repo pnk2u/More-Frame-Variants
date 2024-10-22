@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "paintings",
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
+    "/": "minecraft:stick",
+    "W": "#minecraft:wool"
   },
   "pattern": [
     "///",

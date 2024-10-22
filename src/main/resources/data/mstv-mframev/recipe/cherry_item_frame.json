@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "item_frames",
   "key": {
-    "/": {
-      "item": "mstv-base:cherry_stick"
-    },
-    "L": {
-      "item": "minecraft:leather"
-    }
+    "/": "mstv-base:cherry_stick",
+    "L": "minecraft:leather"
   },
   "pattern": [
     "///",
