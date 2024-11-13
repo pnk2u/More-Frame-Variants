@@ -2,7 +2,6 @@ package de.pnku.mstv_mframev.mixin.entity;
 
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import de.pnku.mstv_mframev.util.IItemFrame;
-import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -22,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemFrame.class)
 public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame {
@@ -76,8 +76,22 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
     @Redirect(method = "dropItem(Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
     protected ItemStack redirectedGetFrameItemStack(ItemFrame itemFrame) {
         boolean isGlow = itemFrame.getType().equals(EntityType.GLOW_ITEM_FRAME);
+        String woodVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
+        return stackFromIFWoodVariant(woodVariant, isGlow);
+    }
 
-        switch (((IItemFrame) itemFrame).mframev$getIFWoodVariant()) {
+    @Inject(method = "getPickResult", at = @At("HEAD"), cancellable = true)
+    protected void injectedGetPickResult(CallbackInfoReturnable<ItemStack> cir) {
+        boolean isGlow = this.getType().equals(EntityType.GLOW_ITEM_FRAME);
+        String woodVariant = ((IItemFrame) this).mframev$getIFWoodVariant();
+        if (woodVariant != null) {
+            cir.setReturnValue(stackFromIFWoodVariant(woodVariant, isGlow));
+        }
+    }
+
+    @Unique
+    public ItemStack stackFromIFWoodVariant(String woodVariant, Boolean isGlow) {
+        switch (woodVariant) {
             case "birch" -> {return isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);}
             case "acacia" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.ACACIA_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.ACACIA_ITEM_FRAME);}
             case "bamboo" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.BAMBOO_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.BAMBOO_ITEM_FRAME);}
