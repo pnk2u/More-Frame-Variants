@@ -84,6 +84,7 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
             case "cherry" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.CHERRY_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.CHERRY_ITEM_FRAME);}
             case "crimson" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.CRIMSON_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.CRIMSON_ITEM_FRAME);}
             case "dark_oak" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.DARK_OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.DARK_OAK_ITEM_FRAME);}
+            case "pale_oak" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.PALE_OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.PALE_OAK_ITEM_FRAME);}
             case "jungle" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.JUNGLE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.JUNGLE_ITEM_FRAME);}
             case "mangrove" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.MANGROVE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.MANGROVE_ITEM_FRAME);}
             case "spruce" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.SPRUCE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.SPRUCE_ITEM_FRAME);}

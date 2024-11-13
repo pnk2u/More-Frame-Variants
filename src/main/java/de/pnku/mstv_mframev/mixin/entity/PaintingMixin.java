@@ -75,6 +75,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
                 case "cherry" -> itemStack = new ItemStack(MoreFrameVariantItems.CHERRY_PAINTING);
                 case "crimson" -> itemStack = new ItemStack(MoreFrameVariantItems.CRIMSON_PAINTING);
                 case "dark_oak" -> itemStack = new ItemStack(MoreFrameVariantItems.DARK_OAK_PAINTING);
+                case "pale_oak" -> itemStack = new ItemStack(MoreFrameVariantItems.PALE_OAK_PAINTING);
                 case "jungle" -> itemStack = new ItemStack(MoreFrameVariantItems.JUNGLE_PAINTING);
                 case "mangrove" -> itemStack = new ItemStack(MoreFrameVariantItems.MANGROVE_PAINTING);
                 case "oak" -> itemStack = new ItemStack(MoreFrameVariantItems.OAK_PAINTING);

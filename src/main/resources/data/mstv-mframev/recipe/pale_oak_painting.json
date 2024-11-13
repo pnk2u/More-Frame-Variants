@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "paintings",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "W": "#minecraft:wool"
+  },
+  "pattern": [
+    "///",
+    "/W/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:pale_oak_painting"
+  }
+}
