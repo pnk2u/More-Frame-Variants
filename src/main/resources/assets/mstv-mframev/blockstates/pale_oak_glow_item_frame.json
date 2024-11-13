@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "map=false": { "model": "mstv-mframev:block/pale_oak_glow_item_frame" },
+        "map=true":  { "model": "mstv-mframev:block/pale_oak_glow_item_frame_map" }
+    }
+}

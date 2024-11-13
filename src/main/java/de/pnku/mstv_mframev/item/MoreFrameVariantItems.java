@@ -23,6 +23,7 @@ public class MoreFrameVariantItems {
     public static final Item CHERRY_PAINTING = new MoreFrameVariantItem("cherry", EntityType.PAINTING, new Item.Properties());
     public static final Item CRIMSON_PAINTING = new MoreFrameVariantItem("crimson", EntityType.PAINTING, new Item.Properties().fireResistant());
     public static final Item DARK_OAK_PAINTING = new MoreFrameVariantItem("dark_oak", EntityType.PAINTING, new Item.Properties());
+    public static final Item PALE_OAK_PAINTING = new MoreFrameVariantItem("pale_oak", EntityType.PAINTING, new Item.Properties());
     public static final Item JUNGLE_PAINTING = new MoreFrameVariantItem("jungle", EntityType.PAINTING, new Item.Properties());
     public static final Item MANGROVE_PAINTING = new MoreFrameVariantItem("mangrove", EntityType.PAINTING, new Item.Properties());
     public static final Item OAK_PAINTING = new MoreFrameVariantItem("oak", EntityType.PAINTING, new Item.Properties());
@@ -35,6 +36,7 @@ public class MoreFrameVariantItems {
     public static final Item CHERRY_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityType.ITEM_FRAME, new Item.Properties());
     public static final Item CRIMSON_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityType.ITEM_FRAME, new Item.Properties().fireResistant());
     public static final Item DARK_OAK_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityType.ITEM_FRAME, new Item.Properties());
+    public static final Item PALE_OAK_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityType.ITEM_FRAME, new Item.Properties());
     public static final Item JUNGLE_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityType.ITEM_FRAME, new Item.Properties());
     public static final Item MANGROVE_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityType.ITEM_FRAME, new Item.Properties());
     public static final Item OAK_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityType.ITEM_FRAME, new Item.Properties());
@@ -47,6 +49,7 @@ public class MoreFrameVariantItems {
     public static final Item CHERRY_GLOW_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
     public static final Item CRIMSON_GLOW_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityType.GLOW_ITEM_FRAME, new Item.Properties().fireResistant());
     public static final Item DARK_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item PALE_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
     public static final Item JUNGLE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
     public static final Item MANGROVE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
     public static final Item OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
@@ -67,7 +70,8 @@ public class MoreFrameVariantItems {
         registerPaintingItem(CHERRY_PAINTING, BIRCH_PAINTING);
         registerPaintingItem(CRIMSON_PAINTING, CHERRY_PAINTING);
         registerPaintingItem(DARK_OAK_PAINTING, CRIMSON_PAINTING);
-        registerPaintingItem(JUNGLE_PAINTING, DARK_OAK_PAINTING);
+        registerPaintingItem(PALE_OAK_PAINTING, DARK_OAK_PAINTING);
+        registerPaintingItem(JUNGLE_PAINTING, PALE_OAK_PAINTING);
         registerPaintingItem(MANGROVE_PAINTING, JUNGLE_PAINTING);
         registerPaintingItem(OAK_PAINTING, MANGROVE_PAINTING);
         registerPaintingItem(SPRUCE_PAINTING, OAK_PAINTING);
@@ -77,7 +81,8 @@ public class MoreFrameVariantItems {
         registerItemFramesItem(CHERRY_ITEM_FRAME, BAMBOO_ITEM_FRAME, CHERRY_GLOW_ITEM_FRAME, BAMBOO_GLOW_ITEM_FRAME);
         registerItemFramesItem(CRIMSON_ITEM_FRAME, CHERRY_ITEM_FRAME, CRIMSON_GLOW_ITEM_FRAME, CHERRY_GLOW_ITEM_FRAME);
         registerItemFramesItem(DARK_OAK_ITEM_FRAME, CRIMSON_ITEM_FRAME, DARK_OAK_GLOW_ITEM_FRAME, CRIMSON_GLOW_ITEM_FRAME);
-        registerItemFramesItem(JUNGLE_ITEM_FRAME, DARK_OAK_ITEM_FRAME, JUNGLE_GLOW_ITEM_FRAME, DARK_OAK_GLOW_ITEM_FRAME);
+        registerItemFramesItem(PALE_OAK_ITEM_FRAME, DARK_OAK_ITEM_FRAME, PALE_OAK_GLOW_ITEM_FRAME, DARK_OAK_GLOW_ITEM_FRAME);
+        registerItemFramesItem(JUNGLE_ITEM_FRAME, PALE_OAK_ITEM_FRAME, JUNGLE_GLOW_ITEM_FRAME, PALE_OAK_GLOW_ITEM_FRAME);
         registerItemFramesItem(MANGROVE_ITEM_FRAME, JUNGLE_ITEM_FRAME, MANGROVE_GLOW_ITEM_FRAME, JUNGLE_GLOW_ITEM_FRAME);
         registerItemFramesItem(OAK_ITEM_FRAME, MANGROVE_ITEM_FRAME, OAK_GLOW_ITEM_FRAME, MANGROVE_GLOW_ITEM_FRAME);
         registerItemFramesItem(SPRUCE_ITEM_FRAME, OAK_ITEM_FRAME, SPRUCE_GLOW_ITEM_FRAME, OAK_GLOW_ITEM_FRAME);

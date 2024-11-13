@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "glow_item_frames",
+  "ingredients": [
+    "mstv-mframev:pale_oak_item_frame",
+    "minecraft:glow_ink_sac"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:pale_oak_glow_item_frame"
+  }
+}

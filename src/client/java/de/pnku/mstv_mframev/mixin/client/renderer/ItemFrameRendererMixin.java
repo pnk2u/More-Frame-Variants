@@ -117,8 +117,8 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
             }
 
             poseStack.popPose();
+            ci.cancel();
         }
-        ci.cancel();
     }
 
     @Shadow

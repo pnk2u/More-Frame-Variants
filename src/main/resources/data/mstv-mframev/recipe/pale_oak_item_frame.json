@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "item_frames",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "L": "minecraft:leather"
+  },
+  "pattern": [
+    "///",
+    "/L/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mframev:pale_oak_item_frame"
+  }
+}

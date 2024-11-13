@@ -31,6 +31,8 @@ public abstract class BlockStateModelLoaderMixin {
     @Unique private static final ResourceLocation CRIMSON_ITEM_FRAME_LOC;
     @Unique private static final ResourceLocation DARK_OAK_GLOW_ITEM_FRAME_LOC;
     @Unique private static final ResourceLocation DARK_OAK_ITEM_FRAME_LOC;
+    @Unique private static final ResourceLocation PALE_OAK_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final ResourceLocation PALE_OAK_ITEM_FRAME_LOC;
     @Unique private static final ResourceLocation JUNGLE_GLOW_ITEM_FRAME_LOC;
     @Unique private static final ResourceLocation JUNGLE_ITEM_FRAME_LOC;
     @Unique private static final ResourceLocation MANGROVE_GLOW_ITEM_FRAME_LOC;
@@ -61,6 +63,10 @@ public abstract class BlockStateModelLoaderMixin {
     @Unique private static final ModelResourceLocation DARK_OAK_GLOW_FRAME_LOC;
     @Unique private static final ModelResourceLocation DARK_OAK_MAP_FRAME_LOC;
     @Unique private static final ModelResourceLocation DARK_OAK_FRAME_LOC;
+    @Unique private static final ModelResourceLocation PALE_OAK_GLOW_MAP_FRAME_LOC;
+    @Unique private static final ModelResourceLocation PALE_OAK_GLOW_FRAME_LOC;
+    @Unique private static final ModelResourceLocation PALE_OAK_MAP_FRAME_LOC;
+    @Unique private static final ModelResourceLocation PALE_OAK_FRAME_LOC;
     @Unique private static final ModelResourceLocation JUNGLE_GLOW_MAP_FRAME_LOC;
     @Unique private static final ModelResourceLocation JUNGLE_GLOW_FRAME_LOC;
     @Unique private static final ModelResourceLocation JUNGLE_MAP_FRAME_LOC;
@@ -100,6 +106,8 @@ public abstract class BlockStateModelLoaderMixin {
         CRIMSON_ITEM_FRAME_LOC = asId("crimson_item_frame");
         DARK_OAK_GLOW_ITEM_FRAME_LOC = asId("dark_oak_glow_item_frame");
         DARK_OAK_ITEM_FRAME_LOC = asId("dark_oak_item_frame");
+        PALE_OAK_GLOW_ITEM_FRAME_LOC = asId("pale_oak_glow_item_frame");
+        PALE_OAK_ITEM_FRAME_LOC = asId("pale_oak_item_frame");
         JUNGLE_GLOW_ITEM_FRAME_LOC = asId("jungle_glow_item_frame");
         JUNGLE_ITEM_FRAME_LOC = asId("jungle_item_frame");
         MANGROVE_GLOW_ITEM_FRAME_LOC = asId("mangrove_glow_item_frame");
@@ -117,6 +125,7 @@ public abstract class BlockStateModelLoaderMixin {
                 entry(CHERRY_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(CHERRY_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
                 entry(CRIMSON_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(CRIMSON_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
                 entry(DARK_OAK_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(DARK_OAK_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
+                entry(PALE_OAK_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(PALE_OAK_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
                 entry(JUNGLE_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(JUNGLE_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
                 entry(MANGROVE_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(MANGROVE_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
                 entry(OAK_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION), entry(OAK_GLOW_ITEM_FRAME_LOC, ITEM_FRAME_FAKE_DEFINITION),
@@ -143,6 +152,10 @@ public abstract class BlockStateModelLoaderMixin {
         DARK_OAK_GLOW_FRAME_LOC = new ModelResourceLocation(DARK_OAK_GLOW_ITEM_FRAME_LOC, "map=false");
         DARK_OAK_MAP_FRAME_LOC = new ModelResourceLocation(DARK_OAK_ITEM_FRAME_LOC, "map=true");
         DARK_OAK_FRAME_LOC = new ModelResourceLocation(DARK_OAK_ITEM_FRAME_LOC, "map=false");
+        PALE_OAK_GLOW_MAP_FRAME_LOC = new ModelResourceLocation(PALE_OAK_GLOW_ITEM_FRAME_LOC, "map=true");
+        PALE_OAK_GLOW_FRAME_LOC = new ModelResourceLocation(PALE_OAK_GLOW_ITEM_FRAME_LOC, "map=false");
+        PALE_OAK_MAP_FRAME_LOC = new ModelResourceLocation(PALE_OAK_ITEM_FRAME_LOC, "map=true");
+        PALE_OAK_FRAME_LOC = new ModelResourceLocation(PALE_OAK_ITEM_FRAME_LOC, "map=false");
         JUNGLE_GLOW_MAP_FRAME_LOC = new ModelResourceLocation(JUNGLE_GLOW_ITEM_FRAME_LOC, "map=true");
         JUNGLE_GLOW_FRAME_LOC = new ModelResourceLocation(JUNGLE_GLOW_ITEM_FRAME_LOC, "map=false");
         JUNGLE_MAP_FRAME_LOC = new ModelResourceLocation(JUNGLE_ITEM_FRAME_LOC, "map=true");
