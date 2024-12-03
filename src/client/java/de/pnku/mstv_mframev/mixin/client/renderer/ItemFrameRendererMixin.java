@@ -47,8 +47,6 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     @Shadow @Final
     private BlockRenderDispatcher blockRenderer;
     @Shadow @Final
-    private ItemRenderer itemRenderer;
-    @Shadow @Final
     private MapRenderer mapRenderer;
 
 
@@ -81,39 +79,36 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
 
             poseStack.mulPose(Axis.XP.rotationDegrees(f));
             poseStack.mulPose(Axis.YP.rotationDegrees(g));
-            ItemStack itemStack = itemFrameRenderState.itemStack;
             if (!itemFrameRenderState.isInvisible) {
                 ModelManager modelManager = this.blockRenderer.getBlockModelShaper().getModelManager();
-                ModelResourceLocation modelResourceLocation = this.mframev$GetFrameModelResourceLoc(moreFrameVariantItemFrameRenderState, itemStack);
+                ModelResourceLocation modelResourceLocation = this.mframev$GetFrameModelResourceLoc(moreFrameVariantItemFrameRenderState);
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
                 this.blockRenderer.getModelRenderer().renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), (BlockState)null, modelManager.getModel(modelResourceLocation), 1.0F, 1.0F, 1.0F, i, OverlayTexture.NO_OVERLAY);
                 poseStack.popPose();
             }
 
-            if (!itemStack.isEmpty()) {
-                MapId mapId = itemFrameRenderState.mapId;
-                if (itemFrameRenderState.isInvisible) {
-                    poseStack.translate(0.0F, 0.0F, 0.5F);
-                } else {
-                    poseStack.translate(0.0F, 0.0F, 0.4375F);
-                }
+            if (itemFrameRenderState.isInvisible) {
+                poseStack.translate(0.0F, 0.0F, 0.5F);
+            } else {
+                poseStack.translate(0.0F, 0.0F, 0.4375F);
+            }
 
-                int j = mapId != null ? itemFrameRenderState.rotation % 4 * 2 : itemFrameRenderState.rotation;
+            if (itemFrameRenderState.mapId != null) {
+                int j = itemFrameRenderState.rotation % 4 * 2;
                 poseStack.mulPose(Axis.ZP.rotationDegrees((float)j * 360.0F / 8.0F));
-                if (mapId != null) {
-                    poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
-                    float h = 0.0078125F;
-                    poseStack.scale(0.0078125F, 0.0078125F, 0.0078125F);
-                    poseStack.translate(-64.0F, -64.0F, 0.0F);
-                    poseStack.translate(0.0F, 0.0F, -1.0F);
-                    int k = this.getLightVal(itemFrameRenderState.isGlowFrame, 15728850, i);
-                    this.mapRenderer.render(itemFrameRenderState.mapRenderState, poseStack, multiBufferSource, true, k);
-                } else if (itemFrameRenderState.itemModel != null) {
-                    int l = this.getLightVal(itemFrameRenderState.isGlowFrame, 15728880, i);
-                    poseStack.scale(0.5F, 0.5F, 0.5F);
-                    this.itemRenderer.render(itemStack, ItemDisplayContext.FIXED, false, poseStack, multiBufferSource, l, OverlayTexture.NO_OVERLAY, itemFrameRenderState.itemModel);
-                }
+                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                float h = 0.0078125F;
+                poseStack.scale(0.0078125F, 0.0078125F, 0.0078125F);
+                poseStack.translate(-64.0F, -64.0F, 0.0F);
+                poseStack.translate(0.0F, 0.0F, -1.0F);
+                int k = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728850, i);
+                this.mapRenderer.render(itemFrameRenderState.mapRenderState, poseStack, multiBufferSource, true, k);
+            } else if (!itemFrameRenderState.item.isEmpty()) {
+                poseStack.mulPose(Axis.ZP.rotationDegrees((float)itemFrameRenderState.rotation * 360.0F / 8.0F));
+                int j = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728880, i);
+                poseStack.scale(0.5F, 0.5F, 0.5F);
+                itemFrameRenderState.item.render(poseStack, multiBufferSource, j, OverlayTexture.NO_OVERLAY);
             }
 
             poseStack.popPose();
@@ -122,15 +117,15 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     }
 
     @Shadow
-    private int getLightVal(boolean bl, int i, int j) {
-        return bl ? i : j;
+    private int getLightCoords(boolean isGlow, int i, int j) {
+        return isGlow ? i : j;
     }
 
     @Unique
-    private ModelResourceLocation mframev$GetFrameModelResourceLoc(MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState, ItemStack itemStack) {
+    private ModelResourceLocation mframev$GetFrameModelResourceLoc(MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState) {
         String woodVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
             boolean isGlow = moreFrameVariantItemFrameRenderState.isGlowFrame;
-            String mapVariantBl = (itemStack.is(Items.FILLED_MAP)) ? "map=true" : "map=false";
+            String mapVariantBl = (moreFrameVariantItemFrameRenderState.mapId != null) ? "map=true" : "map=false";
             String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
             return new ModelResourceLocation(asId(woodVariant + frameBaseName), mapVariantBl);
             //LOGGER.info(modelResourceLocation.toString());
