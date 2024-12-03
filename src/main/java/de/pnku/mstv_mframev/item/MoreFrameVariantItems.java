@@ -63,7 +63,7 @@ public class MoreFrameVariantItems {
     public static final List<Item> more_all_item_frames = new ArrayList<>();
     public static final Map<Item, Item> more_item_frame_from_glow_map = new HashMap<>();
 
-    public static void registerPaintingItems() {
+    public static void registerFrameItems() {
         registerPaintingItem(ACACIA_PAINTING, Items.PAINTING);
         registerPaintingItem(BAMBOO_PAINTING, ACACIA_PAINTING);
         registerPaintingItem(BIRCH_PAINTING, BAMBOO_PAINTING);
