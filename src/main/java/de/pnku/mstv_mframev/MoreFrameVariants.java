@@ -16,7 +16,7 @@ public class MoreFrameVariants implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		MoreFrameVariantItems.registerPaintingItems();
+		MoreFrameVariantItems.registerFrameItems();
 	}
 
 	public static ResourceLocation asId(String path) {
