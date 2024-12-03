@@ -45,7 +45,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
             return InteractionResult.FAIL;
         } else {
             Level level = context.getLevel();
-            Object hangingEntity;
+            HangingEntity hangingEntity;
             if (this.type == EntityType.PAINTING) {
                 Optional<Painting> optional = Painting.create(level, blockPos2, direction);
                 if (optional.isEmpty()) {
@@ -65,17 +65,19 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
             CustomData customData = (CustomData)itemStack.getOrDefault(DataComponents.ENTITY_DATA, CustomData.EMPTY);
             if (!customData.isEmpty()) {
-                EntityType.updateCustomEntityTag(level, player, (Entity)hangingEntity, customData);
+                EntityType.updateCustomEntityTag(level, player, hangingEntity, customData);
             }
 
-            if (((HangingEntity)hangingEntity).survives()) {
+            if (hangingEntity.survives()) {
                 if (!level.isClientSide) {
-                    ((HangingEntity)hangingEntity).playPlacementSound();
-                    level.gameEvent(player, GameEvent.ENTITY_PLACE, ((HangingEntity)hangingEntity).position());
-                    level.addFreshEntity((Entity)hangingEntity);
-                    if (((HangingEntity) hangingEntity).getType().equals(EntityType.PAINTING)){
+                    hangingEntity.playPlacementSound();
+                    level.gameEvent(player, GameEvent.ENTITY_PLACE, hangingEntity.position());
+                    level.addFreshEntity(hangingEntity);
+                    if (hangingEntity.getType().equals(EntityType.PAINTING)){
+                        assert hangingEntity instanceof IPainting;
                         ((IPainting) hangingEntity).mframev$setPWoodVariant(this.mframevWoodType);}
-                    if (((HangingEntity) hangingEntity).getType().equals(EntityType.ITEM_FRAME)||((HangingEntity) hangingEntity).getType().equals(EntityType.GLOW_ITEM_FRAME)){
+                    if (hangingEntity.getType().equals(EntityType.ITEM_FRAME)|| hangingEntity.getType().equals(EntityType.GLOW_ITEM_FRAME)){
+                        assert hangingEntity instanceof IItemFrame;
                         ((IItemFrame) hangingEntity).mframev$setIFWoodVariant(this.mframevWoodType);}
                 }
 
