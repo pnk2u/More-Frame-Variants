@@ -37,9 +37,10 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
             TextureAtlasSprite backSprite
     ) {
         TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
-        String vanillaPaintingSpriteName = paintingSprite.contents().name().getPath();
+        ResourceLocation vanillaPaintingSpriteLoc = paintingSprite.contents().name();
+        String vanillaPaintingSpriteName = vanillaPaintingSpriteLoc.getPath();
         String paintingWoodVariant = ((IPainting) painting).mframev$getPWoodVariant();
-        if (!paintingWoodVariant.equals("default")) {
+        if (!paintingWoodVariant.equals("default") && vanillaPaintingSpriteLoc.getNamespace().equals("minecraft")) {
             paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingWoodVariant));
         }
         return paintingSprite;
