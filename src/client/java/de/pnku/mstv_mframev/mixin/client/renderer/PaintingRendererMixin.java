@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.entity.PaintingRenderer;
 import net.minecraft.client.renderer.entity.state.PaintingRenderState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.PaintingTextureManager;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 import org.spongepowered.asm.mixin.Mixin;
@@ -60,8 +61,14 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
                 TextureAtlasSprite textureAtlasSprite = paintingTextureManager.getBackSprite();
                 VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(textureAtlasSprite.atlasLocation()));
                 TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
-                String vanillaPaintingSpriteName = paintingTextureManager.get(paintingVariant).contents().name().getPath();
-                TextureAtlasSprite paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingFrameVariant));
+                ResourceLocation vanillaPaintingSpriteLoc = paintingTextureManager.get(paintingVariant).contents().name();
+                TextureAtlasSprite paintingSprite;
+                if (vanillaPaintingSpriteLoc.getNamespace().equals("minecraft")) {
+                    String vanillaPaintingSpriteName = vanillaPaintingSpriteLoc.getPath();
+                    paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingFrameVariant));
+                } else {
+                    paintingSprite = paintingTextureManager.get(paintingVariant);
+                }
                 TextureAtlasSprite backSprite = accessor.callGetSprite(MoreFrameVariants.asId(paintingFrameVariant + "_planks"));
                 this.renderPainting(
                         poseStack,
