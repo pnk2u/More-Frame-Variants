@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 plugins {
 	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
@@ -16,10 +18,8 @@ repositories {
 		url = 'https://maven.parchmentmc.org'
 	}
 	maven {
-		url "https://www.cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
+		name = 'Modrinth'
+		url = "https://api.modrinth.com/maven"
 	}
 }
 
@@ -36,30 +36,65 @@ loom {
 }
 
 fabricApi {
-	configureDataGeneration()
+	//configureDataGeneration()
 }
+
+def getParchmentWithDecrementedMC(minecraftVersion) {
+	def url = 'https://versioning.parchmentmc.org/versions'
+	def json = new JsonSlurper().parseText(new URI(url).toURL().text)
+	def releases = json['releases']
+
+	// Truncate version after first non-integer/dot
+	def releaseVersion = minecraftVersion.replaceAll(/[^0-9.].*/, '')
+
+	def versionParts = releaseVersion.toString().split('\\.')
+	if (versionParts.size() == 2) versionParts << "0"
+	if (versionParts.size() < 2 || versionParts.size() > 3) throw new GradleException("Invalid Minecraft version format: $minecraftVersion")
+	def (major, minor, patch) = versionParts.collect {it as Integer}
+	def decrementedVersion = patch < 1 ? "$major.${minor - 1}.99" : "$major.$minor.${patch - 1}"
+
+	while (!releases["$major.$minor.$patch"]) {
+		if (patch > 0) {
+			patch--
+		} else {
+			if (minor == 0) break
+			minor--
+			patch = 7
+		}
+	}
+
+	def foundVersion = "$major.$minor.$patch"
+	if (releases[foundVersion]) {
+		def parchmentDate = releases[foundVersion]
+		logger.print("Parchment: " + foundVersion + " + " + parchmentDate as String + "\n")
+		return [decrementedVersion, foundVersion, parchmentDate]
+	}
+
+	throw new GradleException("No valid Parchment version found for $minecraftVersion or earlier.")
+}
+
+def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchmentWithDecrementedMC(project.minecraft_version)
 
 dependencies {
 	implementation 'org.apache.commons:commons-text:1.12.0'
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.layered() {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:${project.parchment_date}@zip")
+		parchment("org.parchmentmc.data:parchment-${pMinecraftVersion}:${mostRecentParchmentDate}@zip")
 	}
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
 
-	// MStV (modImplementation datagen only -> modCompileOnly for release)
-	modCompileOnly files("res/MoreStickVariants-${project.mstv_version}+${project.minecraft_version}-Fabric.jar")
+	// MStV
+	modCompileOnly "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
+	modLocalRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 }
 
 processResources {
 	var replaceProperties = [
 			loader_version: loader_version, mod_id: mod_id, mod_name: mod_name,
 			mod_license: mod_license, mod_version: mod_version,
-			mod_description: mod_description, minecraft_version: minecraft_version
+			mod_description: mod_description, minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion
 	]
 	inputs.properties replaceProperties
 
