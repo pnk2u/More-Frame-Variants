@@ -10,6 +10,8 @@ import net.minecraft.client.renderer.MapRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.block.ModelBlockRenderer;
+import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemFrameRenderer;
@@ -17,14 +19,18 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.resources.model.BlockStateDefinitions;
 import net.minecraft.client.resources.model.ModelManager;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Final;
@@ -35,6 +41,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.*;
 
@@ -80,11 +89,11 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
             poseStack.mulPose(Axis.XP.rotationDegrees(f));
             poseStack.mulPose(Axis.YP.rotationDegrees(g));
             if (!itemFrameRenderState.isInvisible) {
-                ModelManager modelManager = this.blockRenderer.getBlockModelShaper().getModelManager();
-                ModelResourceLocation modelResourceLocation = this.mframev$GetFrameModelResourceLoc(moreFrameVariantItemFrameRenderState);
+                BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null);
+                BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
-                this.blockRenderer.getModelRenderer().renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), (BlockState)null, modelManager.getModel(modelResourceLocation), 1.0F, 1.0F, 1.0F, i, OverlayTexture.NO_OVERLAY);
+                ModelBlockRenderer.renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), blockStateModel, 1.0F, 1.0F, 1.0F, i, OverlayTexture.NO_OVERLAY);
                 poseStack.popPose();
             }
 
@@ -116,19 +125,16 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         }
     }
 
+    @Unique
+    public BlockState mframev$getItemFrameVariantFakeState(String woodVariant, boolean isGlow, boolean hasMap) {
+        Map<ResourceLocation, StateDefinition<Block, BlockState>> staticStateDefinitions = BlockStateDefinitions.STATIC_DEFINITIONS;
+        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = staticStateDefinitions.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
+        return (BlockState)((BlockState)(itemFrameVariantFakeDefinition).any()).setValue(BlockStateProperties.MAP, hasMap);
+    }
+
     @Shadow
     private int getLightCoords(boolean isGlow, int i, int j) {
         return isGlow ? i : j;
-    }
-
-    @Unique
-    private ModelResourceLocation mframev$GetFrameModelResourceLoc(MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState) {
-        String woodVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
-            boolean isGlow = moreFrameVariantItemFrameRenderState.isGlowFrame;
-            String mapVariantBl = (moreFrameVariantItemFrameRenderState.mapId != null) ? "map=true" : "map=false";
-            String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
-            return new ModelResourceLocation(asId(woodVariant + frameBaseName), mapVariantBl);
-            //LOGGER.info(modelResourceLocation.toString());
     }
 
     @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/decoration/ItemFrame;Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;F)V", at = @At("HEAD"))

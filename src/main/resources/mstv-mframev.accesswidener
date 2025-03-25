@@ -1,0 +1,4 @@
+accessWidener v1 named
+
+accessible method net/minecraft/client/resources/model/BlockStateDefinitions createItemFrameFakeState ()Lnet/minecraft/world/level/block/state/StateDefinition;
+accessible field net/minecraft/client/resources/model/BlockStateDefinitions STATIC_DEFINITIONS Ljava/util/Map;

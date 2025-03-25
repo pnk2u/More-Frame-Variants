@@ -32,7 +32,7 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-	//accessWidenerPath = file("src/main/resources/mstv-masv.accesswidener")
+	accessWidenerPath = file("src/main/resources/mstv-mframev.accesswidener")
 }
 
 fabricApi {

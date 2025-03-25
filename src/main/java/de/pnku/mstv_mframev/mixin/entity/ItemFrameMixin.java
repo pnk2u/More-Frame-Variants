@@ -68,8 +68,8 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     protected void injectedReadAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        if (compound.contains("Type", 8)) {
-            this.mframev$setIFWoodVariant(compound.getString("Type"));
+        if (compound.contains("Type")) {
+            this.mframev$setIFWoodVariant(compound.getStringOr("Type", "birch"));
         }
     }
 
