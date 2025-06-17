@@ -35,8 +35,8 @@
 		}
   ],
   "depends": {
-		"fabricloader": ">=${loader_version}",
-		"minecraft": ">=${minecraft_version_0}",
+        "fabricloader": ">=${loader_version}",
+        "minecraft": ">=${minecraft_version_0} <${minecraft_version_1}",
 		"java": ">=21",
 		"fabric-api": "*",
         "mstv-base": "*"

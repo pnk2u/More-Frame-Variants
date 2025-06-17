@@ -1,5 +1,7 @@
 package de.pnku.mstv_mframev.mixin.entity;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import net.minecraft.core.BlockPos;
@@ -22,6 +24,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
 
 @Mixin(ItemFrame.class)
 public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame {
@@ -73,11 +77,13 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
         }
     }
 
-    @Redirect(method = "dropItem(Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
-    protected ItemStack redirectedGetFrameItemStack(ItemFrame itemFrame) {
+    @WrapOperation(method = "dropItem(Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
+    protected ItemStack redirectedGetFrameItemStack(ItemFrame itemFrame, Operation<ItemStack> original) {
         boolean isGlow = itemFrame.getType().equals(EntityType.GLOW_ITEM_FRAME);
         String woodVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
-        return stackFromIFWoodVariant(woodVariant, isGlow);
+        if (!Objects.equals(woodVariant, "birch")) {
+            return stackFromIFWoodVariant(woodVariant, isGlow);
+        } else {return original.call(itemFrame);}
     }
 
     @Inject(method = "getPickResult", at = @At("HEAD"), cancellable = true)
@@ -100,6 +106,7 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
             case "dark_oak" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.DARK_OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.DARK_OAK_ITEM_FRAME);}
             case "jungle" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.JUNGLE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.JUNGLE_ITEM_FRAME);}
             case "mangrove" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.MANGROVE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.MANGROVE_ITEM_FRAME);}
+            case "oak" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.OAK_ITEM_FRAME);}
             case "spruce" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.SPRUCE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.SPRUCE_ITEM_FRAME);}
             case "warped" -> {return isGlow ? new ItemStack(MoreFrameVariantItems.WARPED_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.WARPED_ITEM_FRAME);}
             case null, default -> {return isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);}
