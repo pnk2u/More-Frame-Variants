@@ -17,6 +17,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -51,15 +53,14 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedAddAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        compound.putString("Type", this.mframev$getPWoodVariant());
+    protected void injectedAddAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {
+        valueOutput.putString("Type", this.mframev$getPWoodVariant());
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedReadAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        if (compound.contains("Type")) {
-            this.mframev$setPWoodVariant(compound.getStringOr("Type", "default"));
-        }
+    protected void injectedReadAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
+        this.mframev$setPWoodVariant(valueInput.getStringOr("Type", "default"));
+
     }
 
     @Inject(method = "dropItem", at = @At("HEAD"), cancellable = true)

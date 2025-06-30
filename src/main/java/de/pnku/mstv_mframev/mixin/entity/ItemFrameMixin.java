@@ -16,6 +16,8 @@ import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -66,15 +68,13 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedAddAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        compound.putString("Type", this.mframev$getIFWoodVariant());
+    protected void injectedAddAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {
+        valueOutput.putString("Type", this.mframev$getIFWoodVariant());
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedReadAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        if (compound.contains("Type")) {
-            this.mframev$setIFWoodVariant(compound.getStringOr("Type", "birch"));
-        }
+    protected void injectedReadAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
+        this.mframev$setIFWoodVariant(valueInput.getStringOr("Type", "birch"));
     }
 
     @WrapOperation(method = "dropItem(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
