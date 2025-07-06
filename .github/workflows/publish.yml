@@ -5,4 +5,4 @@ on:
 
 jobs:
   build:
-    uses: pnk2u/.github/.github/workflows/publish.yml
+    uses: pnk2u/.github/.github/workflows/publish.yml@main
