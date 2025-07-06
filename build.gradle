@@ -1,11 +1,17 @@
 import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
 
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' // version from latest-loom.gradle via settings.gradle's pluginManagement
 	id 'maven-publish'
 }
 
-version = "${mod_version}+${minecraft_version}-Fabric"
+def mc_version_name(){
+	String key = 'minecraft_version_name'
+	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value : project.minecraft_version}
+	else {return project.minecraft_version}
+}
+version = "${mod_version}+${mc_version_name()}-Fabric"
 group = project.maven_group
 
 base {
@@ -39,9 +45,46 @@ fabricApi {
 	//configureDataGeneration()
 }
 
+def getReleaseVersion(minecraftVersion) {
+	// Truncate version after first non-integer/dot
+	def releaseVersion = minecraftVersion.replaceAll(/[^0-9.].*/, '')
+	if (minecraftVersion != releaseVersion) {println('==='); println('Resolved \"' + minecraftVersion + '\" as \"' + releaseVersion + '\" for Fabric and Parchment.'); println('===')}
+	return releaseVersion
+}
+
+def releaseVersion = getReleaseVersion(minecraft_version)
+
+def getLatestFabric(minecraftVersion) {
+	def fApiXmlUrl = 'https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/maven-metadata.xml'
+	def fLoaderJsonUrl = 'https://meta.fabricmc.net/v2/versions/loader'
+
+	def fLoaderJson = new JsonSlurper().parseText(new URI(fLoaderJsonUrl).toURL().text)
+	def fLoaderLatestVersion = fLoaderJson.get(0).version
+	println('Fabric Loader: ' + fLoaderLatestVersion)
+
+	def fApiLatestVersion
+	try {
+		def metadata = new XmlSlurper().parse(fApiXmlUrl)
+		def versions = metadata.versioning.versions.version*.text()
+		fApiLatestVersion = versions.findAll { it ==~ /\d+(\.\d+)*.${minecraftVersion}/ }.last()
+		println('Fabric Api: ' + fApiLatestVersion)
+	} catch (Exception e) {
+		throw new GradleException("Failed to fetch $fApiXmlUrl: ${e.message}")
+	}
+	return [fLoaderLatestVersion, fApiLatestVersion]
+}
+
 def getParchmentWithDecrementedMC(minecraftVersion) {
 	def url = 'https://versioning.parchmentmc.org/versions'
-	def json = new JsonSlurper().parseText(new URI(url).toURL().text)
+	def response
+	try {
+		response = new URI(url).toURL().text
+		if (response.length() < 100) throw new Exception("Response too short")
+	} catch (Exception e) {
+		println "Loading local fallback due to: ${e.message}"
+		response = new File("../../resources/versioning.parchmentmc.org/versions").text
+	}
+	def json = new JsonSlurper().parseText(response)
 	def releases = json['releases']
 
 	// Truncate version after first non-integer/dot
@@ -59,21 +102,20 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
 		} else {
 			if (minor == 0) break
 			minor--
-			patch = 7
+			patch = 99
 		}
 	}
-
 	def foundVersion = "$major.$minor.$patch"
 	if (releases[foundVersion]) {
 		def parchmentDate = releases[foundVersion]
 		logger.print("Parchment: " + foundVersion + " + " + parchmentDate as String + "\n")
 		return [decrementedVersion, foundVersion, parchmentDate]
 	}
-
 	throw new GradleException("No valid Parchment version found for $minecraftVersion or earlier.")
 }
 
-def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchmentWithDecrementedMC(project.minecraft_version)
+def (fabric_loader_version, fabric_api_version) = getLatestFabric(releaseVersion)
+def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchmentWithDecrementedMC(releaseVersion)
 
 dependencies {
 	implementation 'org.apache.commons:commons-text:1.12.0'
@@ -82,19 +124,28 @@ dependencies {
 		officialMojangMappings()
 		parchment("org.parchmentmc.data:parchment-${pMinecraftVersion}:${mostRecentParchmentDate}@zip")
 	}
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
+	modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
 	// MStV
 	modCompileOnly "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 	modLocalRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 }
 
+def minecraft_version_1() {
+	String key = 'minecraft_version_upper'
+	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value : "2.0.0"}
+	else {return "2.0.0"} // Effectively no upper bound
+}
+
 processResources {
+	// Disregard Patch version from Fabric Loader for dependency
+	var fabric_loader_version_0 = "${fabric_loader_version}".replaceFirst(/\.[^.]*$/, '.0')
+
 	var replaceProperties = [
-			loader_version: loader_version, mod_id: mod_id, mod_name: mod_name,
-			mod_license: mod_license, mod_version: mod_version,
-			mod_description: mod_description, minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion
+			loader_version: fabric_loader_version_0, mod_id: mod_id, mod_name: mod_name,
+			mod_license: mod_license, mod_version: mod_version, mod_description: mod_description,
+			minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion, minecraft_version_1: minecraft_version_1()
 	]
 	inputs.properties replaceProperties
 
@@ -108,10 +159,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
 }

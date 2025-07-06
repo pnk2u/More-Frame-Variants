@@ -1,4 +1,6 @@
 pluginManagement {
+	apply from: "latest-loom.gradle"
+
 	repositories {
 		maven {
 			name = 'Fabric'
@@ -6,5 +8,9 @@ pluginManagement {
 		}
 		mavenCentral()
 		gradlePluginPortal()
+	}
+
+	plugins {
+		id "fabric-loom" version loomVersion
 	}
 }
