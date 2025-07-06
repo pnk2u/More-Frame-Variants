@@ -154,36 +154,13 @@ processResources {
 	}
 }
 
-static def getFittingJavaVersion(releaseVersion) {
-	// Get the minor version from the releaseVersion
-	def minorVersion = releaseVersion.tokenize('.')[1] as Integer
-	if (minorVersion >= 21) {
-		return 21
-	} else if (minorVersion < 20) {
-		return 17
-	} else {
-		throw new GradleException("Couldn't find fitting Java version number for Minecraft version $releaseVersion")
-	}
-}
-
-def javaVersion = getFittingJavaVersion(releaseVersion)
-
-tasks.register("setJavaVersion") {
-	doLast {
-		def javaVersionFile = file("./build/tmp/java_version.txt")
-		javaVersionFile.text = javaVersion.toString()
-		println('Java: ' + javaVersion)
-	}
-}
-
 tasks.withType(JavaCompile).configureEach {
-	dependsOn 'setJavaVersion'
-	it.options.release = javaVersion
+	it.options.release = 21
 }
 
 java {
-	sourceCompatibility = JavaVersion.toVersion(javaVersion)
-	targetCompatibility = JavaVersion.toVersion(javaVersion)
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
