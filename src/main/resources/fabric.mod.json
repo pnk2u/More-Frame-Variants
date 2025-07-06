@@ -46,6 +46,14 @@
       "links": {
         "modmenu.discord": "https://discord.com/invite/sA42pp6cuX"
       }
+    },
+    "mc-publish": {
+      "modrinth": "vwp1lXf8",
+      "curseforge": "1120946",
+      "dependencies": [
+        "mstv-base(required){modrinth:more-stick-variants}",
+        "mstv-base(required){curseforge:more-stick-variants}"
+      ]
     }
   }
 }

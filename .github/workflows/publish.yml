@@ -1,0 +1,8 @@
+name: publish
+
+on:
+  push:
+
+jobs:
+  build:
+    uses: pnk2u/.github/.github/workflows/publish.yml
