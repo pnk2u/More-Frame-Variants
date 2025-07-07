@@ -46,6 +46,14 @@
       "links": {
         "modmenu.discord": "https://discord.com/invite/sA42pp6cuX"
       }
+    },
+    "mc-publish": {
+      "modrinth": "vwp1lXf8",
+      "curseforge": "1120946",
+      "dependencies": [
+        "fabric-api(required)#(ignore)",
+        "mstv-base(required){modrinth:ZVv4e6pP}{curseforge:1096913}"
+      ]
     }
   }
 }

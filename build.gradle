@@ -102,7 +102,7 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
 		} else {
 			if (minor == 0) break
 			minor--
-			patch = 7
+			patch = 99
 		}
 	}
 	def foundVersion = "$major.$minor.$patch"
@@ -159,10 +159,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-
 	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
 }
