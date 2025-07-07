@@ -51,8 +51,8 @@
       "modrinth": "vwp1lXf8",
       "curseforge": "1120946",
       "dependencies": [
-        "mstv-base(required){modrinth:more-stick-variants}",
-        "mstv-base(required){curseforge:more-stick-variants}"
+        "fabric-api(required)#(ignore)",
+        "mstv-base(required){modrinth:ZVv4e6pP}{curseforge:1096913}"
       ]
     }
   }
