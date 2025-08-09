@@ -28,6 +28,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static de.pnku.mstv_mframev.MoreFrameVariantsClient.compatible_painting_namespaces;
+import static de.pnku.mstv_mframev.MoreFrameVariantsClient.excluded_paintings;
+
 @Environment(value = EnvType.CLIENT)
 @Mixin(PaintingRenderer.class)
 public abstract class PaintingRendererMixin extends EntityRenderer<Painting, MoreFrameVariantPaintingRenderState> {
@@ -63,7 +66,7 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
                 TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
                 ResourceLocation vanillaPaintingSpriteLoc = paintingTextureManager.get(paintingVariant).contents().name();
                 TextureAtlasSprite paintingSprite;
-                if (vanillaPaintingSpriteLoc.getNamespace().equals("minecraft")) {
+                if (compatible_painting_namespaces.contains(paintingNamespace) && !(excluded_paintings.containsKey(paintingSpriteLoc.toString()) && excluded_paintings.get(paintingSpriteLoc.toString()).matches(paintingWoodVariant + "|any"))) {
                     String vanillaPaintingSpriteName = vanillaPaintingSpriteLoc.getPath();
                     paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingFrameVariant));
                 } else {

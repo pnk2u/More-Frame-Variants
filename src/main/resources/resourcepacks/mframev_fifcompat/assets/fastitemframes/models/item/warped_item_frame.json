@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "fastitemframes:item/item_frame",
+    "layer1": "mstv-mframev:item/warped_item_frame_overlay"
+  }
+}

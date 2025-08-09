@@ -1,14 +1,14 @@
 {
-  "required": true ,
-  "package": "de.pnku.mstv_mframev.mixin.client" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "required": true,
+  "package": "de.pnku.mstv_mframev.mixin.client",
+  "compatibilityLevel": "JAVA_21",
   "client": [
-    "BlockStateModelLoaderMixin" ,
-    "renderer.ItemFrameRendererMixin" ,
-    "renderer.PaintingRendererMixin" ,
+    "BlockStateModelLoaderMixin",
+    "renderer.ItemFrameRendererMixin",
+    "renderer.PaintingRendererMixin",
     "util.TextureAtlasHolderAccessor"
-  ] ,
+  ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

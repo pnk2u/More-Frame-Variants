@@ -95,7 +95,7 @@ public class MoreFrameVariantItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(paintingAfter, paintingItem));
         more_paintings.add(paintingItem);
         more_frame_variants.add(paintingItem);
-        MoreFrameVariants.LOGGER.info("Registered: " + paintingName);
+        // MoreFrameVariants.LOGGER.info("Registered: " + paintingName);
     }
     private static void registerItemFramesItem(Item itemFrameItem, Item itemFrameAfter, Item glowItemFrameItem, Item glowItemFrameAfter) {
         String itemFrameName = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType + "_item_frame";
@@ -111,6 +111,6 @@ public class MoreFrameVariantItems {
         more_frame_variants.add(itemFrameItem);
         more_frame_variants.add(glowItemFrameItem);
         more_item_frame_from_glow_map.put(glowItemFrameItem, itemFrameItem);
-        MoreFrameVariants.LOGGER.info("Registered: " + itemFrameName + ", " + glowItemFrameName);
+        // MoreFrameVariants.LOGGER.info("Registered: " + itemFrameName + ", " + glowItemFrameName);
     }
 }

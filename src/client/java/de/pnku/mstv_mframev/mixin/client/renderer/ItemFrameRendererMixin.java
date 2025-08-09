@@ -3,6 +3,7 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantItemFrameRenderState;
+import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -124,10 +126,16 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     @Unique
     private ModelResourceLocation mframev$GetFrameModelResourceLoc(MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState) {
         String woodVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
-            boolean isGlow = moreFrameVariantItemFrameRenderState.isGlowFrame;
+        String namespace = MOD_ID;
+        if (isFifLoaded) {
+            if (MoreFrameVariantsCompatibilityFIF.getCompatFifIsDyedEntity(itemFrame)) {
+                namespace = "fastitemframes";
+            }
+        }
+        boolean isGlow = moreFrameVariantItemFrameRenderState.isGlowFrame;
             String mapVariantBl = (moreFrameVariantItemFrameRenderState.mapId != null) ? "map=true" : "map=false";
             String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
-            return new ModelResourceLocation(asId(woodVariant + frameBaseName), mapVariantBl);
+            return new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(namespace, woodVariant + frameBaseName), mapVariantBl);
             //LOGGER.info(modelResourceLocation.toString());
     }
 
@@ -137,5 +145,4 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         super.extractRenderState(itemFrame, moreFrameVariantItemFrameRenderState, f);
         moreFrameVariantItemFrameRenderState.itemFrameVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
     }
-
 }

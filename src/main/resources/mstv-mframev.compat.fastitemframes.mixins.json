@@ -1,0 +1,14 @@
+{
+  "required": false,
+  "plugin": "de.pnku.mstv_mframev.compat.fastitemframes.mixin.MoreFrameVariantsCompatibilityFIFMixinPlugin",
+  "minVersion": "0.8",
+  "package": "de.pnku.mstv_mframev.compat.fastitemframes.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemFrameBlockMixin",
+    "ItemFrameHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
