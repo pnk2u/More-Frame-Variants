@@ -1,0 +1,3 @@
+accessWidener v2 named
+accessible method net/minecraft/world/entity/decoration/ItemFrame getFrameItemStack ()Lnet/minecraft/world/item/ItemStack;
+accessible method net/minecraft/client/renderer/entity/PaintingRenderer vertex (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;FFFFFIIII)V

@@ -18,6 +18,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+import static de.pnku.mstv_mframev.MoreFrameVariantsClient.compatible_painting_namespaces;
+import static de.pnku.mstv_mframev.MoreFrameVariantsClient.excluded_paintings;
+
 @Environment(value = EnvType.CLIENT)
 @Mixin(PaintingRenderer.class)
 public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
@@ -37,11 +40,12 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
             TextureAtlasSprite backSprite
     ) {
         TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
-        ResourceLocation vanillaPaintingSpriteLoc = paintingSprite.contents().name();
-        String vanillaPaintingSpriteName = vanillaPaintingSpriteLoc.getPath();
+        ResourceLocation paintingSpriteLoc = paintingSprite.contents().name();
+        String paintingSpriteName = paintingSpriteLoc.getPath();
         String paintingWoodVariant = ((IPainting) painting).mframev$getPWoodVariant();
-        if (!paintingWoodVariant.equals("default") && vanillaPaintingSpriteLoc.getNamespace().equals("minecraft")) {
-            paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingWoodVariant));
+        String paintingNamespace = paintingSpriteLoc.getNamespace();
+        if (!paintingWoodVariant.equals("default") && compatible_painting_namespaces.contains(paintingNamespace) && !(excluded_paintings.containsKey(paintingSpriteLoc.toString()) && excluded_paintings.get(paintingSpriteLoc.toString()).matches(paintingWoodVariant + "|any"))) {
+            paintingSprite = accessor.callGetSprite(ResourceLocation.fromNamespaceAndPath(paintingNamespace, paintingSpriteName + "_" + paintingWoodVariant));
         }
         return paintingSprite;
     }
@@ -58,7 +62,7 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
         TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
         String paintingWoodVariant = ((IPainting) painting).mframev$getPWoodVariant();
         if (!paintingWoodVariant.equals("default")) {
-            backSprite = accessor.callGetSprite(MoreFrameVariants.asId(paintingWoodVariant + "_planks"));
+            backSprite = accessor.callGetSprite(ResourceLocation.withDefaultNamespace(paintingWoodVariant + "_planks"));
             return backSprite;
         } else {
             return Minecraft.getInstance().getPaintingTextures().getBackSprite();

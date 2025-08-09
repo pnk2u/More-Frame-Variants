@@ -65,7 +65,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
         String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
         if (woodVariant != null) {
             // debug
-            LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
+            //LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
 
             ItemStack itemStack = stackFromPWoodVariant(woodVariant);
             if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {

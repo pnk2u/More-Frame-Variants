@@ -1,0 +1,281 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                  "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                  "wood_type": "acacia"
+              }
+            }
+          ],
+          "name": "mstv-mframev:acacia_glow_item_frame"
+          },
+        {
+          "type": "minecraft:item",
+            "functions": [
+              {
+                "function": "minecraft:copy_components",
+                "include": [
+                    "minecraft:dyed_color"
+                ],
+                "source": "block_entity"
+              }
+            ],
+            "conditions": [
+              {
+                "condition": "minecraft:block_state_property",
+                "block": "fastitemframes:glow_item_frame",
+                "properties": {
+                    "wood_type": "bamboo"
+                }
+              }
+            ],
+            "name": "mstv-mframev:bamboo_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "birch"
+              }
+            }
+          ],
+          "name": "minecraft:glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "cherry"
+              }
+            }
+          ],
+          "name": "mstv-mframev:cherry_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                  "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                  "wood_type": "crimson"
+              }
+            }
+          ],
+          "name": "mstv-mframev:crimson_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "dark_oak"
+              }
+            }
+          ],
+          "name": "mstv-mframev:dark_oak_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "jungle"
+              }
+            }
+          ],
+          "name": "mstv-mframev:jungle_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "mangrove"
+              }
+            }
+          ],
+          "name": "mstv-mframev:mangrove_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "oak"
+              }
+            }
+          ],
+          "name": "mstv-mframev:oak_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "oak"
+              }
+            }
+          ],
+          "name": "mstv-mframev:oak_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "spruce"
+              }
+            }
+          ],
+          "name": "mstv-mframev:spruce_glow_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:glow_item_frame",
+              "properties": {
+                "wood_type": "warped"
+              }
+            }
+          ],
+          "name": "mstv-mframev:warped_glow_item_frame"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "fastitemframes:blocks/glow_item_frame"
+}
