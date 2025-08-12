@@ -1,0 +1,1163 @@
+{
+  "variants": {
+    "invisible=true": {
+      "model": "fastitemframes:block/glow_item_frame_invisible"
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame",
+      "y": 90
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame"
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame",
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame",
+      "y": 270
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map",
+      "y": 90
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map"
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map",
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map",
+      "y": 270
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed",
+      "y": 90
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed"
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed",
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_dyed",
+      "y": 270
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map_dyed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map_dyed",
+      "y": 90
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map_dyed"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map_dyed"
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map_dyed",
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=birch": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
+      "model": "fastitemframes:block/acacia_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=bamboo": {
+      "model": "fastitemframes:block/bamboo_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=cherry": {
+      "model": "fastitemframes:block/cherry_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=crimson": {
+      "model": "fastitemframes:block/crimson_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
+      "model": "fastitemframes:block/dark_oak_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
+      "model": "fastitemframes:block/jungle_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=mangrove": {
+      "model": "fastitemframes:block/mangrove_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=oak": {
+      "model": "fastitemframes:block/oak_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=spruce": {
+      "model": "fastitemframes:block/spruce_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=warped": {
+      "model": "fastitemframes:block/warped_glow_item_frame_map_dyed",
+      "x": 270,
+      "y": 180
+    },
+    "facing=west,has_map=true,invisible=false,dyed=true": {
+      "model": "fastitemframes:block/glow_item_frame_map_dyed",
+      "y": 270
+    }
+  }
+}
