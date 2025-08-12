@@ -2,6 +2,7 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "fastitemframes:item/glow_item_frame",
-    "layer1": "mstv-mframev:item/cherry_item_frame_overlay"
+    "layer1": "fastitemframes:item/glow_item_frame_overlay",
+    "layer2": "mstv-mframev:item/cherry_item_frame_overlay"
   }
 }
