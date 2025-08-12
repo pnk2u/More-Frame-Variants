@@ -1,5 +1,6 @@
 {
   "parent": "",
   "textures": {
+    "particle": "minecraft:block/cherry_planks"
   }
 }

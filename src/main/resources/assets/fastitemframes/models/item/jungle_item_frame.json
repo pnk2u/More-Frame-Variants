@@ -1,5 +1,6 @@
 {
   "parent": "",
   "textures": {
+    "particle": "minecraft:block/jungle_planks"
   }
 }

@@ -33,6 +33,11 @@
       "x": 90,
       "y": 180
     },
+    "facing=down,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame",
+      "x": 90,
+      "y": 180
+    },
     "facing=down,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame",
       "x": 90,
@@ -82,6 +87,10 @@
       "model": "mstv-mframev:block/dark_oak_item_frame",
       "y": 90
     },
+    "facing=east,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame",
+      "y": 90
+    },
     "facing=east,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame",
       "y": 90
@@ -120,6 +129,9 @@
     "facing=north,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
       "model": "mstv-mframev:block/dark_oak_item_frame"
     },
+    "facing=north,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame"
+    },
     "facing=north,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame"
     },
@@ -157,6 +169,10 @@
     },
     "facing=south,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
       "model": "mstv-mframev:block/dark_oak_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame",
       "y": 180
     },
     "facing=south,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
@@ -209,6 +225,11 @@
       "x": 270,
       "y": 180
     },
+    "facing=up,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame",
+      "x": 270,
+      "y": 180
+    },
     "facing=up,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame",
       "x": 270,
@@ -256,6 +277,10 @@
     },
     "facing=west,has_map=false,invisible=false,dyed=false,wood_type=dark_oak": {
       "model": "mstv-mframev:block/dark_oak_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame",
       "y": 270
     },
     "facing=west,has_map=false,invisible=false,dyed=false,wood_type=jungle": {
@@ -308,6 +333,11 @@
       "x": 90,
       "y": 180
     },
+    "facing=down,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
     "facing=down,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame_map",
       "x": 90,
@@ -357,6 +387,10 @@
       "model": "mstv-mframev:block/dark_oak_item_frame_map",
       "y": 90
     },
+    "facing=east,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map",
+      "y": 90
+    },
     "facing=east,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame_map",
       "y": 90
@@ -395,6 +429,9 @@
     "facing=north,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
       "model": "mstv-mframev:block/dark_oak_item_frame_map"
     },
+    "facing=north,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map"
+    },
     "facing=north,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame_map"
     },
@@ -432,6 +469,10 @@
     },
     "facing=south,has_map=true,invisible=false,dyed=false,wood_type=dark_oak": {
       "model": "mstv-mframev:block/dark_oak_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map",
       "y": 180
     },
     "facing=south,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
@@ -484,6 +525,11 @@
       "x": 270,
       "y": 180
     },
+    "facing=up,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
     "facing=up,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame_map",
       "x": 270,
@@ -533,6 +579,10 @@
       "model": "mstv-mframev:block/dark_oak_item_frame_map",
       "y": 270
     },
+    "facing=west,has_map=true,invisible=false,dyed=false,wood_type=pale_oak": {
+      "model": "mstv-mframev:block/pale_oak_item_frame_map",
+      "y": 270
+    },
     "facing=west,has_map=true,invisible=false,dyed=false,wood_type=jungle": {
       "model": "mstv-mframev:block/jungle_item_frame_map",
       "y": 270
@@ -554,7 +604,7 @@
       "y": 270
     },
     "facing=down,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame",
+      "model": "fastitemframes:block/item_frame_dyed",
       "x": 90,
       "y": 180
     },
@@ -580,6 +630,11 @@
     },
     "facing=down,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame",
       "x": 90,
       "y": 180
     },
@@ -609,7 +664,7 @@
       "y": 180
     },
     "facing=east,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame",
+      "model": "fastitemframes:block/item_frame_dyed",
       "y": 90
     },
     "facing=east,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
@@ -630,6 +685,10 @@
     },
     "facing=east,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame",
+      "y": 90
+    },
+    "facing=east,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame",
       "y": 90
     },
     "facing=east,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
@@ -653,7 +712,7 @@
       "y": 90
     },
     "facing=north,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame"
+      "model": "fastitemframes:block/item_frame_dyed"
     },
     "facing=north,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
       "model": "fastitemframes:block/acacia_item_frame"
@@ -669,6 +728,9 @@
     },
     "facing=north,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame"
+    },
+    "facing=north,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame"
     },
     "facing=north,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
       "model": "fastitemframes:block/jungle_item_frame"
@@ -686,7 +748,7 @@
       "model": "fastitemframes:block/warped_item_frame"
     },
     "facing=south,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame",
+      "model": "fastitemframes:block/item_frame_dyed",
       "y": 180
     },
     "facing=south,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
@@ -707,6 +769,10 @@
     },
     "facing=south,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame",
+      "y": 180
+    },
+    "facing=south,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame",
       "y": 180
     },
     "facing=south,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
@@ -730,7 +796,7 @@
       "y": 180
     },
     "facing=up,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame",
+      "model": "fastitemframes:block/item_frame_dyed",
       "x": 270,
       "y": 180
     },
@@ -756,6 +822,11 @@
     },
     "facing=up,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame",
       "x": 270,
       "y": 180
     },
@@ -785,7 +856,7 @@
       "y": 180
     },
     "facing=west,has_map=false,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame",
+      "model": "fastitemframes:block/item_frame_dyed",
       "y": 270
     },
     "facing=west,has_map=false,invisible=false,dyed=true,wood_type=acacia": {
@@ -806,6 +877,10 @@
     },
     "facing=west,has_map=false,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame",
+      "y": 270
+    },
+    "facing=west,has_map=false,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame",
       "y": 270
     },
     "facing=west,has_map=false,invisible=false,dyed=true,wood_type=jungle": {
@@ -829,7 +904,7 @@
       "y": 270
     },
     "facing=down,has_map=true,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame_map",
+      "model": "fastitemframes:block/item_frame_map_dyed",
       "x": 90,
       "y": 180
     },
@@ -855,6 +930,11 @@
     },
     "facing=down,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame_map",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame_map",
       "x": 90,
       "y": 180
     },
@@ -884,7 +964,7 @@
       "y": 180
     },
     "facing=east,has_map=true,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame_map",
+      "model": "fastitemframes:block/item_frame_map_dyed",
       "y": 90
     },
     "facing=east,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
@@ -905,6 +985,10 @@
     },
     "facing=east,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame_map",
+      "y": 90
+    },
+    "facing=east,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame_map",
       "y": 90
     },
     "facing=east,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
@@ -928,7 +1012,7 @@
       "y": 90
     },
     "facing=north,has_map=true,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame_map"
+      "model": "fastitemframes:block/item_frame_map_dyed"
     },
     "facing=north,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
       "model": "fastitemframes:block/acacia_item_frame_map"
@@ -944,6 +1028,9 @@
     },
     "facing=north,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame_map"
+    },
+    "facing=north,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame_map"
     },
     "facing=north,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
       "model": "fastitemframes:block/jungle_item_frame_map"
@@ -961,7 +1048,7 @@
       "model": "fastitemframes:block/warped_item_frame_map"
     },
     "facing=south,has_map=true,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame_map",
+      "model": "fastitemframes:block/item_frame_map_dyed",
       "y": 180
     },
     "facing=south,has_map=true,invisible=false,dyed=true,wood_type=acacia": {
@@ -982,6 +1069,10 @@
     },
     "facing=south,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame_map",
+      "y": 180
+    },
+    "facing=south,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame_map",
       "y": 180
     },
     "facing=south,has_map=true,invisible=false,dyed=true,wood_type=jungle": {
@@ -1005,7 +1096,7 @@
       "y": 180
     },
     "facing=up,has_map=true,invisible=false,dyed=true,wood_type=birch": {
-      "model": "fastitemframes:block/item_frame_map",
+      "model": "fastitemframes:block/item_frame_map_dyed",
       "x": 270,
       "y": 180
     },
@@ -1031,6 +1122,11 @@
     },
     "facing=up,has_map=true,invisible=false,dyed=true,wood_type=dark_oak": {
       "model": "fastitemframes:block/dark_oak_item_frame_map",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up,has_map=true,invisible=false,dyed=true,wood_type=pale_oak": {
+      "model": "fastitemframes:block/pale_oak_item_frame_map",
       "x": 270,
       "y": 180
     },
@@ -1060,7 +1156,7 @@
       "y": 180
     },
     "facing=west,has_map=true,invisible=false,dyed=true": {
-      "model": "fastitemframes:block/item_frame_map",
+      "model": "fastitemframes:block/item_frame_map_dyed",
       "y": 270
     }
   }

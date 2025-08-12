@@ -1,5 +1,5 @@
 {
-    "parent": "fastitemframes:block/template_item_frame",
+    "parent": "fastitemframes:block/template_item_frame_dyed",
     "textures": {
         "particle": "minecraft:block/oak_planks",
         "wood": "minecraft:block/oak_planks",

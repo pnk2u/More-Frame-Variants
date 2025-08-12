@@ -29,7 +29,7 @@ public class ItemFrameHandlerMixin {
     @Inject(method = "onEntityLoad", at = @At(value = "HEAD"), remap = false)
     private static void injectedOnEntityLoad(Entity entity, ServerLevel serverLevel, CallbackInfoReturnable<EventResult> cir) {
         if (entity.getType().is(ModRegistry.ITEM_FRAMES_ENTITY_TYPE_TAG) && entity instanceof ItemFrame itemFrame) {
-            serverLevel.getServer().tell(new TickTask(serverLevel.getServer().getTickCount(), () -> {
+            serverLevel.getServer().schedule(new TickTask(serverLevel.getServer().getTickCount(), () -> {
                 Block block = (Block) ItemFrameBlock.BY_ITEM.get(itemFrame.getFrameItemStack().getItem());
                 BlockPos blockPos = entity.blockPosition();
                 if (block != null && serverLevel.hasChunkAt(blockPos) && serverLevel.isEmptyBlock(blockPos)) {

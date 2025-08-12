@@ -7,7 +7,7 @@ import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,11 +18,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class MoreFrameVariantsCompatibilityFIFConstructor implements ModConstructor {
 
-    static ItemInteractionResult dyedItemIteration(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, ItemStack itemStack) {
+    static InteractionResult dyedItemIteration(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, ItemStack itemStack) {
         if (!itemStack.is(ItemTags.DYEABLE)) {
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return InteractionResult.TRY_WITH_EMPTY_HAND;
         } else if (!itemStack.has(DataComponents.DYED_COLOR)) {
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return InteractionResult.TRY_WITH_EMPTY_HAND;
         } else {
             if (!level.isClientSide) {
                 ItemStack newItemStack = itemStack.copyWithCount(1);
@@ -30,7 +30,7 @@ public class MoreFrameVariantsCompatibilityFIFConstructor implements ModConstruc
                 player.setItemInHand(interactionHand, ItemUtils.createFilledResult(itemStack, player, newItemStack, false));
                 LayeredCauldronBlock.lowerFillLevel(blockState, level, blockPos);
             }
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
     }
 

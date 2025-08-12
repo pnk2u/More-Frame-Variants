@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -45,7 +44,7 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
     @Shadow @Final
     public static BooleanProperty WATERLOGGED;
     @Shadow @Final
-    public static DirectionProperty FACING;
+    public static EnumProperty<Direction> FACING;
 
 
     @Inject(method = "<init>", at = @At(value = "TAIL"), remap = false)

@@ -1,12 +1,10 @@
 package de.pnku.mstv_mframev.compat.fastitemframes;
 
 import de.pnku.mstv_mframev.MoreFrameVariants;
-import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import fuzs.fastitemframes.init.ModRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.StringRepresentable;

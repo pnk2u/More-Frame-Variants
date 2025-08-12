@@ -54,8 +54,8 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
     @Inject(method = "render(Lnet/minecraft/client/renderer/entity/state/PaintingRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"))
     public void injectedRender(PaintingRenderState paintingRenderState, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci) {
         MoreFrameVariantPaintingRenderState moreFrameVariantPaintingRenderState = (MoreFrameVariantPaintingRenderState) paintingRenderState;
-        String paintingFrameVariant = moreFrameVariantPaintingRenderState.paintingFrameVariant;
-        if (!paintingFrameVariant.isEmpty() && !paintingFrameVariant.equals("default")) {
+        String paintingWoodVariant = moreFrameVariantPaintingRenderState.paintingFrameVariant;
+        if (!paintingWoodVariant.isEmpty() && !paintingWoodVariant.equals("default")) {
             PaintingVariant paintingVariant = paintingRenderState.variant;
             if (paintingVariant != null) {
                 poseStack.pushPose();
@@ -64,15 +64,16 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
                 TextureAtlasSprite textureAtlasSprite = paintingTextureManager.getBackSprite();
                 VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(textureAtlasSprite.atlasLocation()));
                 TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
-                ResourceLocation vanillaPaintingSpriteLoc = paintingTextureManager.get(paintingVariant).contents().name();
+                ResourceLocation paintingSpriteLoc = paintingTextureManager.get(paintingVariant).contents().name();
+                String paintingNamespace = paintingSpriteLoc.getNamespace();
+                String vanillaPaintingSpriteName = paintingSpriteLoc.getPath();
                 TextureAtlasSprite paintingSprite;
                 if (compatible_painting_namespaces.contains(paintingNamespace) && !(excluded_paintings.containsKey(paintingSpriteLoc.toString()) && excluded_paintings.get(paintingSpriteLoc.toString()).matches(paintingWoodVariant + "|any"))) {
-                    String vanillaPaintingSpriteName = vanillaPaintingSpriteLoc.getPath();
-                    paintingSprite = accessor.callGetSprite(MoreFrameVariants.asId(vanillaPaintingSpriteName + "_" + paintingFrameVariant));
+                    paintingSprite = accessor.callGetSprite(ResourceLocation.fromNamespaceAndPath(paintingNamespace, vanillaPaintingSpriteName + "_" + paintingWoodVariant));
                 } else {
                     paintingSprite = paintingTextureManager.get(paintingVariant);
                 }
-                TextureAtlasSprite backSprite = accessor.callGetSprite(MoreFrameVariants.asId(paintingFrameVariant + "_planks"));
+                TextureAtlasSprite backSprite = accessor.callGetSprite(ResourceLocation.withDefaultNamespace(paintingWoodVariant + "_planks"));
                 this.renderPainting(
                         poseStack,
                         vertexConsumer,

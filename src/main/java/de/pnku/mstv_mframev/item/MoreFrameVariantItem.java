@@ -23,8 +23,6 @@ import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Optional;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.*;
-
 public class MoreFrameVariantItem extends HangingEntityItem {
     public final String mframevWoodType;
     private final EntityType<? extends HangingEntity> type;
