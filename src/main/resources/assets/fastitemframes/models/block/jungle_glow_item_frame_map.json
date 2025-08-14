@@ -2,7 +2,7 @@
     "parent": "fastitemframes:block/template_item_frame_map",
     "textures": {
         "particle": "minecraft:block/jungle_planks",
-        "wood": "minecraft:block/birch_planks",
+        "wood": "minecraft:block/jungle_planks",
         "back": "fastitemframes:block/glow_item_frame"
     }
 }
