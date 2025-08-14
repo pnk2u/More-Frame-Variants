@@ -36,7 +36,7 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
     private static final EnumProperty<MoreFrameVariantsCompatibilityFIF.WoodType> WOOD_TYPE = MoreFrameVariantsCompatibilityFIF.WOOD_TYPE;
 
     @Shadow @Final
-    public static BooleanProperty HAS_MAP;
+    public static BooleanProperty MAP;
     @Shadow @Final
     public static BooleanProperty DYED;
     @Shadow @Final
@@ -49,12 +49,12 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
 
     @Inject(method = "<init>", at = @At(value = "TAIL"), remap = false)
     public void injectedInitAtTail(Item item, Properties properties, CallbackInfo ci) {
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(WATERLOGGED, Boolean.FALSE).setValue(INVISIBLE, Boolean.FALSE).setValue(HAS_MAP, Boolean.FALSE).setValue(DYED, Boolean.FALSE).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodType.BIRCH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE).setValue(INVISIBLE, Boolean.FALSE).setValue(MAP, Boolean.FALSE).setValue(DYED, Boolean.FALSE).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodType.BIRCH));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, INVISIBLE, HAS_MAP, WATERLOGGED, DYED, WOOD_TYPE);
+        builder.add(FACING, INVISIBLE, MAP, WATERLOGGED, DYED, WOOD_TYPE);
     }
 
     @ModifyReturnValue(method = "getCloneItemStack", at = @At("RETURN"), remap = false)

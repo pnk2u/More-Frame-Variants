@@ -20,27 +20,19 @@ import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
-import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.decoration.ItemFrame;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.*;
 
@@ -89,32 +81,23 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
             if (isFifLoaded) {
                 if (MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifIsDyedRenderState(moreFrameVariantItemFrameRenderState)) {
                     int color = MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifDyedColorRenderState(moreFrameVariantItemFrameRenderState);
-                    ModelResourceLocation modelResourceLocation = mframev$GetFrameModelResourceLoc(moreFrameVariantItemFrameRenderState);
-                    ResourceLocation resourceLocation = MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockModelLoc(modelResourceLocation);
-                    ModelManager modelManager = this.blockRenderer.getBlockModelShaper().getModelManager();
-                    BakedModel bakedModel;
-                    if (resourceLocation != null) {
-                        bakedModel = MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBakedModel(modelManager, resourceLocation);
-                    } else {
-                        bakedModel = modelManager.getModel(modelResourceLocation);
-                    }
-
+                    BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, true);
+                    BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
                     poseStack.pushPose();
                     poseStack.translate(-0.5F, -0.5F, -0.5F);
                     float red = ARGB.redFloat(color);
                     float green = ARGB.greenFloat(color);
                     float blue = ARGB.blueFloat(color);
-                    this.blockRenderer.getModelRenderer().renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), (BlockState) null, bakedModel, red, green, blue, i, OverlayTexture.NO_OVERLAY);
+                    ModelBlockRenderer.renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), blockStateModel, red, green, blue, i, OverlayTexture.NO_OVERLAY);
                     poseStack.popPose();
                     if (!moreFrameVariantItemFrameRenderState.item.isEmpty()) {
                         poseStack.translate(0.0F, 0.0F, -0.0625F);
                     }
-                    ci.cancel();
                 }
             }
             //
             if (!itemFrameRenderState.isInvisible) {
-                BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null);
+                BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, false);
                 BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
@@ -151,10 +134,12 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     }
 
     @Unique
-    public BlockState mframev$getItemFrameVariantFakeState(String woodVariant, boolean isGlow, boolean hasMap) {
-        Map<ResourceLocation, StateDefinition<Block, BlockState>> staticStateDefinitions = BlockStateDefinitions.STATIC_DEFINITIONS;
-        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = staticStateDefinitions.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
-        return (BlockState)((BlockState)(itemFrameVariantFakeDefinition).any()).setValue(BlockStateProperties.MAP, hasMap);
+    public BlockState mframev$getItemFrameVariantFakeState(String woodVariant, boolean isGlow, boolean hasMap, boolean isDyed) {
+        if (isFifLoaded && (isGlow || isDyed)) {
+            return MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockState(isGlow, hasMap, isDyed, woodVariant);
+        }
+        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
+        return itemFrameVariantFakeDefinition.any().setValue(BlockStateProperties.MAP, hasMap);
     }
 
     @Shadow
