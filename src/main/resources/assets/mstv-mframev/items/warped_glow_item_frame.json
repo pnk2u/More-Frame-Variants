@@ -1,6 +1,21 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "mstv-mframev:item/warped_glow_item_frame"
+    "type": "minecraft:condition",
+    "component": "minecraft:dyed_color",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "mstv-mframev:item/warped_glow_item_frame"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "fastitemframes:item/warped_glow_item_frame",
+      "tints": [
+        {
+          "type": "minecraft:dye",
+          "default": -1
+        }
+      ]
+    },
+    "property": "minecraft:has_component"
   }
 }

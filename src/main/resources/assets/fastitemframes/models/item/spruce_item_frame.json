@@ -1,0 +1,6 @@
+{
+  "parent": "",
+  "textures": {
+    "particle": "minecraft:block/spruce_planks"
+  }
+}
