@@ -1,6 +1,15 @@
 {
   "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "predicate": {
+        "fastitemframes:dyed": 1.0
+      },
+      "model": "fastitemframes:item/cherry_item_frame"
+    }
+  ],
   "textures": {
-    "layer0": "mstv-mframev:item/cherry_item_frame"
+   "layer0": "item/item_frame",
+   "layer1": "mstv-mframev:item/cherry_item_frame_overlay"
   }
 }
