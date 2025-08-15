@@ -19,8 +19,8 @@ public class MoreFrameVariantsCompatibilityFIF {
         public static final EnumProperty<WoodType> WOOD_TYPE = EnumProperty.create("wood_type", WoodType.class);
 
         public static void attachCompatFifDataToEntity(ItemStack itemInHand, HangingEntity itemFrame) {
-            int rgb = ((DyedItemColor)itemInHand.get(DataComponents.DYED_COLOR)).rgb();
-            ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.set(itemFrame, rgb);
+            DyedItemColor color = itemInHand.get(DataComponents.DYED_COLOR);
+            ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.set(itemFrame, color);
         }
 
         public static boolean getCompatFifIsDyedEntity(ItemFrame itemFrame) {

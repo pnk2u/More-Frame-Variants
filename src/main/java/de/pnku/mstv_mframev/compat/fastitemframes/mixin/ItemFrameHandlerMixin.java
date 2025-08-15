@@ -25,7 +25,7 @@ import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompat
 public class ItemFrameHandlerMixin {
 
     @Inject(method = "onEntityLoad", at = @At(value = "HEAD"), remap = false)
-    private static void injectedOnEntityLoad(Entity entity, ServerLevel serverLevel, CallbackInfoReturnable<EventResult> cir) {
+    private static void injectedOnEntityLoad(Entity entity, ServerLevel serverLevel, boolean isFreshEntity, CallbackInfoReturnable<EventResult> cir) {
         if (entity.getType().is(ModRegistry.ITEM_FRAMES_ENTITY_TYPE_TAG) && entity instanceof ItemFrame itemFrame) {
             serverLevel.getServer().schedule(new TickTask(serverLevel.getServer().getTickCount(), () -> {
                 Block block = ItemFrameBlock.BY_ITEM.get(itemFrame.getFrameItemStack().getItem());

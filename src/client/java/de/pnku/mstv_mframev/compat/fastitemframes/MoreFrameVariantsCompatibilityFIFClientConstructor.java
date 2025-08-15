@@ -13,9 +13,6 @@ import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompat
 
 public class MoreFrameVariantsCompatibilityFIFClientConstructor implements ClientModConstructor {
 
-    public void onRegisterItemColorProviders(ColorProvidersContext<Item, ItemColor> context) {
-        context.registerColorProvider((itemStack, tintIndex) -> tintIndex == 0 ? DyedItemColor.getOrDefault(itemStack, -1) : -1, MoreFrameVariantItems.more_all_item_frames.toArray(new Item[0]));
-
     public static boolean getCompatFifIsDyedRenderState(ItemFrameRenderState renderState) {
         return RenderPropertyKey.has(renderState, ClientEventHandler.COLOR_RENDER_PROPERTY_KEY);
     }
