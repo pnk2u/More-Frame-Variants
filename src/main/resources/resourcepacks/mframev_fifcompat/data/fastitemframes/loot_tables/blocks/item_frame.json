@@ -133,6 +133,28 @@
               "condition": "minecraft:block_state_property",
               "block": "fastitemframes:item_frame",
               "properties": {
+                "wood_type": "crimson"
+              }
+            }
+          ],
+          "name": "mstv-mframev:crimson_item_frame"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "fastitemframes:item_frame",
+              "properties": {
                 "wood_type": "dark_oak"
               }
             }
