@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "plugin": "de.pnku.mstv_mframev.compat.fastitemframes.mixin.MoreFrameVariantsCompatibilityFIFMixinPlugin",
+  "package": "de.pnku.mstv_mframev.compat.fastitemframes.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "renderer.ItemFrameRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixinPriority": 999
+}

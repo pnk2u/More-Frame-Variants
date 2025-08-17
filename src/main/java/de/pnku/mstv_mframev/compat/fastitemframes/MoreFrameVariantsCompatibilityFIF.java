@@ -1,33 +1,42 @@
 package de.pnku.mstv_mframev.compat.fastitemframes;
 
 import de.pnku.mstv_mframev.MoreFrameVariants;
-import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
+import de.pnku.mstv_mframev.compat.fastitemframes.util.ICompatFIF;
+import fuzs.fastitemframes.capability.ItemFrameColorCapability;
 import fuzs.fastitemframes.init.ModRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.cauldron.CauldronInteraction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.OptionalInt;
 
 public class MoreFrameVariantsCompatibilityFIF {
         public static final EnumProperty<WoodType> WOOD_TYPE = EnumProperty.create("wood_type", WoodType.class);
 
-        public static void attachCompatFifDataToEntity(ItemStack itemInHand, HangingEntity itemFrame) {
-            int rgb = ((DyedItemColor)itemInHand.get(DataComponents.DYED_COLOR)).rgb();
-            ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.set(itemFrame, rgb);
+        public static void attachCompatFifDataToEntity(DyeableLeatherItem dyeableLeatherItem, ItemStack itemInHand, ItemFrame itemFrame) {
+            ItemFrameColorCapability capability = ModRegistry.ITEM_FRAME_COLOR_CAPABILITY.get(itemFrame);
+            capability.setColor(dyeableLeatherItem.getColor(itemInHand));
+            capability.setChanged();
         }
 
-        public static boolean getCompatFifIsDyedEntity(ItemFrame itemFrame) {
-            return ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.has(itemFrame);
-        }
+        public static OptionalInt getCompatFifDyedEntityColor(ItemFrame itemFrame) {
+            OptionalInt fif_color_data = ((ItemFrameColorCapability)ModRegistry.ITEM_FRAME_COLOR_CAPABILITY.get(itemFrame)).getColor();
+            if (fif_color_data.isEmpty()) {
+                // Read Color from fabric attachments
+                int color_nbt = ((ICompatFIF) itemFrame).mframev$getCompatFIFColor();
+                if (color_nbt != 10511680) { // Default color is 10511680 (0xA06540)
+                    return OptionalInt.of(color_nbt);
+                }
+            }
+            return fif_color_data;
+            }
 
         public static void registerCompatFifDatapack() {
             ResourceManagerHelper.registerBuiltinResourcePack(

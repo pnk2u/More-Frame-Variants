@@ -45,7 +45,7 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
         String paintingWoodVariant = ((IPainting) painting).mframev$getPWoodVariant();
         String paintingNamespace = paintingSpriteLoc.getNamespace();
         if (!paintingWoodVariant.equals("default") && compatible_painting_namespaces.contains(paintingNamespace) && !(excluded_paintings.containsKey(paintingSpriteLoc.toString()) && excluded_paintings.get(paintingSpriteLoc.toString()).matches(paintingWoodVariant + "|any"))) {
-            paintingSprite = accessor.callGetSprite(ResourceLocation.fromNamespaceAndPath(paintingNamespace, paintingSpriteName + "_" + paintingWoodVariant));
+            paintingSprite = accessor.callGetSprite(new ResourceLocation(paintingNamespace, paintingSpriteName + "_" + paintingWoodVariant));
         }
         return paintingSprite;
     }
@@ -62,7 +62,7 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting> {
         TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
         String paintingWoodVariant = ((IPainting) painting).mframev$getPWoodVariant();
         if (!paintingWoodVariant.equals("default")) {
-            backSprite = accessor.callGetSprite(ResourceLocation.withDefaultNamespace(paintingWoodVariant + "_planks"));
+            backSprite = accessor.callGetSprite(new ResourceLocation("minecraft", paintingWoodVariant + "_planks"));
             return backSprite;
         } else {
             return Minecraft.getInstance().getPaintingTextures().getBackSprite();

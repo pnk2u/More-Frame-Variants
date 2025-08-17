@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "map=false": { "model": "fastitemframes:block/mangrove_glow_item_frame" },
+        "map=true":  { "model": "fastitemframes:block/mangrove_glow_item_frame_map" }
+    }
+}

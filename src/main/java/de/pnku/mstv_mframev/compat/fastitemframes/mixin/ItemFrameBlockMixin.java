@@ -12,7 +12,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -58,13 +58,13 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
         builder.add(FACING, INVISIBLE, HAS_MAP, WATERLOGGED, DYED, WOOD_TYPE);
     }
 
-    @ModifyReturnValue(method = "getCloneItemStack", at = @At("RETURN"), remap = false)
-    public ItemStack wrappedGetCloneItemStackAtGetItem(ItemStack original, LevelReader level, BlockPos pos) {
+    @ModifyReturnValue(method = "getCloneItemStack", at = @At("RETURN"))
+    public ItemStack wrappedGetCloneItemStackAtGetItem(ItemStack original, BlockGetter level, BlockPos pos, BlockState state) {
         String woodVariant = level.getBlockEntity(pos).getBlockState().getValue(WOOD_TYPE).toString().toLowerCase();
         return stackFromIFWoodVariant(woodVariant, MoreFrameVariantItems.more_glow_item_frames.contains(original.getItem()) || original.getItem() == Items.GLOW_ITEM_FRAME, original);
     }
 
-    @WrapOperation(method = "getCloneItemStack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;getItem()Lnet/minecraft/world/item/Item;"), remap = false)
+    @WrapOperation(method = "getCloneItemStack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;getItem()Lnet/minecraft/world/item/Item;"))
     public Item redirectedGetCloneItemStackGetItem(ItemStack instance, Operation<Item> original) {
         if (instance.getItem() instanceof MoreFrameVariantItem) {
             return Items.ITEM_FRAME;

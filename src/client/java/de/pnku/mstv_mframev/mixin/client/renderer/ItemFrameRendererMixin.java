@@ -1,5 +1,6 @@
 package de.pnku.mstv_mframev.mixin.client.renderer;
 
+import de.pnku.mstv_mframev.MoreFrameVariants;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import net.fabricmc.api.EnvType;
@@ -31,15 +32,15 @@ public abstract class ItemFrameRendererMixin<T extends ItemFrame> extends Entity
         String woodVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
         String namespace = MOD_ID;
         if (isFifLoaded) {
-            if (MoreFrameVariantsCompatibilityFIF.getCompatFifIsDyedEntity(itemFrame)) {
+            if (MoreFrameVariantsCompatibilityFIF.getCompatFifDyedEntityColor(itemFrame).isPresent()) {
                 namespace = "fastitemframes";
             }
         }
-        if (!woodVariant.equals("birch")) {
+        if (!woodVariant.equals("birch") || namespace.equals("fastitemframes")) {
             boolean isGlow = itemFrame.getType() == EntityType.GLOW_ITEM_FRAME;
             String mapVariantBl = (item.is(Items.FILLED_MAP)) ? "map=true" : "map=false";
             String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
-            ModelResourceLocation modelResourceLocation = new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(namespace, woodVariant + frameBaseName), mapVariantBl);
+            ModelResourceLocation modelResourceLocation = new ModelResourceLocation(new ResourceLocation(namespace, woodVariant + frameBaseName), mapVariantBl);
             //LOGGER.info(modelResourceLocation.toString());
             cir.setReturnValue(modelResourceLocation);
         }
