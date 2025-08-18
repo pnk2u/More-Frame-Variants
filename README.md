@@ -56,7 +56,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 - Added _pick-block_ functionality <br>
   > Now it doesn't always "pick" the vanilla Variant but the correct specific Item Frame or Painting frame Variant.
 - `1.21.3` Added Pale Oak (Glow) Item Frame and Pale Oak Paintings (requires `MStV 1.3.0`)
-- `1.21.3` Fixed a bug where the vanilla (Glow) Item Frame wouldn't render at all becoming invisible<!--CHANGELOG:END-->
+- `1.21.3` Fixed a bug where the vanilla (Glow) Item Frame wouldn't render at all becoming invisible
+<!--CHANGELOG:END-->
 
 > _This section is automatically updated with each new release and only includes already published releases._
 
