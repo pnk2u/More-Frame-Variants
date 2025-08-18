@@ -19,20 +19,6 @@ import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompat
 
 public class MoreFrameVariantsCompatibilityFIFClientConstructor implements ClientModConstructor {
 
-    public void onRegisterBlockColorProviders(BlockColorsContext context) {
-        context.registerBlockColor((BlockState blockState, @Nullable BlockAndTintGetter blockAndTintGetter, @Nullable BlockPos blockPos, int tintIndex) -> {
-            if (blockAndTintGetter != null && blockPos != null) {
-                BlockEntity patt0$temp = blockAndTintGetter.getBlockEntity(blockPos);
-                if (patt0$temp instanceof ItemFrameBlockEntity) {
-                    ItemFrameBlockEntity blockEntity = (ItemFrameBlockEntity)patt0$temp;
-                    return blockEntity.getColor().orElse(-1);
-                }
-            }
-
-            return -6265536;
-        }, new Block[]{(Block) ModRegistry.ITEM_FRAME_BLOCK.value(), (Block)ModRegistry.GLOW_ITEM_FRAME_BLOCK.value()});
-    }
-
     public static boolean getCompatFifIsDyedRenderState(ItemFrameRenderState renderState) {
         return RenderPropertyKey.has(renderState, ClientEventHandler.COLOR_RENDER_PROPERTY_KEY);
     }

@@ -2,7 +2,7 @@
     "parent": "fastitemframes:block/template_glow_item_frame_map_dyed",
     "textures": {
         "particle": "minecraft:block/warped_planks",
-        "wood": "minecraft:block/birch_planks",
+        "wood": "minecraft:block/warped_planks",
         "back": "fastitemframes:block/glow_item_frame"
     }
 }

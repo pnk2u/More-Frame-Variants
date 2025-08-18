@@ -2,7 +2,7 @@
     "parent": "fastitemframes:block/template_glow_item_frame_map",
     "textures": {
         "particle": "minecraft:block/mangrove_planks",
-        "wood": "minecraft:block/birch_planks",
+        "wood": "minecraft:block/mangrove_planks",
         "back": "minecraft:block/glow_item_frame"
     }
 }
