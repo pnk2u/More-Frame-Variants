@@ -19,28 +19,9 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.DyedItemColor;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
 public class MoreFrameVariantsCompatibilityFIFClientConstructor implements ClientModConstructor {
-
-    public void onRegisterBlockColorProviders(BlockColorsContext context) {
-        context.registerBlockColor((BlockColor)(BlockState blockState, @Nullable BlockAndTintGetter blockAndTintGetter, @Nullable BlockPos blockPos, int tintIndex) -> {
-            if (blockAndTintGetter != null && blockPos != null) {
-                BlockEntity patt0$temp = blockAndTintGetter.getBlockEntity(blockPos);
-                if (patt0$temp instanceof ItemFrameBlockEntity) {
-                    ItemFrameBlockEntity blockEntity = (ItemFrameBlockEntity)patt0$temp;
-                    return blockEntity.getColor().orElse(-1);
-                }
-            }
-
-            return -6265536;
-        }, new Block[]{(Block) ModRegistry.ITEM_FRAME_BLOCK.value(), (Block)ModRegistry.GLOW_ITEM_FRAME_BLOCK.value()});
-    }
 
     public static boolean getCompatFifIsDyedRenderState(ItemFrameRenderState renderState) {
         return RenderPropertyKey.containsRenderProperty(renderState, ClientEventHandler.COLOR_RENDER_PROPERTY_KEY);

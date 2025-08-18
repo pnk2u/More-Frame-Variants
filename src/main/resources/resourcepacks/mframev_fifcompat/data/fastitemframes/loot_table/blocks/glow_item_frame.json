@@ -245,28 +245,6 @@
               "condition": "minecraft:block_state_property",
               "block": "fastitemframes:glow_item_frame",
               "properties": {
-                "wood_type": "oak"
-              }
-            }
-          ],
-          "name": "mstv-mframev:oak_glow_item_frame"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:copy_components",
-              "include": [
-                "minecraft:dyed_color"
-              ],
-              "source": "block_entity"
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:block_state_property",
-              "block": "fastitemframes:glow_item_frame",
-              "properties": {
                 "wood_type": "spruce"
               }
             }

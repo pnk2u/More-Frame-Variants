@@ -1,4 +1,4 @@
-<!-- publish = false -->
+<!--publish=true-->
 ## 1.2.0
 - Add compatibility with [Fast Item Frames](https://modrinth.com/mod/fast-item-frames) by [Fusz](https://modrinth.com/user/Fusz)
   - This compatibility includes:
