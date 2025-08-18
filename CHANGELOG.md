@@ -1,4 +1,4 @@
-<!-- publish=false -->
+<!--publish=true-->
 ## 1.2.0
 - ### Add Compatibility:
 - - **Painting Mods**
