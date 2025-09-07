@@ -3,7 +3,7 @@
 - - **Painting Mods**
     - [Macaw's Paintings](https://modrinth.com/mod/macaws-paintings)
     - [Dark Paintings](https://modrinth.com/mod/dark-paintings) by Darkhax
-    - [Nemo's Paintings](https://modrinth.com/mod/nemos-paintings)
+    - [Nemoʼs Paintings](https://modrinth.com/mod/nemos-paintings)
 ---
 > ![](https://uwu.catgirl.host/i/u1se2.png)
 

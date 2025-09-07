@@ -141,6 +141,21 @@ dependencies {
 	implementation 'com.electronwill.night-config:toml:3.8.2'
 }
 
+static def minecraft_version_reduced(String input) { // Reduces a version string by one minor version and sets patch to 0
+	def parts = input.split('\\.')
+	if (parts.length < 2) throw new IllegalArgumentException("Invalid version: $input")
+	def major = parts[0] as Integer
+	def minor = (parts[1] as Integer) - 1
+	return "${major}.${minor}.0"
+}
+
+def minecraft_version_0() {
+	String key = 'minecraft_version_lower'
+	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value :
+			minecraft_version_reduced("${project.minecraft_version}") }
+	else {return minecraft_version_reduced("${project.minecraft_version}")} // Default to one minor version lower with patch = 0 as lower bound if none is specified
+}
+
 def minecraft_version_1() {
 	String key = 'minecraft_version_upper'
 	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value : "2.0.0"}
@@ -154,7 +169,7 @@ processResources {
 	var replaceProperties = [
 			loader_version: fabric_loader_version_0, mod_id: mod_id, mod_name: mod_name,
 			mod_license: mod_license, mod_version: mod_version, mod_description: mod_description,
-			minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion, minecraft_version_1: minecraft_version_1()
+			minecraft_version: minecraft_version, minecraft_version_0: minecraft_version_0(), minecraft_version_1: minecraft_version_1()
 	]
 	inputs.properties replaceProperties
 
