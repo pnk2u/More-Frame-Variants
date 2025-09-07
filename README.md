@@ -13,7 +13,7 @@
   - Painting Mods:
     - [<img width='16' src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png"> `Macaw's Paintings`](https://modrinth.com/mod/macaws-paintings)
     - [<img width='16' src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png"> `Dark Paintings`](https://modrinth.com/mod/dark-paintings) by [Darkhax](https://modrinth.com/user/Darkhax)
-    - [<img width='16' src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"> `Nemo's Paintings`](https://modrinth.com/mod/nemos-paintings)
+    - [<img width='16' src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"> `Nemoʼs Paintings`](https://modrinth.com/mod/nemos-paintings)
 
 ### ᴬ⃯ ᵦ⃔ Translations
 
@@ -31,7 +31,7 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 - - **Painting Mods**
     - [Macaw's Paintings](https://modrinth.com/mod/macaws-paintings)
     - [Dark Paintings](https://modrinth.com/mod/dark-paintings) by Darkhax
-    - [Nemo's Paintings](https://modrinth.com/mod/nemos-paintings)
+    - [Nemoʼs Paintings](https://modrinth.com/mod/nemos-paintings)
 ---
 > ![](https://uwu.catgirl.host/i/u1se2.png)
 
