@@ -13,7 +13,7 @@
   - Painting Mods:
     - [<img width='16' src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png"> `Macaw's Paintings`](https://modrinth.com/mod/macaws-paintings)
     - [<img width='16' src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png"> `Dark Paintings`](https://modrinth.com/mod/dark-paintings) by [Darkhax](https://modrinth.com/user/Darkhax)
-    - [<img width='16' src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"> `Nemo's Paintings`](https://modrinth.com/mod/nemos-paintings)
+    - [<img width='16' src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"> `Nemoʼs Paintings`](https://modrinth.com/mod/nemos-paintings)
 
 ### ᴬ⃯ ᵦ⃔ Translations
 
@@ -26,12 +26,12 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 ### Changelog History
 
 <!--CHANGELOG:START-->
-## 1.2.0
+## 1.2.0:
 - ### Add Compatibility:
 - - **Painting Mods**
     - [Macaw's Paintings](https://modrinth.com/mod/macaws-paintings)
     - [Dark Paintings](https://modrinth.com/mod/dark-paintings) by Darkhax
-    - [Nemo's Paintings](https://modrinth.com/mod/nemos-paintings)
+    - [Nemoʼs Paintings](https://modrinth.com/mod/nemos-paintings)
 ---
 > ![](https://uwu.catgirl.host/i/u1se2.png)
 
@@ -45,7 +45,7 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
     - _Variants_ can be undyed using a cauldron
     - `1.20.1`: Fixed a bug in FIF where only the first placed Item Frame in a block position would display its dyed color
 - Fix missing hanging wire on Item Frame variant item textures
-### 1.1.4
+### 1.1.4:
 - Optimized painting textures decreasing file size by over 30%.
 - `1.21.7` Now includes new "Dennis" painting variants.
 ### 1.1.2:
@@ -59,8 +59,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 - `1.21.3` Fixed a bug where the vanilla (Glow) Item Frame wouldn't render at all becoming invisible
 <!--CHANGELOG:END-->
 
-> _This section is automatically updated with each new release and only includes already published releases._
-
+> _`The section above is automatically updated with each new release and only includes already published releases.`_
+---
 #### Support/Contact
 - Suggestions? Questions? Bug reports?  
   Feel free to [open an issue](https://github.com/pnk2u/More-Frame-Variants/issues)!  
