@@ -10,6 +10,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MapRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import net.minecraft.client.renderer.block.model.BlockStateModel;
@@ -17,6 +18,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemFrameRenderer;
 import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
@@ -53,12 +55,12 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         cir.setReturnValue(new MoreFrameVariantItemFrameRenderState());
     }
 
-    @Inject(method = "render(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At(value = "HEAD"), cancellable = true)
-    public void injectedRender(ItemFrameRenderState itemFrameRenderState, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci){
+    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "HEAD"), cancellable = true)
+    public void injectedSubmit(ItemFrameRenderState itemFrameRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci){
         MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState = (MoreFrameVariantItemFrameRenderState) itemFrameRenderState;
         String itemFrameVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
         if (!itemFrameVariant.isEmpty() && !itemFrameVariant.equals("birch")) {
-            super.render(moreFrameVariantItemFrameRenderState, poseStack, multiBufferSource, i);
+            super.submit(moreFrameVariantItemFrameRenderState, poseStack, submitNodeCollector, cameraRenderState);
             poseStack.pushPose();
             Direction direction = itemFrameRenderState.direction;
             Vec3 vec3 = this.getRenderOffset(moreFrameVariantItemFrameRenderState);
@@ -88,8 +90,17 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                     float red = ARGB.redFloat(color);
                     float green = ARGB.greenFloat(color);
                     float blue = ARGB.blueFloat(color);
-                    ModelBlockRenderer.renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), blockStateModel, red, green, blue, i, OverlayTexture.NO_OVERLAY);
-                    poseStack.popPose();
+                    submitNodeCollector.submitBlockModel(
+                            poseStack,
+                            RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
+                            blockStateModel,
+                            red,
+                            green,
+                            blue,
+                            itemFrameRenderState.lightCoords,
+                            OverlayTexture.NO_OVERLAY,
+                            itemFrameRenderState.outlineColor
+                    );poseStack.popPose();
                     if (!moreFrameVariantItemFrameRenderState.item.isEmpty()) {
                         poseStack.translate(0.0F, 0.0F, -0.0625F);
                     }
@@ -101,7 +112,17 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                 BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
-                ModelBlockRenderer.renderModel(poseStack.last(), multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS)), blockStateModel, 1.0F, 1.0F, 1.0F, i, OverlayTexture.NO_OVERLAY);
+                submitNodeCollector.submitBlockModel(
+                        poseStack,
+                        RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
+                        blockStateModel,
+                        1.0F,
+                        1.0F,
+                        1.0F,
+                        itemFrameRenderState.lightCoords,
+                        OverlayTexture.NO_OVERLAY,
+                        itemFrameRenderState.outlineColor
+                );
                 poseStack.popPose();
             }
 
@@ -119,13 +140,13 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                 poseStack.scale(0.0078125F, 0.0078125F, 0.0078125F);
                 poseStack.translate(-64.0F, -64.0F, 0.0F);
                 poseStack.translate(0.0F, 0.0F, -1.0F);
-                int k = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728850, i);
-                this.mapRenderer.render(itemFrameRenderState.mapRenderState, poseStack, multiBufferSource, true, k);
+                int k = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728850, itemFrameRenderState.lightCoords);
+                this.mapRenderer.render(itemFrameRenderState.mapRenderState, poseStack, submitNodeCollector, true, k);
             } else if (!itemFrameRenderState.item.isEmpty()) {
                 poseStack.mulPose(Axis.ZP.rotationDegrees((float)itemFrameRenderState.rotation * 360.0F / 8.0F));
-                int j = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728880, i);
+                int j = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728880, itemFrameRenderState.lightCoords);
                 poseStack.scale(0.5F, 0.5F, 0.5F);
-                itemFrameRenderState.item.render(poseStack, multiBufferSource, j, OverlayTexture.NO_OVERLAY);
+                itemFrameRenderState.item.submit(poseStack, submitNodeCollector, j, OverlayTexture.NO_OVERLAY, itemFrameRenderState.outlineColor);
             }
 
             poseStack.popPose();

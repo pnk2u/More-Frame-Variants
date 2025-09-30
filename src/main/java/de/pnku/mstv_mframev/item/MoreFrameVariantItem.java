@@ -15,6 +15,7 @@ import net.minecraft.world.entity.decoration.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.TypedEntityData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -62,11 +63,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
                 hangingEntity = new GlowItemFrame(level, blockPos2, direction);
             }
 
-            CustomData customData = (CustomData)itemStack.getOrDefault(DataComponents.ENTITY_DATA, CustomData.EMPTY);
-            if (!customData.isEmpty()) {
-                EntityType.updateCustomEntityTag(level, player, hangingEntity, customData);
-            }
-
+            EntityType.createDefaultStackConfig(level, itemStack, player).accept(hangingEntity);
             if (hangingEntity.survives()) {
                 if (!level.isClientSide) {
                     hangingEntity.playPlacementSound();

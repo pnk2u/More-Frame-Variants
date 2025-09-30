@@ -5,8 +5,7 @@
   "client": [
     "BlockStateDefinitionsMixin",
     "renderer.ItemFrameRendererMixin",
-    "renderer.PaintingRendererMixin",
-    "util.TextureAtlasHolderAccessor"
+    "renderer.PaintingRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

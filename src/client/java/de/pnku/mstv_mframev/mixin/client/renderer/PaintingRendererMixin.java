@@ -1,26 +1,24 @@
 package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import de.pnku.mstv_mframev.MoreFrameVariants;
-import de.pnku.mstv_mframev.mixin.client.util.TextureAtlasHolderAccessor;
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantPaintingRenderState;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.PaintingRenderer;
 import net.minecraft.client.renderer.entity.state.PaintingRenderState;
+import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.PaintingTextureManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.decoration.PaintingVariant;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,6 +32,8 @@ import static de.pnku.mstv_mframev.MoreFrameVariantsClient.excluded_paintings;
 @Environment(value = EnvType.CLIENT)
 @Mixin(PaintingRenderer.class)
 public abstract class PaintingRendererMixin extends EntityRenderer<Painting, MoreFrameVariantPaintingRenderState> {
+
+    @Shadow @Final private TextureAtlas paintingsAtlas;
 
     public PaintingRendererMixin(EntityRendererProvider.Context context) {
         super(context);
@@ -51,8 +51,8 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
         moreFrameVariantPaintingRenderState.paintingFrameVariant = ((IPainting) painting).mframev$getPWoodVariant();
     }
 
-    @Inject(method = "render(Lnet/minecraft/client/renderer/entity/state/PaintingRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"))
-    public void injectedRender(PaintingRenderState paintingRenderState, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci) {
+    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/PaintingRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At("TAIL"))
+    public void injectedSubmit(PaintingRenderState paintingRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci) {
         MoreFrameVariantPaintingRenderState moreFrameVariantPaintingRenderState = (MoreFrameVariantPaintingRenderState) paintingRenderState;
         String paintingWoodVariant = moreFrameVariantPaintingRenderState.paintingFrameVariant;
         if (!paintingWoodVariant.isEmpty() && !paintingWoodVariant.equals("default")) {
@@ -60,34 +60,31 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
             if (paintingVariant != null) {
                 poseStack.pushPose();
                 poseStack.mulPose(Axis.YP.rotationDegrees((float)(180 - paintingRenderState.direction.get2DDataValue() * 90)));
-                PaintingTextureManager paintingTextureManager = Minecraft.getInstance().getPaintingTextures();
-                TextureAtlasSprite textureAtlasSprite = paintingTextureManager.getBackSprite();
-                VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entitySolidZOffsetForward(textureAtlasSprite.atlasLocation()));
-                TextureAtlasHolderAccessor accessor = ((TextureAtlasHolderAccessor) Minecraft.getInstance().getPaintingTextures());
-                ResourceLocation paintingSpriteLoc = paintingTextureManager.get(paintingVariant).contents().name();
+                ResourceLocation paintingSpriteLoc = this.paintingsAtlas.getSprite(paintingVariant.assetId()).contents().name();
                 String paintingNamespace = paintingSpriteLoc.getNamespace();
                 String vanillaPaintingSpriteName = paintingSpriteLoc.getPath();
                 TextureAtlasSprite paintingSprite;
                 if (compatible_painting_namespaces.contains(paintingNamespace) && !(excluded_paintings.containsKey(paintingSpriteLoc.toString()) && excluded_paintings.get(paintingSpriteLoc.toString()).matches(paintingWoodVariant + "|any"))) {
-                    paintingSprite = accessor.callGetSprite(ResourceLocation.fromNamespaceAndPath(paintingNamespace, vanillaPaintingSpriteName + "_" + paintingWoodVariant));
+                    paintingSprite = this.paintingsAtlas.getSprite(ResourceLocation.fromNamespaceAndPath(paintingNamespace, vanillaPaintingSpriteName + "_" + paintingWoodVariant));
                 } else {
-                    paintingSprite = paintingTextureManager.get(paintingVariant);
+                    paintingSprite = this.paintingsAtlas.getSprite(paintingVariant.assetId());
                 }
-                TextureAtlasSprite backSprite = accessor.callGetSprite(ResourceLocation.withDefaultNamespace(paintingWoodVariant + "_planks"));
+                TextureAtlasSprite backSprite = this.paintingsAtlas.getSprite(ResourceLocation.withDefaultNamespace(paintingWoodVariant + "_planks"));
                 this.renderPainting(
                         poseStack,
-                        vertexConsumer,
-                        paintingRenderState.lightCoords,
+                        submitNodeCollector,
+                        RenderType.entitySolidZOffsetForward(backSprite.atlasLocation()),
+                        paintingRenderState.lightCoordsPerBlock,
                         paintingVariant.width(),
                         paintingVariant.height(),
                         paintingSprite,
                         backSprite
                 );
                 poseStack.popPose();
-                super.render(moreFrameVariantPaintingRenderState, poseStack, multiBufferSource, i);
+                super.submit(moreFrameVariantPaintingRenderState, poseStack, submitNodeCollector, cameraRenderState);
             }
         }
     }
 
-    @Shadow private void renderPainting(PoseStack poseStack, VertexConsumer vertexConsumer, int[] is, int i, int j, TextureAtlasSprite textureAtlasSprite, TextureAtlasSprite textureAtlasSprite2){}
+    @Shadow public void renderPainting(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, RenderType renderType, int[] is, int i, int j, TextureAtlasSprite textureAtlasSprite, TextureAtlasSprite textureAtlasSprite2){}
 }

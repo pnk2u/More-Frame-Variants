@@ -132,11 +132,11 @@ dependencies {
 	modLocalRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 
 	// FIF Compat
-	modLocalRuntime "maven.modrinth:fast-item-frames:${project.fif_version_id}"
-	modApi "maven.modrinth:fast-item-frames:${project.fif_version_id}"
-	modLocalRuntime "maven.modrinth:forge-config-api-port:${project.fc_api_version_id}"
-	modLocalRuntime "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
-	modApi "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
+	//modLocalRuntime "maven.modrinth:fast-item-frames:${project.fif_version_id}"
+	modCompileOnly "maven.modrinth:fast-item-frames:${project.fif_version_id}"
+	//modLocalRuntime "maven.modrinth:forge-config-api-port:${project.fc_api_version_id}"
+	//modLocalRuntime "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
+	modCompileOnly "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
 	implementation 'com.electronwill.night-config:core:3.8.2'
 	implementation 'com.electronwill.night-config:toml:3.8.2'
 }
