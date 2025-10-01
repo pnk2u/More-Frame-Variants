@@ -65,7 +65,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
             EntityType.createDefaultStackConfig(level, itemStack, player).accept(hangingEntity);
             if (hangingEntity.survives()) {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     hangingEntity.playPlacementSound();
                     level.gameEvent(player, GameEvent.ENTITY_PLACE, hangingEntity.position());
                     if ((hangingEntity.getType().equals(EntityType.ITEM_FRAME) || hangingEntity.getType().equals(EntityType.GLOW_ITEM_FRAME)) && itemStack.has(DataComponents.DYED_COLOR) && MoreFrameVariants.isFifLoaded) {
