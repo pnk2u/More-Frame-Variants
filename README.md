@@ -26,6 +26,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 ### Changelog History
 
 <!--CHANGELOG:START-->
+### 1.2.2:
+- `1.21.9`: Update to 1.21.9
 ### 1.2.1:
 - `1.21.6(-8)`: Fix requiring incorrect Minecraft version, now requires 1.21.6⁺ as intended
 ## 1.2.0
