@@ -24,7 +24,7 @@ public class MoreFrameVariantsCompatibilityFIFConstructor implements ModConstruc
         } else if (!itemStack.has(DataComponents.DYED_COLOR)) {
             return InteractionResult.TRY_WITH_EMPTY_HAND;
         } else {
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 ItemStack newItemStack = itemStack.copyWithCount(1);
                 newItemStack.remove(DataComponents.DYED_COLOR);
                 player.setItemInHand(interactionHand, ItemUtils.createFilledResult(itemStack, player, newItemStack, false));
