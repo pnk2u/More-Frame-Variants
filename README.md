@@ -1,7 +1,8 @@
 <a name="more-frame-variants"></a>
 # <img width='32' align=right src="./src/main/resources/icon.png"> <p align="center">More Frame Variants</p>
 > <img align=left src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Frame-Variants/pres/logo/logo_c.png">
->
+>  <br>
+>  <br>
 >  A mod adding wood variants for Minecraft's Painting and Item Frames. <p align="right"><sub>Available on:&nbsp;&nbsp;&nbsp;&nbsp;</sub></p><a title="More Frame Variants on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants"><img alt="curseforge" align=right height="32" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy-minimal/available/curseforge_vector.svg"></a><a title="More Frame Variants on Modrinth" href="https://www.modrinth.com/mod/more-frame-variants"><img alt="modrinth" align=right height="32" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy-minimal/available/modrinth_vector.svg"></a>
 >  <details><summary><h6>Show in-game example image</h6></summary><br><img src="https://uwu.catgirl.host/i/ehlsc.webp"><sup><br><!--CAPTION:PLACEHOLDER--></sup></details>  
 <br>
@@ -24,7 +25,7 @@ Currently available in:
 - German
 
 > Want to help translate? If you can, please open a PR to the **default branch** [`1.21(.1)`](../../tree/1.21(.1)).  
-> Otherwise simply send your translation via email (contact@pnku.de) or join the [Discord](https://discord.lieonlion.dev).
+> Otherwise, simply send your translation via email (contact@pnku.de) or join the [Discord](https://discord.lieonlion.dev).
 
 <br>
 
