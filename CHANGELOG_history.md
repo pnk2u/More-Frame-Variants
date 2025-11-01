@@ -1,3 +1,9 @@
+<a name="1.2.3"></a>
+### 1.2.3:
+- `1.21.9(10)`: Fix crash when starting with Fast Item Frames due to outdated compatibility layer
+<sub><p align="center"><a title="Download (Modrinth):&#10;More Frame Variants 1.2.3 + 1.21.9(10)" href="https://modrinth.com/mod/more-frame-variants/version/1.2.3"><img alt="Download on Modrinth: More Frame Variants 1.2.3 + 1.21.9(10)" height="26" width="26" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy-minimal/available/modrinth_vector.svg"></a><sup>&thinsp;&#x20;&#x8ce;&nbsp;&#x200a;&#x200a;&#x200a;&#x200a;</sup><a title="Download (Curseforge):&#10;More Frame Variants 1.2.3 + 1.21.9(10)" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7173120"><img alt="Download on Curseforge: More Frame Variants 1.2.3 + 1.21.9(10)" height="26" width="26" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy-minimal/available/curseforge_vector.svg"></a>&thinsp;&#x200a;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></sub>
+
+---
 <a name="1.2.2"></a>
 ### 1.2.2:
 - `1.21.9`: Update to 1.21.9
