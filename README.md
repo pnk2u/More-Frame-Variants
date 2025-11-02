@@ -7,7 +7,7 @@
 <br>
 
 <a name="compatibility"></a>
-### 🧩︎ Compatibility
+### <img height="23" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/puzzle.svg"> Compatibility
 
 | Minecraft | [`1.20.1`](https://modrinth.com/mod/more-frame-variants/versions?g=1.20.1), [`1.21(.1)`](https://modrinth.com/mod/more-frame-variants/versions?g=1.21&g=1.21.1), [`1.21.4`~`1.21.10`](https://modrinth.com/mod/more-frame-variants/versions?g=1.21.4&g=1.21.5&g=1.21.6&g=1.21.7&g=1.21.8&g=1.21.9&g=1.21.10) |
 |:---|:---|
@@ -17,7 +17,7 @@
 <br>
 
 <a name="translations"></a>
-### 🌐︎ Translations
+### <img height="24" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/translate.svg"> Translations
 
 Currently available in:
 - English
@@ -29,7 +29,7 @@ Currently available in:
 <br>
 
 <a name="changelog-history"></a>
-## 🗐︎ <ins>Changelog History</ins>:
+## <ins>Changelog History</ins>:
 
 <!--CHANGELOG:START-->
 <a name="1.2.3"></a>
