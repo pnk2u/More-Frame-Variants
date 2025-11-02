@@ -29,7 +29,7 @@ Currently available in:
 <br>
 
 <a name="changelog-history"></a>
-## <ins>Changelog History</ins>:
+## <img height="34" align="left" src="https://uwu.catgirl.host/i/70s1g.svg"> <ins>Changelog History</ins>:
 
 <!--CHANGELOG:START-->
 <a name="1.2.3"></a>
