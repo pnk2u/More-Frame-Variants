@@ -24,7 +24,7 @@ Currently available in:
 - German
 
 > Want to help translate? If you can, please open a PR to the **default branch** [`1.21(.1)`](../../tree/1.21(.1)).  
-> Otherwise simply send your translation via email (contact@pnku.de) or join the [Discord](https://discord.lieonlion.dev).
+> Otherwise, simply send your translation via email (contact@pnku.de) or join the [Discord](https://discord.lieonlion.dev).
 
 <br>
 
