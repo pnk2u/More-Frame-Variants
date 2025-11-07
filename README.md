@@ -34,6 +34,7 @@ Currently available in:
 
 ### Versions
 <a name="most-recent-version"></a>
+<!--CHANGELOG:START-->
 <a name="1.2.3"></a>
 #### 1.2.3[*](#footnote-*):
 - `1.21.9(10)`: Fix crash when starting with Fast Item Frames due to outdated compatibility layer
@@ -41,6 +42,7 @@ Currently available in:
 |<sub>[<img width="222" height="21" src="https://img.shields.io/badge/Download%201.2.3%20%2B%201.21.9(10)%20on%3A%20-%231e242a?style=flat">](#most-recent-version)</sub>|<a title="Download (Modrinth):&#10;More Frame Variants 1.2.3 + 1.21.9(10)" href="https://modrinth.com/mod/more-frame-variants/version/1.2.3"><sub><img width="26" src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub>|<a title="Download (Curseforge):&#10;More Frame Variants 1.2.3 + 1.21.9(10)" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7173120"><sub><img width="26" src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></sub></a>|
 |:---|---|---|
 
+<!--CHANGELOG:END-->
 <a name="footnote-*"></a>
 > <strong>*</strong><sup>: Most recent version</sup>  
 > _`The version above is automatically updated with the newest release and only after it has been successfully published.`_
