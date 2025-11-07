@@ -9,11 +9,39 @@
 <a name="compatibility"></a>
 ### <img height="23" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/puzzle.svg"> Compatibility
 
-| Minecraft | [`1.20.1`](https://modrinth.com/mod/more-frame-variants/versions?g=1.20.1), [`1.21(.1)`](https://modrinth.com/mod/more-frame-variants/versions?g=1.21&g=1.21.1), [`1.21.4`~`1.21.10`](https://modrinth.com/mod/more-frame-variants/versions?g=1.21.4&g=1.21.5&g=1.21.6&g=1.21.7&g=1.21.8&g=1.21.9&g=1.21.10) |
-|:---|:---|
-| **Mod Loaders** |   [Fabric](https://fabricmc.net/use/installer/) |
-| **Requires** | [<img width='16' src="https://raw.githubusercontent.com/FabricMC/fabric/1.21.10/src/main/resources/assets/fabric/icon.png">`Fabric API`](https://modrinth.com/mod/fabric-api)<br>&nbsp;&nbsp;&nbsp;&nbsp;[<img height='24' align="right" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Stick-Variants/pres/logo/logo_c.png">`More Stick Variants (MStV)`](https://modrinth.com/mod/more-stick-variants) |
-|**Supports**|[<img width='16' src="https://raw.githubusercontent.com/Fuzss/fastitemframes/main/1.21.1/Common/src/main/resources/mod_logo.png">`Fast Item Frames`](https://modrinth.com/mod/fast-item-frames)<br>[<img width='16' src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png">`Dark Paintings`](https://modrinth.com/mod/dark-paintings)<br>[<img width='16' src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png">`Nemoʼs Paintings`](https://modrinth.com/mod/nemos-paintings)<br>[<img width='16' src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png">`Macaw's Paintings`](https://modrinth.com/mod/macaws-paintings)|
+<table>
+  <thead>
+    <tr>
+      <td><strong>Minecraft</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/more-frame-variants/versions?g=1.20.1"><code>1.20.1</code></a><br>
+        <a href="https://modrinth.com/mod/more-frame-variants/versions?g=1.21&g=1.21.1"><code>1.21(.1)</code></a>, <a href="https://modrinth.com/mod/more-frame-variants/versions?g=1.21.4&g=1.21.5&g=1.21.6&g=1.21.7&g=1.21.8&g=1.21.9&g=1.21.10"><code>1.21.4</code>~<code>1.21.10</code></a>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mod Loaders</strong></td>
+      <td><sub><img width="16" src="https://raw.githubusercontent.com/FabricMC/fabric/1.21.10/src/main/resources/assets/fabric/icon.png"></sub><a href="https://fabricmc.net/use/installer/"><code>Fabric Loader</code></a></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <td><strong>Requires</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/fabric-api"><sub><img width="16" src="https://raw.githubusercontent.com/FabricMC/fabric/1.21.10/src/main/resources/assets/fabric/icon.png"></sub><code>Fabric API</code></a><br><a href="https://modrinth.com/mod/more-stick-variants"><sub><img height="16" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Stick-Variants/pres/logo/logo_c.png"></sub><code>More Stick Variants (MStV)</code></a>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Supports</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/fast-item-frames"><sub><img width="16" src="https://raw.githubusercontent.com/Fuzss/fastitemframes/main/1.21.1/Common/src/main/resources/mod_logo.png"></sub><code>Fast Item Frames</code></a><br><a href="https://modrinth.com/mod/dark-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png"></sub><code>Dark Paintings</code></a><br><a href="https://modrinth.com/mod/nemos-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"></sub><code>Nemoʼs Paintings</code></a><br><a href="https://modrinth.com/mod/macaws-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png"></sub><sup><sup><code>Macaw's Paintings</code></sup></sup></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <br>
 
 <a name="translations"></a>
