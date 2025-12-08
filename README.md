@@ -87,6 +87,6 @@ Currently available in:
 ---
 #### Support/Contact
 - Suggestions? Questions? Bug reports?  
-  Feel free to [open an issue](https://github.com/pnk2u/More-Frame-Variants/issues)!  
+  Feel free to [open an issue](/../../issues)!  
   &nbsp;  
   You can also contact me via email at [contact@pnku.de](mailto:contact@pnku.de) or join the [Discord](https://dsc.lieonlion.dev) and contact me there.
