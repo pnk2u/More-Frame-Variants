@@ -2,7 +2,7 @@ package de.pnku.mstv_mframev.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.core.Registry;
@@ -91,7 +91,7 @@ public class MoreFrameVariantItems {
 
     private static void registerPaintingItem(Item paintingItem, Item paintingAfter) {
         String paintingName = ((MoreFrameVariantItem) paintingItem).mframevWoodType + "_painting";
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreFrameVariants.MOD_ID, paintingName), paintingItem);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, paintingName), paintingItem);
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(paintingAfter, paintingItem));
         more_paintings.add(paintingItem);
         more_frame_variants.add(paintingItem);
@@ -100,8 +100,8 @@ public class MoreFrameVariantItems {
     private static void registerItemFramesItem(Item itemFrameItem, Item itemFrameAfter, Item glowItemFrameItem, Item glowItemFrameAfter) {
         String itemFrameName = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType + "_item_frame";
         String glowItemFrameName = ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType + "_glow_item_frame";
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreFrameVariants.MOD_ID, itemFrameName), itemFrameItem);
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreFrameVariants.MOD_ID, glowItemFrameName), glowItemFrameItem);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, itemFrameName), itemFrameItem);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, glowItemFrameName), glowItemFrameItem);
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(itemFrameAfter, itemFrameItem));
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(glowItemFrameAfter, glowItemFrameItem));
         more_item_frames.add(itemFrameItem);

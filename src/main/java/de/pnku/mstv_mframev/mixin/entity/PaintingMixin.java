@@ -11,11 +11,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
-import net.minecraft.world.entity.decoration.Painting;
+import net.minecraft.world.entity.decoration.painting.Painting;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -71,7 +71,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
             //LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
 
             ItemStack itemStack = stackFromPWoodVariant(woodVariant);
-            if (serverLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+            if (serverLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
                 this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
                 if (brokenEntity instanceof Player) {
                     Player player = (Player)brokenEntity;

@@ -1,7 +1,7 @@
 package de.pnku.mstv_mframev.mixin.client;
 
 import net.minecraft.client.resources.model.BlockStateDefinitions;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -17,61 +17,61 @@ public abstract class BlockStateDefinitionsMixin {
 
     @Mutable
     @Final
-    @Shadow private static Map<ResourceLocation, StateDefinition<Block, BlockState>> STATIC_DEFINITIONS;
+    @Shadow private static Map<Identifier, StateDefinition<Block, BlockState>> STATIC_DEFINITIONS;
 
-    @Unique private static final ResourceLocation ACACIA_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier ACACIA_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> ACACIA_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation ACACIA_ITEM_FRAME_LOC;
+    @Unique private static final Identifier ACACIA_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> ACACIA_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation BAMBOO_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier BAMBOO_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> BAMBOO_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation BAMBOO_ITEM_FRAME_LOC;
+    @Unique private static final Identifier BAMBOO_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> BAMBOO_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation CHERRY_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier CHERRY_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> CHERRY_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation CHERRY_ITEM_FRAME_LOC;
+    @Unique private static final Identifier CHERRY_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> CHERRY_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation CRIMSON_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier CRIMSON_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> CRIMSON_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation CRIMSON_ITEM_FRAME_LOC;
+    @Unique private static final Identifier CRIMSON_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> CRIMSON_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation DARK_OAK_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier DARK_OAK_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> DARK_OAK_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation DARK_OAK_ITEM_FRAME_LOC;
+    @Unique private static final Identifier DARK_OAK_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> DARK_OAK_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation PALE_OAK_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier PALE_OAK_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> PALE_OAK_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation PALE_OAK_ITEM_FRAME_LOC;
+    @Unique private static final Identifier PALE_OAK_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> PALE_OAK_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation JUNGLE_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier JUNGLE_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> JUNGLE_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation JUNGLE_ITEM_FRAME_LOC;
+    @Unique private static final Identifier JUNGLE_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> JUNGLE_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation MANGROVE_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier MANGROVE_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> MANGROVE_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation MANGROVE_ITEM_FRAME_LOC;
+    @Unique private static final Identifier MANGROVE_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> MANGROVE_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation OAK_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier OAK_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> OAK_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation OAK_ITEM_FRAME_LOC;
+    @Unique private static final Identifier OAK_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> OAK_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation SPRUCE_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier SPRUCE_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> SPRUCE_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation SPRUCE_ITEM_FRAME_LOC;
+    @Unique private static final Identifier SPRUCE_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> SPRUCE_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation WARPED_GLOW_ITEM_FRAME_LOC;
+    @Unique private static final Identifier WARPED_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> WARPED_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
-    @Unique private static final ResourceLocation WARPED_ITEM_FRAME_LOC;
+    @Unique private static final Identifier WARPED_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> WARPED_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();
 
     @Final @Shadow private static StateDefinition<Block, BlockState> ITEM_FRAME_FAKE_DEFINITION;
     @Final @Shadow private static StateDefinition<Block, BlockState> GLOW_ITEM_FRAME_FAKE_DEFINITION;
 
-    @Shadow @Final private static ResourceLocation ITEM_FRAME_LOCATION;
-    @Shadow @Final private static ResourceLocation GLOW_ITEM_FRAME_LOCATION;
+    @Shadow @Final private static Identifier ITEM_FRAME_LOCATION;
+    @Shadow @Final private static Identifier GLOW_ITEM_FRAME_LOCATION;
 
     static {
-        // ResourceLocations
+        // Identifiers
         ACACIA_GLOW_ITEM_FRAME_LOC = asId("acacia_glow_item_frame");
         ACACIA_ITEM_FRAME_LOC = asId("acacia_item_frame");
         BAMBOO_GLOW_ITEM_FRAME_LOC = asId("bamboo_glow_item_frame");
