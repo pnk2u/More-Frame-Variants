@@ -1,3 +1,3 @@
 <!--publish=false-->
-### 1.2.3:
-- `1.21.9(10)`: Fix crash when starting with Fast Item Frames due to outdated compatibility layer
+### 1.2.4:
+- `1.21.11`: Update to <ins>1.21.11</ins>
