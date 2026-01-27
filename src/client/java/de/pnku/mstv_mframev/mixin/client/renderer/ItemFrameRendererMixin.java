@@ -60,7 +60,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     public void injectedSubmit(ItemFrameRenderState itemFrameRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci){
         MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState = (MoreFrameVariantItemFrameRenderState) itemFrameRenderState;
         String itemFrameVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
-        if (!itemFrameVariant.isEmpty() && !itemFrameVariant.equals("birch")) {
+        if (itemFrameVariant != null && !itemFrameVariant.isEmpty() && !itemFrameVariant.equals("birch")) {
             super.submit(moreFrameVariantItemFrameRenderState, poseStack, submitNodeCollector, cameraRenderState);
             poseStack.pushPose();
             Direction direction = itemFrameRenderState.direction;
@@ -91,8 +91,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                     float red = ARGB.redFloat(color);
                     float green = ARGB.greenFloat(color);
                     float blue = ARGB.blueFloat(color);
-                    submitNodeCollector.submitBlockModel(
-                            poseStack,
+                    submitNodeCollector.submitBlockModel(poseStack,
                             RenderTypes.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
                             blockStateModel,
                             red,
@@ -100,11 +99,9 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                             blue,
                             itemFrameRenderState.lightCoords,
                             OverlayTexture.NO_OVERLAY,
-                            itemFrameRenderState.outlineColor
-                    );poseStack.popPose();
-                    if (!moreFrameVariantItemFrameRenderState.item.isEmpty()) {
-                        poseStack.translate(0.0F, 0.0F, -0.0625F);
-                    }
+                            itemFrameRenderState.outlineColor);
+                    poseStack.popPose();
+                    itemFrameRenderState.isInvisible = true;
                 }
             }
             //

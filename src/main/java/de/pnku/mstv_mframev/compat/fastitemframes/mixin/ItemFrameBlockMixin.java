@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,6 +29,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static de.pnku.mstv_mframev.item.MoreFrameVariantItem.stackFromIFWoodVariant;
+import static fuzs.fastitemframes.world.level.block.ItemFrameBlock.ROTATION;
+import static fuzs.fastitemframes.world.level.block.ItemFrameBlock.WAXED;
 
 @Mixin(ItemFrameBlock.class)
 public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
@@ -54,7 +57,7 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, INVISIBLE, MAP, WATERLOGGED, DYED, WOOD_TYPE);
+        builder.add(FACING, ROTATION, INVISIBLE, WAXED, MAP, WATERLOGGED, DYED, WOOD_TYPE);
     }
 
     @ModifyReturnValue(method = "getCloneItemStack", at = @At("RETURN"), remap = false)
