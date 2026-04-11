@@ -1,7 +1,7 @@
 {
   "required": false,
   "package": "de.pnku.mstv_mframev.mixin.client",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_${java_version}",
   "client": [
     "BlockStateModelLoaderMixin",
     "renderer.ItemFrameRendererMixin",
