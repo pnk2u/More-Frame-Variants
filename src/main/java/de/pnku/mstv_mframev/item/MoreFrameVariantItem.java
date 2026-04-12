@@ -68,7 +68,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
             }
 
             if (hangingEntity.survives()) {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     hangingEntity.playPlacementSound();
                     level.gameEvent(player, GameEvent.ENTITY_PLACE, hangingEntity.position());
                     level.addFreshEntity(hangingEntity);

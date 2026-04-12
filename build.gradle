@@ -141,40 +141,65 @@ dependencies {
 	implementation 'com.electronwill.night-config:toml:3.8.2'
 }
 
-def minecraft_version_1() {
-	String key = 'minecraft_version_upper'
-	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value : "2.0.0"}
-	else {return "2.0.0"} // Effectively no upper bound
+static def version_reduced(String input) { // Reduces a version string by one minor version and sets patch to 0
+	def parts = input.split('\\.')
+	if (parts.length < 2) throw new IllegalArgumentException("Invalid version: $input")
+	def major = parts[0] as Integer
+	def minor = (parts[1] as Integer) - 1
+	return "${major}.${minor}.0"
 }
 
-processResources {
-	// Disregard Patch version from Fabric Loader for dependency
-	var fabric_loader_version_0 = "${fabric_loader_version}".replaceFirst(/\.[^.]*$/, '.0')
+def minecraft_version_0() {
+	String key = 'minecraft_version_lower'
+	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value :
+			version_reduced("${project.minecraft_version}") }
+	else {return version_reduced("${project.minecraft_version}")} // Default to one minor version lower with patch = 0 as lower bound if none is specified
+}
 
-	var replaceProperties = [
-			loader_version: fabric_loader_version_0, mod_id: mod_id, mod_name: mod_name,
-			mod_license: mod_license, mod_version: mod_version, mod_description: mod_description,
-			minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion, minecraft_version_1: minecraft_version_1()
-	]
-	inputs.properties replaceProperties
+def minecraft_version_1() {
+	String key = 'minecraft_version_upper'
+	if (project.hasProperty(key)) {String value = project.getProperties().get(key); return !value.isEmpty() ? value : "99.0.0"}
+	else {return "99.0.0"} // Effectively no upper bound
+}
 
-	filesMatching("fabric.mod.json") {
-		expand replaceProperties
+def getJavaVersionNum() { if (project.minecraft_version.startsWith("1.20")) return 17 else if (project.minecraft_version.startsWith("1.21")) return 21 else return 25 }
+var java_version = getJavaVersionNum()
+def getJavaVersionEnum() { if (project.minecraft_version.startsWith("1.20")) return JavaVersion.VERSION_17 else if (project.minecraft_version.startsWith("1.21")) return JavaVersion.VERSION_21 else return JavaVersion.VERSION_25 }
+var java_version_enum = getJavaVersionEnum()
+
+def fabric_loader_version_0 = version_reduced(fabric_loader_version)
+def replaceProperties = [
+		loader_version: fabric_loader_version_0, mod_id: mod_id, mod_name: mod_name, mstv_version: mstv_version,
+		mod_license: mod_license, mod_version: mod_version, mod_description: mod_description,
+		minecraft_version: minecraft_version, minecraft_version_0: minecraft_version_0(), minecraft_version_1: minecraft_version_1(),
+		java_version: java_version
+]
+
+["processResources", "processClientResources"].each { taskName ->
+	tasks.named(taskName) {
+		inputs.properties replaceProperties
+
+		filesMatching("fabric.mod.json") {
+			expand replaceProperties
+		}
+		filesMatching("*.mixins.json") {
+			expand replaceProperties
+		}
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = java_version
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = java_version_enum
+	targetCompatibility = java_version_enum
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "${project.base.archivesName.get()}_${it}"}
 	}
 }
 
