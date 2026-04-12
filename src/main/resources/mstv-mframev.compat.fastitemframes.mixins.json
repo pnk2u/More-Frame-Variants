@@ -3,7 +3,7 @@
   "plugin": "de.pnku.mstv_mframev.compat.fastitemframes.mixin.MoreFrameVariantsCompatibilityFIFMixinPlugin",
   "minVersion": "0.8",
   "package": "de.pnku.mstv_mframev.compat.fastitemframes.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
     "ItemFrameBlockMixin",
     "ItemFrameHandlerMixin"
