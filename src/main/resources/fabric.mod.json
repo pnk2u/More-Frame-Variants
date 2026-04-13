@@ -20,9 +20,6 @@
     ],
     "client": [
       "de.pnku.mstv_mframev.MoreFrameVariantsClient"
-    ],
-    "fabric-datagen": [
-      "de.pnku.mstv_mframev.MoreFrameVariantDatagen"
     ]
   },
   "accessWidener": "mstv-mframev.accesswidener",

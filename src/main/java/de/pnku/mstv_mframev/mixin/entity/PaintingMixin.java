@@ -23,8 +23,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.LOGGER;
-
 @Mixin(Painting.class)
 public abstract class PaintingMixin extends HangingEntity implements IPainting {
 

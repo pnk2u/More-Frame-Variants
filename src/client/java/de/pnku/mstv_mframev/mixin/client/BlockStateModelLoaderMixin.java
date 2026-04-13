@@ -11,7 +11,8 @@ import org.spongepowered.asm.mixin.*;
 
 import java.util.Map;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.*;
+import static de.pnku.mstv_mframev.MoreFrameVariants.asId;
+import static de.pnku.mstv_mframev.MoreFrameVariants.isFifLoaded;
 
 @Mixin(BlockStateModelLoader.class)
 public abstract class BlockStateModelLoaderMixin {

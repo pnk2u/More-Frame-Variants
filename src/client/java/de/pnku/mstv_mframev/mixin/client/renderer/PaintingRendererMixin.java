@@ -2,7 +2,6 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import de.pnku.mstv_mframev.MoreFrameVariants;
 import de.pnku.mstv_mframev.mixin.client.util.TextureAtlasHolderAccessor;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.fabricmc.api.EnvType;
