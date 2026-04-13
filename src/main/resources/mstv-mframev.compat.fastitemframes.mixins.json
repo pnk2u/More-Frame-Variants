@@ -5,8 +5,6 @@
   "package": "de.pnku.mstv_mframev.compat.fastitemframes.mixin",
   "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
-    "ItemFrameBlockMixin",
-    "ItemFrameHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

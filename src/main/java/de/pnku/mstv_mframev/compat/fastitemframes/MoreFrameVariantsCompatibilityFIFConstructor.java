@@ -1,3 +1,4 @@
+/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes;
 
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
@@ -40,3 +41,5 @@ public class MoreFrameVariantsCompatibilityFIFConstructor implements ModConstruc
         }
     }
 }
+
+*/

@@ -1,3 +1,4 @@
+/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
@@ -74,3 +75,5 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
     }
 
 }
+
+*/

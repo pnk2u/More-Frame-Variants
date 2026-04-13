@@ -2,29 +2,24 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+/*
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIFClientConstructor;
+This import is commented out as FastItemFrames has at this time not been updated to 26.1 yet.*/
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantItemFrameRenderState;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MapRenderer;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.block.BlockModelResolver;
 import net.minecraft.client.renderer.SubmitNodeCollector;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
-import net.minecraft.client.renderer.block.ModelBlockRenderer;
-import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemFrameRenderer;
 import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
 import net.minecraft.core.Direction;
-import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,7 +41,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     protected ItemFrameRendererMixin(EntityRendererProvider.Context context) {super(context);}
 
     @Shadow @Final
-    private BlockRenderDispatcher blockRenderer;
+    private BlockModelResolver blockModelResolver;
     @Shadow @Final
     private MapRenderer mapRenderer;
 
@@ -56,7 +51,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         cir.setReturnValue(new MoreFrameVariantItemFrameRenderState());
     }
 
-    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V", at = @At(value = "HEAD"), cancellable = true)
     public void injectedSubmit(ItemFrameRenderState itemFrameRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci){
         MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState = (MoreFrameVariantItemFrameRenderState) itemFrameRenderState;
         String itemFrameVariant = moreFrameVariantItemFrameRenderState.itemFrameVariant;
@@ -82,6 +77,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
             poseStack.mulPose(Axis.YP.rotationDegrees(g));
             // Copied from FIF's ItemFrameRendererMixin
             if (isFifLoaded) {
+                /*
                 if (MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifIsDyedRenderState(moreFrameVariantItemFrameRenderState)) {
                     int color = MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifDyedColorRenderState(moreFrameVariantItemFrameRenderState);
                     BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, true);
@@ -103,24 +99,13 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                     poseStack.popPose();
                     itemFrameRenderState.isInvisible = true;
                 }
+                These lines are commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
             }
             //
             if (!itemFrameRenderState.isInvisible) {
-                BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, false);
-                BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
-                submitNodeCollector.submitBlockModel(
-                        poseStack,
-                        RenderTypes.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
-                        blockStateModel,
-                        1.0F,
-                        1.0F,
-                        1.0F,
-                        itemFrameRenderState.lightCoords,
-                        OverlayTexture.NO_OVERLAY,
-                        itemFrameRenderState.outlineColor
-                );
+                itemFrameRenderState.frameModel.submitWithZOffset(poseStack, submitNodeCollector, itemFrameRenderState.lightCoords, OverlayTexture.NO_OVERLAY, itemFrameRenderState.outlineColor);
                 poseStack.popPose();
             }
 
@@ -155,7 +140,9 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     @Unique
     public BlockState mframev$getItemFrameVariantFakeState(String woodVariant, boolean isGlow, boolean hasMap, boolean isDyed) {
         if (isFifLoaded && (isGlow || isDyed)) {
+            /*
             return MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockState(isGlow, hasMap, isDyed, woodVariant);
+            This line is commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
         }
         StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
         return itemFrameVariantFakeDefinition.any().setValue(BlockStateProperties.MAP, hasMap);

@@ -1,3 +1,4 @@
+/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes.mixin;
 
 import de.pnku.mstv_mframev.util.IItemFrame;
@@ -46,3 +47,5 @@ public class ItemFrameHandlerMixin {
         }
     }
 }
+
+*/

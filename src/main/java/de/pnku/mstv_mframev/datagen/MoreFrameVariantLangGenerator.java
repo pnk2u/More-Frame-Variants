@@ -1,3 +1,4 @@
+/*
 package de.pnku.mstv_mframev.datagen;
 
 import de.pnku.mstv_mframev.item.MoreFrameVariantItem;
@@ -31,3 +32,5 @@ public class MoreFrameVariantLangGenerator extends FabricLanguageProvider {
         }
     }
 }
+
+*/
