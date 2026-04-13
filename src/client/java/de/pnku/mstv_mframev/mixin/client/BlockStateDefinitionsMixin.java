@@ -17,7 +17,7 @@ public abstract class BlockStateDefinitionsMixin {
 
     @Mutable
     @Final
-    @Shadow private static Map<Identifier, StateDefinition<Block, BlockState>> STATIC_DEFINITIONS;
+    @Shadow public static Map<Identifier, StateDefinition<Block, BlockState>> STATIC_DEFINITIONS;
 
     @Unique private static final Identifier ACACIA_GLOW_ITEM_FRAME_LOC;
     @Unique private static final StateDefinition<Block, BlockState> ACACIA_GLOW_ITEM_FRAME_FAKE_DEFINITION = BlockStateDefinitions.createItemFrameFakeState();

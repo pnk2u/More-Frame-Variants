@@ -12,6 +12,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MapRenderer;
 import net.minecraft.client.renderer.block.BlockModelResolver;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.model.BlockDisplayContext;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemFrameRenderer;
@@ -37,6 +38,9 @@ import static de.pnku.mstv_mframev.MoreFrameVariants.*;
 @Environment(value = EnvType.CLIENT)
 @Mixin(ItemFrameRenderer.class)
 public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, MoreFrameVariantItemFrameRenderState> {
+
+    @Shadow @Final
+    public static BlockDisplayContext BLOCK_DISPLAY_CONTEXT;
 
     protected ItemFrameRendererMixin(EntityRendererProvider.Context context) {super(context);}
 
@@ -154,9 +158,17 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     }
 
     @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/decoration/ItemFrame;Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;F)V", at = @At("HEAD"))
-    public void injectedExtractRenderState(ItemFrame itemFrame, ItemFrameRenderState itemFrameRenderState, float f, CallbackInfo ci){
+    public void injectedExtractRenderStateAtHead(ItemFrame itemFrame, ItemFrameRenderState itemFrameRenderState, float f, CallbackInfo ci){
         MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState = (MoreFrameVariantItemFrameRenderState) itemFrameRenderState;
         super.extractRenderState(itemFrame, moreFrameVariantItemFrameRenderState, f);
         moreFrameVariantItemFrameRenderState.itemFrameVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
+    }
+
+    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/decoration/ItemFrame;Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;F)V", at = @At("TAIL"))
+    public void injectedExtractRenderStateAtTail(ItemFrame itemFrame, ItemFrameRenderState itemFrameRenderState, float f, CallbackInfo ci) {
+        MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState = (MoreFrameVariantItemFrameRenderState) itemFrameRenderState;
+        if (!itemFrameRenderState.isInvisible && moreFrameVariantItemFrameRenderState.itemFrameVariant != null && !moreFrameVariantItemFrameRenderState.itemFrameVariant.equals("birch")) {
+            this.blockModelResolver.update(itemFrameRenderState.frameModel, mframev$getItemFrameVariantFakeState(moreFrameVariantItemFrameRenderState.itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, false), BLOCK_DISPLAY_CONTEXT);
+        }
     }
 }
