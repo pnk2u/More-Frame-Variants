@@ -23,6 +23,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -86,5 +87,6 @@ public abstract class PaintingRendererMixin extends EntityRenderer<Painting, Mor
         }
     }
 
-    @Shadow public void renderPainting(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, RenderType renderType, int[] is, int i, int j, TextureAtlasSprite textureAtlasSprite, TextureAtlasSprite textureAtlasSprite2){}
+    @Shadow
+    public void renderPainting(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, RenderType renderType, int[] is, int i, int j, TextureAtlasSprite textureAtlasSprite, TextureAtlasSprite textureAtlasSprite2){}
 }
