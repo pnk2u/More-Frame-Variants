@@ -64,15 +64,21 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.2.5"></a>
-#### 1.2.5[*](#footnote-*):
-- `1.21.11`: Update compatibility with <ins>Fast Item Frames</ins> (&#x200A;<sub><a title="Fast Item Frames&#10;on Modrinth" href="https://modrinth.com/mod/fastitemframes/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="Fast Item Frames&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/fastitemframes/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) to the latest version
+<a name="1.2.6"></a>
+#### 1.2.6[*](#footnote-*):
+- `26.1`: 
+  - Update to <ins>26.1</ins>
+  - Add _Cartographer_ and _Shepherd Villager_ trades for _Item Frame_ and _Painting_ variants respectively  
+    > This was formerly a feature of <ins>More Stick Variants (MStV)</ins> (&#x200A;<sub><a title="More Stick Variants (MStV)&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Stick Variants (MStV)&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) but with Minecraft <ins>26.1</ins>, _Villager_ trading has become data-driven allowing for each _More Variants_ mod to implement this feature for their respective block/item variants without needing to rely on <ins>MStV</ins> (&#x200A;<sub><a title="MStV&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="MStV&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) for this functionality.
 
-<h2><sub><sub><sup><ins>Download 1.2.5 + 1.21.11</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Frame Variants 1.2.5 + 1.21.11" href="https://www.modrinth.com/mod/vwp1lXf8/version/5qagFSPO">
+<br></br>
+<sub>License update to [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) (previously [`MIT`](https://choosealicense.com/licenses/mit))</sub>
+
+<h2><sub><sub><sup><ins>Download 1.2.6 + 1.21(.1)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Frame Variants 1.2.6 + 1.21(.1)" href="https://www.modrinth.com/mod/vwp1lXf8/version/ez2Zuuu8">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
 <sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
-<a title="Download (Curseforge):&#10;1.2.5 + 1.21.11 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7534255">
+<a title="Download (Curseforge):&#10;1.2.6 + 1.21(.1) - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7923615">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
