@@ -1,12 +1,14 @@
 package de.pnku.mstv_mframev.item;
 
+import de.pnku.mstv_mframev.MoreFrameVariants;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.*;
-import net.minecraft.core.Registry;
-import de.pnku.mstv_mframev.MoreFrameVariants;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 import java.util.ArrayList;
 import java.util.HashMap;
