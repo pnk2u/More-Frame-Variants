@@ -2,6 +2,7 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIFClientConstructor;
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantItemFrameRenderState;
 import de.pnku.mstv_mframev.util.IItemFrame;
@@ -20,13 +21,19 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ItemFrame;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -40,7 +47,8 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
 
     protected ItemFrameRendererMixin(EntityRendererProvider.Context context) {super(context);}
 
-    @Shadow @Final
+    @Shadow
+    @Final
     private BlockRenderDispatcher blockRenderer;
     @Shadow @Final
     private MapRenderer mapRenderer;
@@ -158,7 +166,6 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
             String mapVariantBl = (moreFrameVariantItemFrameRenderState.mapId != null) ? "map=true" : "map=false";
             String frameBaseName = (isGlow) ? "_glow_item_frame" : "_item_frame";
             return new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(namespace, woodVariant + frameBaseName), mapVariantBl);
-            //LOGGER.info(modelResourceLocation.toString());
     }
 
     @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/decoration/ItemFrame;Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;F)V", at = @At("HEAD"))
