@@ -6,15 +6,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 
 import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.MOD_ID;
-import static java.util.Map.entry;
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frame_wood_types;
 
 @Mixin(ModelBakery.class)
 public abstract class ModelBakeryMixin {
@@ -26,17 +23,18 @@ public abstract class ModelBakeryMixin {
     @Final
     @Shadow private static StateDefinition<Block, BlockState> ITEM_FRAME_FAKE_DEFINITION;
 
+    @Unique
+    private static Map<ResourceLocation, StateDefinition<Block, BlockState>> createStaticDefinitions() {
+        ImmutableMap.Builder<ResourceLocation, StateDefinition<Block, BlockState>> builder = ImmutableMap.builder();
+        builder.putAll(STATIC_DEFINITIONS);
+        for (String woodType : more_item_frame_wood_types) {
+            builder.put(new ResourceLocation(MOD_ID, woodType + "_item_frame"), ITEM_FRAME_FAKE_DEFINITION);
+            builder.put(new ResourceLocation(MOD_ID, woodType + "_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION);
+        }
+        return builder.build();
+    }
+
     static {
-        STATIC_DEFINITIONS = ImmutableMap.ofEntries(entry(new ResourceLocation("item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation("glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"acacia_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "acacia_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"bamboo_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "bamboo_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"cherry_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "cherry_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"crimson_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "crimson_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"dark_oak_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "dark_oak_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"jungle_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "jungle_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"mangrove_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "mangrove_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"oak_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "oak_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"spruce_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "spruce_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION),
-                entry(new ResourceLocation(MOD_ID,"warped_item_frame"), ITEM_FRAME_FAKE_DEFINITION), entry(new ResourceLocation(MOD_ID, "warped_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION));
+        STATIC_DEFINITIONS = createStaticDefinitions();
     }
 }
