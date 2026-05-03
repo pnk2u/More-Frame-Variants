@@ -1,7 +1,6 @@
 package de.pnku.mstv_mframev.mixin.client;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 import net.minecraft.client.resources.model.BlockStateModelLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -9,10 +8,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import org.spongepowered.asm.mixin.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.asId;
 import static de.pnku.mstv_mframev.MoreFrameVariants.isFifLoaded;
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frame_wood_types;
 
 @Mixin(BlockStateModelLoader.class)
 public abstract class BlockStateModelLoaderMixin {
@@ -33,9 +34,8 @@ public abstract class BlockStateModelLoaderMixin {
 
     @Unique
     private static Map<ResourceLocation, StateDefinition<Block, BlockState>> getItemFrameVariantDefinitions() {
-        Map<ResourceLocation, StateDefinition<Block, BlockState>> map = Maps.newHashMap();
-        String[] woodTypes = new String[]{"acacia", "bamboo", "cherry", "crimson", "dark_oak", "jungle", "mangrove", "oak", "pale_oak", "spruce", "warped"};
-        for (String woodType : woodTypes) {
+        Map<ResourceLocation, StateDefinition<Block, BlockState>> map = new HashMap<>();
+        for (String woodType : more_item_frame_wood_types) {
             String itemFramePath = woodType + "_item_frame";
             String glowItemFramePath = woodType + "_glow_item_frame";
             map.put(asId(itemFramePath), ITEM_FRAME_FAKE_DEFINITION);
