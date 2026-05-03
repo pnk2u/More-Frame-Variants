@@ -82,14 +82,14 @@ dependencies {
 	compileOnly "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 	localRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 
-	// FIF Compat (FIF/PuzzlesLib not updated to 26.1 yet)
-	//localRuntime "maven.modrinth:fast-item-frames:${project.fif_version_id}"
-	//compileOnly "maven.modrinth:fast-item-frames:${project.fif_version_id}"
-	//localRuntime "maven.modrinth:forge-config-api-port:${project.fc_api_version_id}"
-	//localRuntime "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
-	//compileOnly "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
-	//implementation 'com.electronwill.night-config:core:3.8.2'
-	//implementation 'com.electronwill.night-config:toml:3.8.2'
+	// FIF Compat
+	localRuntime "maven.modrinth:fast-item-frames:${project.fast_item_frames_version_id}"
+	compileOnly "maven.modrinth:fast-item-frames:${project.fast_item_frames_version_id}"
+	localRuntime "maven.modrinth:forge-config-api-port:${project.forge_config_api_port_version_id}"
+	localRuntime "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
+	compileOnly "maven.modrinth:puzzles-lib:${project.puzzles_lib_version_id}"
+	implementation 'com.electronwill.night-config:core:3.8.2'
+	implementation 'com.electronwill.night-config:toml:3.8.2'
 }
 
 static def version_reduced(String input) { // Reduces a version string by one minor version and sets patch to 0

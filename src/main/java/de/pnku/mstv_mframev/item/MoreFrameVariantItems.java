@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static de.pnku.mstv_mframev.MoreFrameVariants.LOGGER;
+
 
 public class MoreFrameVariantItems {
 
@@ -63,6 +65,7 @@ public class MoreFrameVariantItems {
     public static final List<Item> more_item_frames = new ArrayList<>();
     public static final List<Item> more_glow_item_frames = new ArrayList<>();
     public static final List<Item> more_all_item_frames = new ArrayList<>();
+    public static final List<String> more_item_frame_wood_types = new ArrayList<>();
     public static final Map<Item, Item> more_item_frame_from_glow_map = new HashMap<>();
 
     public static void registerFrameItems() {
@@ -100,6 +103,8 @@ public class MoreFrameVariantItems {
         // MoreFrameVariants.LOGGER.info("Registered: " + paintingName);
     }
     private static void registerItemFramesItem(Item itemFrameItem, Item itemFrameAfter, Item glowItemFrameItem, Item glowItemFrameAfter) {
+        String itemFrameWoodType = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType;
+        if (!itemFrameWoodType.equals(((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType)) LOGGER.warn("Wood type mismatch between item frame and glow item frame: " + itemFrameWoodType + " <-> " + ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType);
         String itemFrameName = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType + "_item_frame";
         String glowItemFrameName = ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType + "_glow_item_frame";
         Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, itemFrameName), itemFrameItem);
@@ -112,6 +117,7 @@ public class MoreFrameVariantItems {
         more_all_item_frames.add(glowItemFrameItem);
         more_frame_variants.add(itemFrameItem);
         more_frame_variants.add(glowItemFrameItem);
+        if(!more_item_frame_wood_types.contains(itemFrameWoodType)) more_item_frame_wood_types.add(itemFrameWoodType);
         more_item_frame_from_glow_map.put(glowItemFrameItem, itemFrameItem);
         // MoreFrameVariants.LOGGER.info("Registered: " + itemFrameName + ", " + glowItemFrameName);
     }
