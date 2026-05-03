@@ -1,4 +1,3 @@
-/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
@@ -7,7 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItem;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
-import fuzs.fastitemframes.world.level.block.ItemFrameBlock;
+import fuzs.fastitemframes.common.world.level.block.ItemFrameBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
@@ -20,7 +19,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,8 +28,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static de.pnku.mstv_mframev.item.MoreFrameVariantItem.stackFromIFWoodVariant;
-import static fuzs.fastitemframes.world.level.block.ItemFrameBlock.ROTATION;
-import static fuzs.fastitemframes.world.level.block.ItemFrameBlock.WAXED;
+import static fuzs.fastitemframes.common.world.level.block.ItemFrameBlock.ROTATION;
+import static fuzs.fastitemframes.common.world.level.block.ItemFrameBlock.WAXED;
 
 @Mixin(ItemFrameBlock.class)
 public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
@@ -75,5 +73,3 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
     }
 
 }
-
-*/

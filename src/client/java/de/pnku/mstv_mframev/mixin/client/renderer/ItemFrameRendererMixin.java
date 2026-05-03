@@ -2,9 +2,7 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-/*
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIFClientConstructor;
-This import is commented out as FastItemFrames has at this time not been updated to 26.1 yet.*/
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantItemFrameRenderState;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import net.fabricmc.api.EnvType;
@@ -84,33 +82,6 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
 
             poseStack.mulPose(Axis.XP.rotationDegrees(f));
             poseStack.mulPose(Axis.YP.rotationDegrees(g));
-            // Copied from FIF's ItemFrameRendererMixin
-            if (isFifLoaded) {
-                /*
-                if (MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifIsDyedRenderState(moreFrameVariantItemFrameRenderState)) {
-                    int color = MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifDyedColorRenderState(moreFrameVariantItemFrameRenderState);
-                    BlockState blockState = mframev$getItemFrameVariantFakeState(itemFrameVariant, moreFrameVariantItemFrameRenderState.isGlowFrame, moreFrameVariantItemFrameRenderState.mapId != null, true);
-                    BlockStateModel blockStateModel = this.blockRenderer.getBlockModel(blockState);
-                    poseStack.pushPose();
-                    poseStack.translate(-0.5F, -0.5F, -0.5F);
-                    float red = ARGB.redFloat(color);
-                    float green = ARGB.greenFloat(color);
-                    float blue = ARGB.blueFloat(color);
-                    submitNodeCollector.submitBlockModel(poseStack,
-                            RenderTypes.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
-                            blockStateModel,
-                            red,
-                            green,
-                            blue,
-                            itemFrameRenderState.lightCoords,
-                            OverlayTexture.NO_OVERLAY,
-                            itemFrameRenderState.outlineColor);
-                    poseStack.popPose();
-                    itemFrameRenderState.isInvisible = true;
-                }
-                These lines are commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
-            }
-            //
             if (!itemFrameRenderState.isInvisible) {
                 poseStack.pushPose();
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
@@ -149,9 +120,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
     @Unique
     public BlockState mframev$getItemFrameVariantFakeState(String woodVariant, boolean isGlow, boolean hasMap, boolean isDyed) {
         if (isFifLoaded && (isGlow || isDyed)) {
-            /*
             return MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockState(isGlow, hasMap, isDyed, woodVariant);
-            This line is commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
         }
         StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
         return itemFrameVariantFakeDefinition.any().setValue(BlockStateProperties.MAP, hasMap);

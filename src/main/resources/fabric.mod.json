@@ -30,7 +30,11 @@
 			"config": "mstv-mframev.client.mixins.json" ,
 			"environment": "client"
     },
-    "mstv-mframev.compat.fastitemframes.mixins.json"
+    "mstv-mframev.compat.fastitemframes.mixins.json",
+    {
+            "config": "mstv-mframev.compat.fastitemframes.client.mixins.json" ,
+            "environment": "client"
+    }
   ],
   "depends": {
         "fabricloader": ">=${loader_version}",

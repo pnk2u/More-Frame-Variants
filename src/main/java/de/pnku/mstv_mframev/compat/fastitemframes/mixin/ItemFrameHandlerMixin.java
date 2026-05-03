@@ -1,12 +1,11 @@
-/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes.mixin;
 
 import de.pnku.mstv_mframev.util.IItemFrame;
-import fuzs.fastitemframes.handler.ItemFrameHandler;
-import fuzs.fastitemframes.init.ModRegistry;
-import fuzs.fastitemframes.world.level.block.ItemFrameBlock;
-import fuzs.fastitemframes.world.level.block.entity.ItemFrameBlockEntity;
-import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.fastitemframes.common.handler.ItemFrameHandler;
+import fuzs.fastitemframes.common.init.ModRegistry;
+import fuzs.fastitemframes.common.world.level.block.ItemFrameBlock;
+import fuzs.fastitemframes.common.world.level.block.entity.ItemFrameBlockEntity;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
@@ -32,7 +31,7 @@ public class ItemFrameHandlerMixin {
 
     @Inject(method = "onEntityLoad", at = @At(value = "HEAD"), remap = false)
     private static void injectedOnEntityLoad(Entity entity, ServerLevel serverLevel, boolean isFreshEntity, CallbackInfoReturnable<EventResult> cir) {
-        if (entity.getType().is(ModRegistry.ITEM_FRAMES_ENTITY_TYPE_TAG) && entity instanceof ItemFrame itemFrame) {
+        if (entity.is(ModRegistry.ITEM_FRAMES_ENTITY_TYPE_TAG) && entity instanceof ItemFrame itemFrame) {
             serverLevel.getServer().schedule(new TickTask(serverLevel.getServer().getTickCount(), () -> {
                 Block block = ItemFrameBlock.BY_ITEM.get(itemFrame.getFrameItemStack().getItem());
                 BlockPos blockPos = entity.blockPosition();
@@ -48,5 +47,3 @@ public class ItemFrameHandlerMixin {
         }
     }
 }
-
-*/

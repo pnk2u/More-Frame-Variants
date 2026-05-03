@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_dye",
+  "category": "misc",
+  "dye": "#minecraft:dyes",
+  "group": "item_frame",
+  "result": {
+    "id": "mstv-mframev:acacia_item_frame"
+  },
+  "target": "mstv-mframev:acacia_item_frame"
+}

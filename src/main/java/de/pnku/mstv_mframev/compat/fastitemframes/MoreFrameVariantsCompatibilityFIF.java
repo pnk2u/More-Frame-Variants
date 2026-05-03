@@ -1,8 +1,7 @@
-/* This class is commented out as FastItemFrames has at this time not been updated to 26.1 yet.
 package de.pnku.mstv_mframev.compat.fastitemframes;
 
 import de.pnku.mstv_mframev.MoreFrameVariants;
-import fuzs.fastitemframes.init.ModRegistry;
+import fuzs.fastitemframes.common.init.ModRegistry;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -80,4 +79,3 @@ public class MoreFrameVariantsCompatibilityFIF {
     }
 }
 
-*/

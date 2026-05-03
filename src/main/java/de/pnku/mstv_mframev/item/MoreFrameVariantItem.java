@@ -1,9 +1,7 @@
 package de.pnku.mstv_mframev.item;
 
 import de.pnku.mstv_mframev.MoreFrameVariants;
-/*
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
-This import is commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
 import de.pnku.mstv_mframev.util.IItemFrame;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
@@ -20,8 +18,6 @@ import net.minecraft.world.item.HangingEntityItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.component.TypedEntityData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -75,9 +71,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
                     hangingEntity.playPlacementSound();
                     level.gameEvent(player, GameEvent.ENTITY_PLACE, hangingEntity.position());
                     if ((hangingEntity.getType().equals(EntityType.ITEM_FRAME) || hangingEntity.getType().equals(EntityType.GLOW_ITEM_FRAME)) && itemStack.has(DataComponents.DYED_COLOR) && MoreFrameVariants.isFifLoaded) {
-                        /*
                         MoreFrameVariantsCompatibilityFIF.attachCompatFifDataToEntity(itemStack, hangingEntity);
-                        This line is commented out as FastItemFrames has at this time not been updated to 26.1 yet. */
                     }
                     level.addFreshEntity(hangingEntity);
                     if (hangingEntity.getType().equals(EntityType.PAINTING)){
