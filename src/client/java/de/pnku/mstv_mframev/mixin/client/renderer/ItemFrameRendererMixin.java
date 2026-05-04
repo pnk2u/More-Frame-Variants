@@ -120,7 +120,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
                 poseStack.mulPose(Axis.ZP.rotationDegrees((float)j * 360.0F / 8.0F));
                 poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
                 float h = 0.0078125F;
-                poseStack.scale(0.0078125F, 0.0078125F, 0.0078125F);
+                poseStack.scale(h, h, h);
                 poseStack.translate(-64.0F, -64.0F, 0.0F);
                 poseStack.translate(0.0F, 0.0F, -1.0F);
                 int k = this.getLightCoords(itemFrameRenderState.isGlowFrame, 15728850, i);
