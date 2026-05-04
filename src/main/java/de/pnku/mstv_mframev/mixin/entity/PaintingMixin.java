@@ -13,6 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
@@ -24,6 +25,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
+
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_paintings_by_wood_type;
 
 @Mixin(Painting.class)
 public abstract class PaintingMixin extends HangingEntity implements IPainting {
@@ -62,11 +67,8 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Inject(method = "dropItem", at = @At("HEAD"), cancellable = true)
     private void injectedDropItem(ServerLevel serverLevel, @Nullable Entity brokenEntity, CallbackInfo ci) {
-        String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
+        String woodVariant = this.mframev$getPWoodVariant();
         if (woodVariant != null) {
-            // debug
-            //LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
-
             ItemStack itemStack = stackFromPWoodVariant(woodVariant);
             if (serverLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                 this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
@@ -85,7 +87,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Inject(method = "getPickResult", at = @At("HEAD"), cancellable = true)
     public void injectedGetPickResult(CallbackInfoReturnable<ItemStack> cir) {
-        String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
+        String woodVariant = this.mframev$getPWoodVariant();
         if (woodVariant != null) {
             cir.setReturnValue(stackFromPWoodVariant(woodVariant));
         }
@@ -93,21 +95,8 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Unique
     public ItemStack stackFromPWoodVariant(String woodVariant) {
-        switch (woodVariant) {
-            case "acacia" -> {return new ItemStack(MoreFrameVariantItems.ACACIA_PAINTING);}
-            case "bamboo" -> {return new ItemStack(MoreFrameVariantItems.BAMBOO_PAINTING);}
-            case "birch" -> {return new ItemStack(MoreFrameVariantItems.BIRCH_PAINTING);}
-            case "cherry" -> {return new ItemStack(MoreFrameVariantItems.CHERRY_PAINTING);}
-            case "crimson" -> {return new ItemStack(MoreFrameVariantItems.CRIMSON_PAINTING);}
-            case "dark_oak" -> {return new ItemStack(MoreFrameVariantItems.DARK_OAK_PAINTING);}
-            case "pale_oak" -> {return new ItemStack(MoreFrameVariantItems.PALE_OAK_PAINTING);}
-            case "jungle" -> {return new ItemStack(MoreFrameVariantItems.JUNGLE_PAINTING);}
-            case "mangrove" -> {return new ItemStack(MoreFrameVariantItems.MANGROVE_PAINTING);}
-            case "oak" -> {return new ItemStack(MoreFrameVariantItems.OAK_PAINTING);}
-            case "spruce" -> {return new ItemStack(MoreFrameVariantItems.SPRUCE_PAINTING);}
-            case "warped" -> {return new ItemStack(MoreFrameVariantItems.WARPED_PAINTING);}
-            case null, default -> {return new ItemStack(Items.PAINTING);}
-        }
+        Item paintingItem = more_paintings_by_wood_type.get(woodVariant);
+        return new ItemStack(Objects.requireNonNullElse(paintingItem, Items.PAINTING));
     }
 
     static {
