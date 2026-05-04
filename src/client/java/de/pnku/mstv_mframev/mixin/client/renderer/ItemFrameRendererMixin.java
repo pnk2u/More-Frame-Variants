@@ -2,7 +2,6 @@ package de.pnku.mstv_mframev.mixin.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIFClientConstructor;
 import de.pnku.mstv_mframev.renderer.renderstates.MoreFrameVariantItemFrameRenderState;
 import de.pnku.mstv_mframev.util.IItemFrame;
@@ -26,7 +25,6 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
 import net.minecraft.core.Direction;
 import net.minecraft.util.ARGB;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -163,7 +161,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         if (isFifLoaded && (isGlow || isDyed)) {
             return MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockState(isGlow, hasMap, isDyed, woodVariant);
         }
-        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
+        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(withModId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
         return itemFrameVariantFakeDefinition.any().setValue(BlockStateProperties.MAP, hasMap);
     }
 
