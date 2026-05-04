@@ -64,14 +64,16 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.2.7"></a>
-#### 1.2.7[*](#footnote-*):
-- `26.1`: Fix the _Cartographer_ and _Shepherd_ trades from the previous update `1.2.6`
+<a name="1.2.8"></a>
+#### 1.2.8[*](#footnote-*):
+- `26.1`: Re-enable and update compatibility with <ins>Fast Item Frames</ins> (&#x200A;<sub><a title="Fast Item Frames&#10;on Modrinth" href="https://modrinth.com/mod/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="Fast Item Frames&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)
+- Implement internal changes to support upcoming Add-on Mods for which this update will be required
 
-<h2><sub><sub><sup><ins>Download 1.2.7 + 26.1</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Frame Variants 1.2.7 + 26.1" href="https://www.modrinth.com/mod/vwp1lXf8/version/EwaZMHpR">
+
+<h2><sub><sub><sup><ins>Download 1.2.8 + 26.1</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Frame Variants 1.2.8 + 26.1" href="https://www.modrinth.com/mod/vwp1lXf8/version/pV8LEafx">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
-<a title="Download (Curseforge):&#10;1.2.7 + 26.1 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7924000">
+<a title="Download (Curseforge):&#10;1.2.8 + 26.1 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/8037725">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
