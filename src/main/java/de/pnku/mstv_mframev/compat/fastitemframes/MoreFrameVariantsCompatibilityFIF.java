@@ -23,17 +23,17 @@ import java.util.*;
 public class MoreFrameVariantsCompatibilityFIF {
     public static final WoodTypeProperty WOOD_TYPE = new WoodTypeProperty();
 
-        public static void attachCompatFifDataToEntity(ItemStack itemInHand, HangingEntity itemFrame) {
-            DyedItemColor color = itemInHand.get(DataComponents.DYED_COLOR);
-            ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.set(itemFrame, color);
-        }
+    public static void attachCompatFifDataToEntity(ItemStack itemInHand, HangingEntity itemFrame) {
+        DyedItemColor color = itemInHand.get(DataComponents.DYED_COLOR);
+        ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.set(itemFrame, color);
+    }
 
     public static boolean getCompatFifIsDyedEntity(ItemFrame itemFrame) {
         return ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.has(itemFrame);
     }
 
-        public static void registerCompatFifDatapack() {
-                ResourceLoader.registerBuiltinPack(
+    public static void registerCompatFifDatapack() {
+        ResourceLoader.registerBuiltinPack(
                 MoreFrameVariants.withModId("mframev_fifcompat"),
                 FabricLoader.getInstance().getModContainer(MoreFrameVariants.MOD_ID).orElseThrow(),
                 Component.literal("Fast Item Frames Compatibility"),
