@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.util.HashMap;
 import java.util.Map;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.asId;
-import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frame_wood_types;
+import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frames_by_wood_type;
 import static java.util.Map.entry;
 
 @Mixin(BlockStateDefinitions.class)
@@ -45,9 +45,9 @@ public abstract class BlockStateDefinitionsMixin {
                 entry(GLOW_ITEM_FRAME_LOCATION, GLOW_ITEM_FRAME_FAKE_DEFINITION)
         ));
 
-        for (String woodType : more_item_frame_wood_types) {
-            definitions.put(asId(woodType + "_item_frame"), BlockStateDefinitions.createItemFrameFakeState());
-            definitions.put(asId(woodType + "_glow_item_frame"), BlockStateDefinitions.createItemFrameFakeState());
+        for (String woodType : more_item_frames_by_wood_type.keySet()) {
+            definitions.put(withModId(woodType + "_item_frame"), BlockStateDefinitions.createItemFrameFakeState());
+            definitions.put(withModId(woodType + "_glow_item_frame"), BlockStateDefinitions.createItemFrameFakeState());
         }
 
         STATIC_DEFINITIONS = definitions;
