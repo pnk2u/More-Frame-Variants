@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.*;
 
 import java.util.Map;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.MOD_ID;
-import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frame_wood_types;
+import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frames_by_wood_type;
 
 @Mixin(ModelBakery.class)
 public abstract class ModelBakeryMixin {
@@ -27,9 +27,11 @@ public abstract class ModelBakeryMixin {
     private static Map<ResourceLocation, StateDefinition<Block, BlockState>> createStaticDefinitions() {
         ImmutableMap.Builder<ResourceLocation, StateDefinition<Block, BlockState>> builder = ImmutableMap.builder();
         builder.putAll(STATIC_DEFINITIONS);
-        for (String woodType : more_item_frame_wood_types) {
-            builder.put(new ResourceLocation(MOD_ID, woodType + "_item_frame"), ITEM_FRAME_FAKE_DEFINITION);
-            builder.put(new ResourceLocation(MOD_ID, woodType + "_glow_item_frame"), ITEM_FRAME_FAKE_DEFINITION);
+        for (String woodType : more_item_frames_by_wood_type.keySet()) {
+            String itemFramePath = woodType + "_item_frame";
+            String glowItemFramePath = woodType + "_glow_item_frame";
+            builder.put(withModId(itemFramePath), ITEM_FRAME_FAKE_DEFINITION);
+            builder.put(withModId(glowItemFramePath), ITEM_FRAME_FAKE_DEFINITION);
         }
         return builder.build();
     }
