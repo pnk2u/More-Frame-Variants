@@ -37,7 +37,7 @@
     <tr>
       <td><strong>Supports</strong></td>
       <td>
-        <a href="https://modrinth.com/mod/fast-item-frames"><sub><img width="16" src="https://raw.githubusercontent.com/Fuzss/fastitemframes/main/1.21.1/Common/src/main/resources/mod_logo.png"></sub><code>Fast Item Frames</code></a><br><a href="https://modrinth.com/mod/dark-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png"></sub><code>Dark Paintings</code></a><br><a href="https://modrinth.com/mod/nemos-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"></sub><code>Nemoʼs Paintings</code></a><br><a href="https://modrinth.com/mod/macaws-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png"></sub><code>Macaw's Paintings</code></a>
+        <a href="https://modrinth.com/mod/fast-item-frames"><sub><img width="16" src="https://raw.githubusercontent.com/Fuzss/fast-item-frames/1.21.1/Common/src/main/resources/mod_logo.png"></sub><code>Fast Item Frames</code></a><br><a href="https://modrinth.com/mod/dark-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/Darkhax-Minecraft/Dark-Paintings/1.21.1/common/src/main/resources/logo_darkpaintings.png"></sub><code>Dark Paintings</code></a><br><a href="https://modrinth.com/mod/nemos-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/NemoNotFound/NemosPaintings/master/common/src/main/resources/assets/nemos_paintings/textures/painting/nemos_portrait.png"></sub><code>Nemoʼs Paintings</code></a><br><a href="https://modrinth.com/mod/macaws-paintings"><sub><img width="16" src="https://raw.githubusercontent.com/sketchmacaw/Paintings/main/1.19/src/main/resources/assets/mcwpaintings/textures/painting/macaw.png"></sub><code>Macaw's Paintings</code></a>
       </td>
     </tr>
   </tbody>
@@ -70,8 +70,7 @@
 
 <h2><sub><sub><sup><ins>Download 1.2.7 + 26.1</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Frame Variants 1.2.7 + 26.1" href="https://www.modrinth.com/mod/vwp1lXf8/version/EwaZMHpR">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.2.7 + 26.1 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/7924000">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
