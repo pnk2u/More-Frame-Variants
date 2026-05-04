@@ -17,11 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 import com.google.common.collect.ImmutableSet;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MoreFrameVariantsCompatibilityFIF {
     public static final WoodTypeProperty WOOD_TYPE = new WoodTypeProperty();
@@ -65,8 +61,8 @@ public class MoreFrameVariantsCompatibilityFIF {
         }
 
         @Override
-        public @NotNull Collection<WoodTypeValue> getPossibleValues() {
-            return this.values;
+        public @NotNull List<WoodTypeValue> getPossibleValues() {
+            return this.values.asList();
         }
 
         @Override
@@ -77,6 +73,11 @@ public class MoreFrameVariantsCompatibilityFIF {
         @Override
         public @NotNull Optional<WoodTypeValue> getValue(String name) {
             return Optional.ofNullable(this.names.get(name));
+        }
+
+        @Override
+        public int getInternalIndex(WoodTypeValue value) {
+            return getPossibleValues().indexOf(value);
         }
 
         public static WoodTypeValue getByName(String name) {

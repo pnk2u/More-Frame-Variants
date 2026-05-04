@@ -3,19 +3,14 @@ package de.pnku.mstv_mframev.compat.fastitemframes;
 import fuzs.fastitemframes.client.handler.ClientEventHandler;
 import fuzs.fastitemframes.init.ModRegistry;
 import fuzs.fastitemframes.world.level.block.ItemFrameBlock;
-import fuzs.fastitemframes.world.level.block.entity.ItemFrameBlockEntity;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.BlockColorsContext;
 import fuzs.puzzleslib.api.client.renderer.v1.RenderPropertyKey;
 import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
-import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.*;
+import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WOOD_TYPE;
+import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WoodTypeProperty;
 
 public class MoreFrameVariantsCompatibilityFIFClientConstructor implements ClientModConstructor {
 
@@ -29,7 +24,7 @@ public class MoreFrameVariantsCompatibilityFIFClientConstructor implements Clien
 
     public static BlockState getCompatFifBlockState(boolean isGlow, boolean isMap, boolean isDyed, String woodVariant) {
         Block block = isGlow ? ModRegistry.GLOW_ITEM_FRAME_BLOCK.value() : ModRegistry.ITEM_FRAME_BLOCK.value();
-        return block.defaultBlockState().setValue(ItemFrameBlock.MAP, isMap).setValue(ItemFrameBlock.DYED, isDyed).setValue(WOOD_TYPE, WoodType.getEnumByName(woodVariant));
+        return block.defaultBlockState().setValue(ItemFrameBlock.MAP, isMap).setValue(ItemFrameBlock.DYED, isDyed).setValue(WOOD_TYPE, WoodTypeProperty.getByName(woodVariant));
     }
 
 }

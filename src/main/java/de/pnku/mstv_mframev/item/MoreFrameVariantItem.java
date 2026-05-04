@@ -38,7 +38,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
     private final EntityType<? extends HangingEntity> type;
 
     public MoreFrameVariantItem(String mframevWoodType, EntityType<? extends HangingEntity> type, Item.Properties properties) {
-        super(type, properties.setId(ResourceKey.create(Registries.ITEM, MoreFrameVariants.asId(mframevWoodType + "_" + type.toShortString()))));
+        super(type, properties.setId(ResourceKey.create(Registries.ITEM, MoreFrameVariants.withModId(mframevWoodType + "_" + type.toShortString()))));
         this.mframevWoodType = mframevWoodType;
         this.type = type;
     }
