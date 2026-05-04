@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
+import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WoodTypeProperty;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItem;
 import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import fuzs.fastitemframes.world.level.block.ItemFrameBlock;
@@ -15,11 +16,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -33,8 +34,9 @@ import static de.pnku.mstv_mframev.item.MoreFrameVariantItem.stackFromIFWoodVari
 @Mixin(ItemFrameBlock.class)
 public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
     protected ItemFrameBlockMixin(Properties properties) {super(properties);}
+
     @Unique
-    private static final EnumProperty<MoreFrameVariantsCompatibilityFIF.WoodType> WOOD_TYPE = MoreFrameVariantsCompatibilityFIF.WOOD_TYPE;
+    private static final WoodTypeProperty WOOD_TYPE = MoreFrameVariantsCompatibilityFIF.WOOD_TYPE;
 
     @Shadow @Final
     public static BooleanProperty HAS_MAP;
@@ -50,7 +52,7 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
 
     @Inject(method = "<init>", at = @At(value = "TAIL"), remap = false)
     public void injectedInitAtTail(Item item, Properties properties, CallbackInfo ci) {
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(WATERLOGGED, Boolean.FALSE).setValue(INVISIBLE, Boolean.FALSE).setValue(HAS_MAP, Boolean.FALSE).setValue(DYED, Boolean.FALSE).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodType.BIRCH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(WATERLOGGED, Boolean.FALSE).setValue(INVISIBLE, Boolean.FALSE).setValue(HAS_MAP, Boolean.FALSE).setValue(DYED, Boolean.FALSE).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodTypeProperty.getByName("birch")));
     }
 
     @Override
@@ -60,7 +62,12 @@ public abstract class ItemFrameBlockMixin extends BaseEntityBlock {
 
     @ModifyReturnValue(method = "getCloneItemStack", at = @At("RETURN"))
     public ItemStack wrappedGetCloneItemStackAtGetItem(ItemStack original, BlockGetter level, BlockPos pos, BlockState state) {
-        String woodVariant = level.getBlockEntity(pos).getBlockState().getValue(WOOD_TYPE).toString().toLowerCase();
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity == null) {
+            return original;
+        }
+
+        String woodVariant = blockEntity.getBlockState().getValue(WOOD_TYPE).woodType().name();
         return stackFromIFWoodVariant(woodVariant, MoreFrameVariantItems.more_glow_item_frames.contains(original.getItem()) || original.getItem() == Items.GLOW_ITEM_FRAME, original);
     }
 

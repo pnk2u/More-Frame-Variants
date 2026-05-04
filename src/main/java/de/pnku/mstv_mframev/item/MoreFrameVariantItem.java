@@ -8,6 +8,7 @@ import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -24,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Optional;
+
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frames_by_wood_type;
 
 
 public class MoreFrameVariantItem extends HangingEntityItem {
@@ -108,52 +111,16 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
     @Unique
     public static ItemStack stackFromIFWoodVariant(String woodVariant, Boolean isGlow, ItemStack inputStack) {
+        Tuple<Item, Item> itemFrameTuple = more_item_frames_by_wood_type.get(woodVariant);
         ItemStack outputStack;
-        if (inputStack.equals(ItemStack.EMPTY)) {
+        if (itemFrameTuple == null) {
             outputStack = isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);
         } else {
-            switch (woodVariant) {
-                case "birch" -> {
-                    outputStack = isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);
-                }
-                case "acacia" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.ACACIA_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.ACACIA_ITEM_FRAME);
-                }
-                case "bamboo" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.BAMBOO_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.BAMBOO_ITEM_FRAME);
-                }
-                case "cherry" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.CHERRY_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.CHERRY_ITEM_FRAME);
-                }
-                case "crimson" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.CRIMSON_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.CRIMSON_ITEM_FRAME);
-                }
-                case "dark_oak" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.DARK_OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.DARK_OAK_ITEM_FRAME);
-                }
-                case "jungle" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.JUNGLE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.JUNGLE_ITEM_FRAME);
-                }
-                case "mangrove" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.MANGROVE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.MANGROVE_ITEM_FRAME);
-                }
-                case "oak" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.OAK_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.OAK_ITEM_FRAME);
-                }
-                case "spruce" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.SPRUCE_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.SPRUCE_ITEM_FRAME);
-                }
-                case "warped" -> {
-                    outputStack = isGlow ? new ItemStack(MoreFrameVariantItems.WARPED_GLOW_ITEM_FRAME) : new ItemStack(MoreFrameVariantItems.WARPED_ITEM_FRAME);
-                }
-                default -> {
-                    outputStack = isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);
-                }
-            }
-            if (inputStack.hasTag()) {
-                outputStack.setTag(inputStack.getTag().copy());
-            }
+            outputStack = isGlow ? new ItemStack(itemFrameTuple.getB()) : new ItemStack(itemFrameTuple.getA());
         }
-        return  outputStack;
+        if (inputStack.hasTag()) {
+            outputStack.setTag(inputStack.getTag().copy());
+        }
+        return outputStack;
     }
 }
