@@ -7,9 +7,9 @@ import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.util.Tuple;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.GlowItemFrame;
@@ -38,7 +38,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
     private final EntityType<? extends HangingEntity> type;
 
     public MoreFrameVariantItem(String mframevWoodType, EntityType<? extends HangingEntity> type, Item.Properties properties) {
-        super(type, properties.setId(ResourceKey.create(Registries.ITEM, MoreFrameVariants.asId(mframevWoodType + "_" + type.toShortString()))));
+        super(type, properties.setId(ResourceKey.create(Registries.ITEM, MoreFrameVariants.withModId(mframevWoodType + "_" + type.toShortString()))));
         this.mframevWoodType = mframevWoodType;
         this.type = type;
     }
