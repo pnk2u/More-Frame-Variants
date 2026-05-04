@@ -37,7 +37,7 @@ public class MoreFrameVariantsCompatibilityFIF {
 
     public static void registerCompatFifDatapack() {
         ResourceManagerHelper.registerBuiltinResourcePack(
-                MoreFrameVariants.asId("mframev_fifcompat"),
+                MoreFrameVariants.withModId("mframev_fifcompat"),
                 FabricLoader.getInstance().getModContainer(MoreFrameVariants.MOD_ID).orElseThrow(),
                 Component.literal("Fast Item Frames Compatibility"),
                 ResourcePackActivationType.ALWAYS_ENABLED);

@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import static de.pnku.mstv_mframev.MoreFrameVariants.asId;
+import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
 import static de.pnku.mstv_mframev.MoreFrameVariants.isFifLoaded;
 import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frames_by_wood_type;
 
@@ -38,8 +38,8 @@ public abstract class BlockStateModelLoaderMixin {
         for (String woodType : more_item_frames_by_wood_type.keySet()) {
             String itemFramePath = woodType + "_item_frame";
             String glowItemFramePath = woodType + "_glow_item_frame";
-            map.put(asId(itemFramePath), ITEM_FRAME_FAKE_DEFINITION);
-            map.put(asId(glowItemFramePath), ITEM_FRAME_FAKE_DEFINITION);
+            map.put(withModId(itemFramePath), ITEM_FRAME_FAKE_DEFINITION);
+            map.put(withModId(glowItemFramePath), ITEM_FRAME_FAKE_DEFINITION);
             if (isFifLoaded) {
                 map.put(ResourceLocation.fromNamespaceAndPath("fastitemframes", itemFramePath), ITEM_FRAME_FAKE_DEFINITION);
                 map.put(ResourceLocation.fromNamespaceAndPath("fastitemframes", glowItemFramePath), ITEM_FRAME_FAKE_DEFINITION);

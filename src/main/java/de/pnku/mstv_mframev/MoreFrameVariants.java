@@ -28,7 +28,7 @@ public class MoreFrameVariants implements ModInitializer {
 		}
 	}
 
-	public static ResourceLocation asId(String path) {
+	public static ResourceLocation withModId(String path) {
 		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 

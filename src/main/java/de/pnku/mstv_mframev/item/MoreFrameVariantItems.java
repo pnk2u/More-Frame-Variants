@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.LOGGER;
+import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
 
 
 public class MoreFrameVariantItems {
@@ -102,12 +103,12 @@ public class MoreFrameVariantItems {
     }
     private static void registerItemFramesItem(Item itemFrameItem, Item itemFrameAfter, Item glowItemFrameItem, Item glowItemFrameAfter) {
         String itemFrameWoodType = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType;
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreFrameVariants.MOD_ID, itemFrameName), itemFrameItem);
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreFrameVariants.MOD_ID, glowItemFrameName), glowItemFrameItem);
         String glowItemFrameWoodType = ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType;
         if (!itemFrameWoodType.equals(glowItemFrameWoodType)) LOGGER.warn("Wood type mismatch between item frame and glow item frame: " + itemFrameWoodType + " <-> " + glowItemFrameWoodType);
         String itemFrameName = itemFrameWoodType + "_item_frame";
         String glowItemFrameName = glowItemFrameWoodType + "_glow_item_frame";
+        Registry.register(BuiltInRegistries.ITEM, withModId(itemFrameName), itemFrameItem);
+        Registry.register(BuiltInRegistries.ITEM, withModId(glowItemFrameName), glowItemFrameItem);
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(itemFrameAfter, itemFrameItem));
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(glowItemFrameAfter, glowItemFrameItem));
         more_item_frames.add(itemFrameItem);
