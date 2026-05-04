@@ -64,11 +64,8 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Inject(method = "dropItem", at = @At("HEAD"), cancellable = true)
     private void injectedDropItem(Entity brokenEntity, CallbackInfo ci) {
-        String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
+        String woodVariant = this.mframev$getPWoodVariant();
         if (woodVariant != null) {
-            // debug
-            //LOGGER.info("Painting Variant found: {}", ((IPainting) this).mframev$getPWoodVariant());
-
             ItemStack itemStack = stackFromPWoodVariant(woodVariant);
             if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                 this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
@@ -87,7 +84,7 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Inject(method = "getPickResult", at = @At("HEAD"), cancellable = true)
     public void injectedGetPickResult(CallbackInfoReturnable<ItemStack> cir) {
-        String woodVariant = ((IPainting) this).mframev$getPWoodVariant();
+        String woodVariant = this.mframev$getPWoodVariant();
         if (woodVariant != null) {
             cir.setReturnValue(stackFromPWoodVariant(woodVariant));
         }
