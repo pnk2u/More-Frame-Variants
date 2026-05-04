@@ -18,7 +18,7 @@ public abstract class ClientEventHandlerMixin {
     @WrapOperation(method = "onExtractEntityRenderState", at = @At(value = "INVOKE", target = "Lfuzs/fastitemframes/common/client/renderer/blockentity/ItemFrameBlockRenderer;getItemFrameBlockState(ZZZ)Lnet/minecraft/world/level/block/state/BlockState;"))
     private static BlockState wrappedOnExtractEntityRenderStateGetItemFrameBlockState(boolean isGlowFrame, boolean isMapFrame, boolean isDyed, Operation<BlockState> original, Entity entity, EntityRenderState entityRenderState) {
         if (entityRenderState instanceof MoreFrameVariantItemFrameRenderState moreFrameVariantItemFrameRenderState) {
-            return original.call(isGlowFrame, isMapFrame, isDyed).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodType.getEnumByName(moreFrameVariantItemFrameRenderState.itemFrameVariant));
+            return original.call(isGlowFrame, isMapFrame, isDyed).setValue(WOOD_TYPE, MoreFrameVariantsCompatibilityFIF.WoodTypeProperty.getByName(moreFrameVariantItemFrameRenderState.itemFrameVariant));
         } else {
             return original.call(isGlowFrame, isMapFrame, isDyed);
         }
