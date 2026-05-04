@@ -64,16 +64,14 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.2.8"></a>
-#### 1.2.8[*](#footnote-*):
-- `26.1`: Re-enable and update compatibility with <ins>Fast Item Frames</ins> (&#x200A;<sub><a title="Fast Item Frames&#10;on Modrinth" href="https://modrinth.com/mod/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="Fast Item Frames&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)
-- Implement internal changes to support upcoming Add-on Mods for which this update will be required
+<a name="1.2.9"></a>
+#### 1.2.9[*](#footnote-*):
+- Fix crash when running with <ins>Fast Item Frames</ins> (&#x200A;<sub><a title="Fast Item Frames&#10;on Modrinth" href="https://modrinth.com/mod/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="Fast Item Frames&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/fast-item-frames/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) and some mods that add custom _Wood_ types
 
-
-<h2><sub><sub><sup><ins>Download 1.2.8 + 1.21.5</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Frame Variants 1.2.8 + 1.21.5" href="https://www.modrinth.com/mod/vwp1lXf8/version/z6qh7Ah1">
+<h2><sub><sub><sup><ins>Download 1.2.9 + 1.21.5</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Frame Variants 1.2.9 + 1.21.5" href="https://www.modrinth.com/mod/vwp1lXf8/version/bv0oEXUR">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
-<a title="Download (Curseforge):&#10;1.2.8 + 1.21.5 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/8037684">
+<a title="Download (Curseforge):&#10;1.2.9 + 1.21.5 - More Frame Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-frame-variants/files/8040600">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
