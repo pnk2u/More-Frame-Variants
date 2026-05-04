@@ -32,8 +32,8 @@ public class MoreFrameVariantsCompatibilityFIF {
         return ModRegistry.ITEM_FRAME_COLOR_ATTACHMENT_TYPE.has(itemFrame);
     }
 
-        public static void registerCompatFifDatapack() {
-                ResourceLoader.registerBuiltinPack(
+    public static void registerCompatFifDatapack() {
+        ResourceLoader.registerBuiltinPack(
                 MoreFrameVariants.withModId("mframev_fifcompat"),
                 FabricLoader.getInstance().getModContainer(MoreFrameVariants.MOD_ID).orElseThrow(),
                 Component.literal("Fast Item Frames Compatibility"),
