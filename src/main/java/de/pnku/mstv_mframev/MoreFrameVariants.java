@@ -28,7 +28,7 @@ public class MoreFrameVariants implements ModInitializer {
 		}
 	}
 
-	public static Identifier asId(String path) {
+	public static Identifier withModId(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 

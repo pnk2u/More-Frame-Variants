@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static de.pnku.mstv_mframev.MoreFrameVariants.LOGGER;
+import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
 
 
 public class MoreFrameVariantItems {
@@ -62,10 +64,11 @@ public class MoreFrameVariantItems {
 
     public static final List<Item> more_frame_variants = new ArrayList<>();
     public static final List<Item> more_paintings = new ArrayList<>();
+    public static final Map<String, Item> more_paintings_by_wood_type = new HashMap<>();
     public static final List<Item> more_item_frames = new ArrayList<>();
     public static final List<Item> more_glow_item_frames = new ArrayList<>();
     public static final List<Item> more_all_item_frames = new ArrayList<>();
-    public static final List<String> more_item_frame_wood_types = new ArrayList<>();
+    public static final Map<String, Tuple<Item, Item>> more_item_frames_by_wood_type = new HashMap<>();
     public static final Map<Item, Item> more_item_frame_from_glow_map = new HashMap<>();
 
     public static void registerFrameItems() {
@@ -99,16 +102,18 @@ public class MoreFrameVariantItems {
         Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, paintingName), paintingItem);
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.insertAfter(paintingAfter, paintingItem));
         more_paintings.add(paintingItem);
+        more_paintings_by_wood_type.put(((MoreFrameVariantItem) paintingItem).mframevWoodType, paintingItem);
         more_frame_variants.add(paintingItem);
         // MoreFrameVariants.LOGGER.info("Registered: " + paintingName);
     }
     private static void registerItemFramesItem(Item itemFrameItem, Item itemFrameAfter, Item glowItemFrameItem, Item glowItemFrameAfter) {
         String itemFrameWoodType = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType;
-        if (!itemFrameWoodType.equals(((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType)) LOGGER.warn("Wood type mismatch between item frame and glow item frame: " + itemFrameWoodType + " <-> " + ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType);
-        String itemFrameName = ((MoreFrameVariantItem) itemFrameItem).mframevWoodType + "_item_frame";
-        String glowItemFrameName = ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType + "_glow_item_frame";
-        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, itemFrameName), itemFrameItem);
-        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreFrameVariants.MOD_ID, glowItemFrameName), glowItemFrameItem);
+        String glowItemFrameWoodType = ((MoreFrameVariantItem) glowItemFrameItem).mframevWoodType;
+        if (!itemFrameWoodType.equals(glowItemFrameWoodType)) LOGGER.warn("Wood type mismatch between item frame and glow item frame: " + itemFrameWoodType + " <-> " + glowItemFrameWoodType);
+        String itemFrameName = itemFrameWoodType + "_item_frame";
+        String glowItemFrameName = glowItemFrameWoodType + "_glow_item_frame";
+        Registry.register(BuiltInRegistries.ITEM, withModId(itemFrameName), itemFrameItem);
+        Registry.register(BuiltInRegistries.ITEM, withModId(glowItemFrameName), glowItemFrameItem);
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.insertAfter(itemFrameAfter, itemFrameItem));
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.insertAfter(glowItemFrameAfter, glowItemFrameItem));
         more_item_frames.add(itemFrameItem);
@@ -117,7 +122,7 @@ public class MoreFrameVariantItems {
         more_all_item_frames.add(glowItemFrameItem);
         more_frame_variants.add(itemFrameItem);
         more_frame_variants.add(glowItemFrameItem);
-        if(!more_item_frame_wood_types.contains(itemFrameWoodType)) more_item_frame_wood_types.add(itemFrameWoodType);
+        more_item_frames_by_wood_type.putIfAbsent(itemFrameWoodType, new Tuple<>(itemFrameItem, glowItemFrameItem));
         more_item_frame_from_glow_map.put(glowItemFrameItem, itemFrameItem);
         // MoreFrameVariants.LOGGER.info("Registered: " + itemFrameName + ", " + glowItemFrameName);
     }

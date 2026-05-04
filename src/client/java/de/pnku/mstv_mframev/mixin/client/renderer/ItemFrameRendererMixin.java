@@ -19,7 +19,6 @@ import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -122,7 +121,7 @@ public abstract class ItemFrameRendererMixin extends EntityRenderer<ItemFrame, M
         if (isFifLoaded && (isGlow || isDyed)) {
             return MoreFrameVariantsCompatibilityFIFClientConstructor.getCompatFifBlockState(isGlow, hasMap, isDyed, woodVariant);
         }
-        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(asId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
+        StateDefinition<Block, BlockState> itemFrameVariantFakeDefinition = BlockStateDefinitions.STATIC_DEFINITIONS.get(withModId(woodVariant + (isGlow ? "_glow_" : "_") + "item_frame"));
         return itemFrameVariantFakeDefinition.any().setValue(BlockStateProperties.MAP, hasMap);
     }
 

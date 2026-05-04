@@ -1,5 +1,7 @@
 package de.pnku.mstv_mframev.compat.fastitemframes.mixin;
 
+import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
+import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WoodTypeProperty;
 import de.pnku.mstv_mframev.util.IItemFrame;
 import fuzs.fastitemframes.common.handler.ItemFrameHandler;
 import fuzs.fastitemframes.common.init.ModRegistry;
@@ -21,7 +23,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WOOD_TYPE;
-import static de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF.WoodType;
 
 @Mixin(ItemFrameHandler.class)
 public class ItemFrameHandlerMixin {
@@ -37,9 +38,10 @@ public class ItemFrameHandlerMixin {
                 BlockPos blockPos = entity.blockPosition();
                 if (block != null && serverLevel.hasChunkAt(blockPos) && (serverLevel.isEmptyBlock(blockPos)
                         || serverLevel.getBlockState(blockPos).is(Blocks.WATER))) {
+                    MoreFrameVariantsCompatibilityFIF.WoodTypeValue woodTypeValue = WoodTypeProperty.getByName(((IItemFrame) itemFrame).mframev$getIFWoodVariant());
                     BlockState blockState = getItemFrameStateForPlacement(serverLevel, block, blockPos, itemFrame);
                     if (blockState != null) {
-                        setItemFrameBlock(serverLevel, blockPos, blockState.setValue(ItemFrameBlock.FACING, itemFrame.getDirection()).setValue(WOOD_TYPE, WoodType.getEnumByName(((IItemFrame) itemFrame).mframev$getIFWoodVariant())), itemFrame);
+                        setItemFrameBlock(serverLevel, blockPos, blockState.setValue(ItemFrameBlock.FACING, itemFrame.getDirection()).setValue(WOOD_TYPE, woodTypeValue), itemFrame);
                         itemFrame.kill(serverLevel);
                     }
                 }
