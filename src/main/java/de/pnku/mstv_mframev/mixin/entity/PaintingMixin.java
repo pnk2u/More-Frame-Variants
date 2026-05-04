@@ -1,6 +1,5 @@
 package de.pnku.mstv_mframev.mixin.entity;
 
-import de.pnku.mstv_mframev.item.MoreFrameVariantItems;
 import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -12,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
@@ -22,6 +22,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
+
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_paintings_by_wood_type;
 
 @Mixin(Painting.class)
 public abstract class PaintingMixin extends HangingEntity implements IPainting {
@@ -91,20 +95,8 @@ public abstract class PaintingMixin extends HangingEntity implements IPainting {
 
     @Unique
     public ItemStack stackFromPWoodVariant(String woodVariant) {
-        switch (woodVariant) {
-            case "acacia" -> {return new ItemStack(MoreFrameVariantItems.ACACIA_PAINTING);}
-            case "bamboo" -> {return new ItemStack(MoreFrameVariantItems.BAMBOO_PAINTING);}
-            case "birch" -> {return new ItemStack(MoreFrameVariantItems.BIRCH_PAINTING);}
-            case "cherry" -> {return new ItemStack(MoreFrameVariantItems.CHERRY_PAINTING);}
-            case "crimson" -> {return new ItemStack(MoreFrameVariantItems.CRIMSON_PAINTING);}
-            case "dark_oak" -> {return new ItemStack(MoreFrameVariantItems.DARK_OAK_PAINTING);}
-            case "jungle" -> {return new ItemStack(MoreFrameVariantItems.JUNGLE_PAINTING);}
-            case "mangrove" -> {return new ItemStack(MoreFrameVariantItems.MANGROVE_PAINTING);}
-            case "oak" -> {return new ItemStack(MoreFrameVariantItems.OAK_PAINTING);}
-            case "spruce" -> {return new ItemStack(MoreFrameVariantItems.SPRUCE_PAINTING);}
-            case "warped" -> {return new ItemStack(MoreFrameVariantItems.WARPED_PAINTING);}
-            case null, default -> {return new ItemStack(Items.PAINTING);}
-        }
+        Item paintingItem = more_paintings_by_wood_type.get(woodVariant);
+        return new ItemStack(Objects.requireNonNullElse(paintingItem, Items.PAINTING));
     }
 
     static {

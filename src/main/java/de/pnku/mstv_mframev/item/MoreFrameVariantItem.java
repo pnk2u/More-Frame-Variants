@@ -7,6 +7,7 @@ import de.pnku.mstv_mframev.util.IPainting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.GlowItemFrame;
@@ -26,6 +27,8 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Optional;
+
+import static de.pnku.mstv_mframev.item.MoreFrameVariantItems.more_item_frames_by_wood_type;
 
 
 public class MoreFrameVariantItem extends HangingEntityItem {
@@ -107,23 +110,11 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
     @Unique
     public static ItemStack stackFromIFWoodVariant(String woodVariant, Boolean isGlow, ItemStack inputStack) {
-        ItemStack outputStack;
-        if (inputStack.equals(ItemStack.EMPTY)) {
-            outputStack = isGlow ? new ItemStack(Items.GLOW_ITEM_FRAME) : new ItemStack(Items.ITEM_FRAME);
-        } else { outputStack = inputStack;}
-        switch (woodVariant) {
-            case "birch" -> {return isGlow ? outputStack.transmuteCopy(Items.GLOW_ITEM_FRAME) : outputStack.transmuteCopy(Items.ITEM_FRAME);}
-            case "acacia" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.ACACIA_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.ACACIA_ITEM_FRAME);}
-            case "bamboo" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.BAMBOO_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.BAMBOO_ITEM_FRAME);}
-            case "cherry" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.CHERRY_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.CHERRY_ITEM_FRAME);}
-            case "crimson" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.CRIMSON_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.CRIMSON_ITEM_FRAME);}
-            case "dark_oak" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.DARK_OAK_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.DARK_OAK_ITEM_FRAME);}
-            case "jungle" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.JUNGLE_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.JUNGLE_ITEM_FRAME);}
-            case "mangrove" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.MANGROVE_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.MANGROVE_ITEM_FRAME);}
-            case "oak" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.OAK_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.OAK_ITEM_FRAME);}
-            case "spruce" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.SPRUCE_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.SPRUCE_ITEM_FRAME);}
-            case "warped" -> {return isGlow ? outputStack.transmuteCopy(MoreFrameVariantItems.WARPED_GLOW_ITEM_FRAME) : outputStack.transmuteCopy(MoreFrameVariantItems.WARPED_ITEM_FRAME);}
-            case null, default -> {return isGlow ? outputStack.transmuteCopy(Items.GLOW_ITEM_FRAME) : outputStack.transmuteCopy(Items.ITEM_FRAME);}
+        Tuple<Item, Item> itemFrameTuple = more_item_frames_by_wood_type.get(woodVariant);
+        if (itemFrameTuple == null) {
+            return isGlow ? inputStack.transmuteCopy(Items.GLOW_ITEM_FRAME) : inputStack.transmuteCopy(Items.ITEM_FRAME);
+        } else {
+            return isGlow ? inputStack.transmuteCopy(itemFrameTuple.getB()) : inputStack.transmuteCopy(itemFrameTuple.getA());
         }
     }
 }
