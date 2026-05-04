@@ -50,9 +50,7 @@ public class MoreFrameVariantsCompatibilityFIF {
                     .map(WoodTypeValue::new)
                     .collect(ImmutableSet.toImmutableSet());
             for (WoodTypeValue value : this.values) {
-                if (this.names.put(value.getSerializedName(), value) != null) {
-                    throw new IllegalArgumentException("Multiple wood types have the same name '" + value.getSerializedName() + "'");
-                }
+                this.names.putIfAbsent(value.getSerializedName(), value);
             }
         }
 
@@ -98,7 +96,7 @@ public class MoreFrameVariantsCompatibilityFIF {
 
         @Override
         public @NotNull String getSerializedName() {
-            return this.woodType.name();
+            return this.woodType.name().toLowerCase().replaceAll("[^a-z0-9_]", "_");
         }
     }
 }
