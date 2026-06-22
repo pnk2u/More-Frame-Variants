@@ -9,6 +9,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.ItemStack;
@@ -60,14 +61,14 @@ public abstract class ItemFrameMixin extends HangingEntity implements IItemFrame
 
     @WrapOperation(method = "dropItem(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;getFrameItemStack()Lnet/minecraft/world/item/ItemStack;"))
     protected ItemStack redirectedGetFrameItemStack(ItemFrame itemFrame, Operation<ItemStack> original) {
-        boolean isGlow = itemFrame.getType().equals(EntityType.GLOW_ITEM_FRAME);
+        boolean isGlow = itemFrame.getType().equals(EntityTypes.GLOW_ITEM_FRAME);
         String woodVariant = ((IItemFrame) itemFrame).mframev$getIFWoodVariant();
         return stackFromIFWoodVariant(woodVariant, isGlow, original.call(itemFrame));
     }
 
     @ModifyReturnValue(method = "getPickResult", at = @At("RETURN"))
     protected ItemStack injectedGetPickResult(ItemStack original) {
-        boolean isGlow = this.getType().equals(EntityType.GLOW_ITEM_FRAME);
+        boolean isGlow = this.getType().equals(EntityTypes.GLOW_ITEM_FRAME);
         String woodVariant = ((IItemFrame) this).mframev$getIFWoodVariant();
         if (woodVariant != null) {
             return stackFromIFWoodVariant(woodVariant, isGlow, original);

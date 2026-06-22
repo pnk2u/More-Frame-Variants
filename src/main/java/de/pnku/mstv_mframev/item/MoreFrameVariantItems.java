@@ -1,12 +1,12 @@
 package de.pnku.mstv_mframev.item;
 
+import com.mojang.datafixers.util.Pair;
 import de.pnku.mstv_mframev.MoreFrameVariants;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.Tuple;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -23,44 +23,44 @@ import static de.pnku.mstv_mframev.MoreFrameVariants.withModId;
 public class MoreFrameVariantItems {
 
     // Paintings
-    public static final Item ACACIA_PAINTING = new MoreFrameVariantItem("acacia", EntityType.PAINTING, new Item.Properties());
-    public static final Item BAMBOO_PAINTING = new MoreFrameVariantItem("bamboo", EntityType.PAINTING, new Item.Properties());
-    public static final Item BIRCH_PAINTING = new MoreFrameVariantItem("birch", EntityType.PAINTING, new Item.Properties());
-    public static final Item CHERRY_PAINTING = new MoreFrameVariantItem("cherry", EntityType.PAINTING, new Item.Properties());
-    public static final Item CRIMSON_PAINTING = new MoreFrameVariantItem("crimson", EntityType.PAINTING, new Item.Properties().fireResistant());
-    public static final Item DARK_OAK_PAINTING = new MoreFrameVariantItem("dark_oak", EntityType.PAINTING, new Item.Properties());
-    public static final Item PALE_OAK_PAINTING = new MoreFrameVariantItem("pale_oak", EntityType.PAINTING, new Item.Properties());
-    public static final Item JUNGLE_PAINTING = new MoreFrameVariantItem("jungle", EntityType.PAINTING, new Item.Properties());
-    public static final Item MANGROVE_PAINTING = new MoreFrameVariantItem("mangrove", EntityType.PAINTING, new Item.Properties());
-    public static final Item OAK_PAINTING = new MoreFrameVariantItem("oak", EntityType.PAINTING, new Item.Properties());
-    public static final Item SPRUCE_PAINTING = new MoreFrameVariantItem("spruce", EntityType.PAINTING, new Item.Properties());
-    public static final Item WARPED_PAINTING = new MoreFrameVariantItem("warped", EntityType.PAINTING, new Item.Properties().fireResistant());
+    public static final Item ACACIA_PAINTING = new MoreFrameVariantItem("acacia", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item BAMBOO_PAINTING = new MoreFrameVariantItem("bamboo", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item BIRCH_PAINTING = new MoreFrameVariantItem("birch", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item CHERRY_PAINTING = new MoreFrameVariantItem("cherry", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item CRIMSON_PAINTING = new MoreFrameVariantItem("crimson", EntityTypes.PAINTING, new Item.Properties().fireResistant());
+    public static final Item DARK_OAK_PAINTING = new MoreFrameVariantItem("dark_oak", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item PALE_OAK_PAINTING = new MoreFrameVariantItem("pale_oak", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item JUNGLE_PAINTING = new MoreFrameVariantItem("jungle", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item MANGROVE_PAINTING = new MoreFrameVariantItem("mangrove", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item OAK_PAINTING = new MoreFrameVariantItem("oak", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item SPRUCE_PAINTING = new MoreFrameVariantItem("spruce", EntityTypes.PAINTING, new Item.Properties());
+    public static final Item WARPED_PAINTING = new MoreFrameVariantItem("warped", EntityTypes.PAINTING, new Item.Properties().fireResistant());
 
     // Item Frames
-    public static final Item ACACIA_ITEM_FRAME = new MoreFrameVariantItem("acacia", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item BAMBOO_ITEM_FRAME = new MoreFrameVariantItem("bamboo", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item CHERRY_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item CRIMSON_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityType.ITEM_FRAME, new Item.Properties().fireResistant());
-    public static final Item DARK_OAK_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item PALE_OAK_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item JUNGLE_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item MANGROVE_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item OAK_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item SPRUCE_ITEM_FRAME = new MoreFrameVariantItem("spruce", EntityType.ITEM_FRAME, new Item.Properties());
-    public static final Item WARPED_ITEM_FRAME = new MoreFrameVariantItem("warped", EntityType.ITEM_FRAME, new Item.Properties().fireResistant());
+    public static final Item ACACIA_ITEM_FRAME = new MoreFrameVariantItem("acacia", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item BAMBOO_ITEM_FRAME = new MoreFrameVariantItem("bamboo", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item CHERRY_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item CRIMSON_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityTypes.ITEM_FRAME, new Item.Properties().fireResistant());
+    public static final Item DARK_OAK_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item PALE_OAK_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item JUNGLE_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item MANGROVE_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item OAK_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item SPRUCE_ITEM_FRAME = new MoreFrameVariantItem("spruce", EntityTypes.ITEM_FRAME, new Item.Properties());
+    public static final Item WARPED_ITEM_FRAME = new MoreFrameVariantItem("warped", EntityTypes.ITEM_FRAME, new Item.Properties().fireResistant());
 
     // Glow Item Frames
-    public static final Item ACACIA_GLOW_ITEM_FRAME = new MoreFrameVariantItem("acacia", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item BAMBOO_GLOW_ITEM_FRAME = new MoreFrameVariantItem("bamboo", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item CHERRY_GLOW_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item CRIMSON_GLOW_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityType.GLOW_ITEM_FRAME, new Item.Properties().fireResistant());
-    public static final Item DARK_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item PALE_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item JUNGLE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item MANGROVE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item SPRUCE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("spruce", EntityType.GLOW_ITEM_FRAME, new Item.Properties());
-    public static final Item WARPED_GLOW_ITEM_FRAME = new MoreFrameVariantItem("warped", EntityType.GLOW_ITEM_FRAME, new Item.Properties().fireResistant());
+    public static final Item ACACIA_GLOW_ITEM_FRAME = new MoreFrameVariantItem("acacia", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item BAMBOO_GLOW_ITEM_FRAME = new MoreFrameVariantItem("bamboo", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item CHERRY_GLOW_ITEM_FRAME = new MoreFrameVariantItem("cherry", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item CRIMSON_GLOW_ITEM_FRAME = new MoreFrameVariantItem("crimson", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties().fireResistant());
+    public static final Item DARK_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("dark_oak", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item PALE_OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("pale_oak", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item JUNGLE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("jungle", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item MANGROVE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("mangrove", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item OAK_GLOW_ITEM_FRAME = new MoreFrameVariantItem("oak", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item SPRUCE_GLOW_ITEM_FRAME = new MoreFrameVariantItem("spruce", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties());
+    public static final Item WARPED_GLOW_ITEM_FRAME = new MoreFrameVariantItem("warped", EntityTypes.GLOW_ITEM_FRAME, new Item.Properties().fireResistant());
 
     public static final List<Item> more_frame_variants = new ArrayList<>();
     public static final List<Item> more_paintings = new ArrayList<>();
@@ -68,7 +68,7 @@ public class MoreFrameVariantItems {
     public static final List<Item> more_item_frames = new ArrayList<>();
     public static final List<Item> more_glow_item_frames = new ArrayList<>();
     public static final List<Item> more_all_item_frames = new ArrayList<>();
-    public static final Map<String, Tuple<Item, Item>> more_item_frames_by_wood_type = new HashMap<>();
+    public static final Map<String, Pair<Item, Item>> more_item_frames_by_wood_type = new HashMap<>();
     public static final Map<Item, Item> more_item_frame_from_glow_map = new HashMap<>();
 
     public static void registerFrameItems() {
@@ -122,7 +122,7 @@ public class MoreFrameVariantItems {
         more_all_item_frames.add(glowItemFrameItem);
         more_frame_variants.add(itemFrameItem);
         more_frame_variants.add(glowItemFrameItem);
-        more_item_frames_by_wood_type.putIfAbsent(itemFrameWoodType, new Tuple<>(itemFrameItem, glowItemFrameItem));
+        more_item_frames_by_wood_type.putIfAbsent(itemFrameWoodType, Pair.of(itemFrameItem, glowItemFrameItem));
         more_item_frame_from_glow_map.put(glowItemFrameItem, itemFrameItem);
         // MoreFrameVariants.LOGGER.info("Registered: " + itemFrameName + ", " + glowItemFrameName);
     }

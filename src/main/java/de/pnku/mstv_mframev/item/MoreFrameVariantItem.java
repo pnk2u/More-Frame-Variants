@@ -1,5 +1,6 @@
 package de.pnku.mstv_mframev.item;
 
+import com.mojang.datafixers.util.Pair;
 import de.pnku.mstv_mframev.MoreFrameVariants;
 import de.pnku.mstv_mframev.compat.fastitemframes.MoreFrameVariantsCompatibilityFIF;
 import de.pnku.mstv_mframev.util.IItemFrame;
@@ -9,9 +10,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.decoration.*;
 import net.minecraft.world.entity.decoration.painting.Painting;
 import net.minecraft.world.entity.player.Player;
@@ -52,36 +53,36 @@ public class MoreFrameVariantItem extends HangingEntityItem {
         } else {
             Level level = context.getLevel();
             HangingEntity hangingEntity;
-            if (this.type == EntityType.PAINTING) {
+            if (this.type == EntityTypes.PAINTING) {
                 Optional<Painting> optional = Painting.create(level, blockPos2, direction);
                 if (optional.isEmpty()) {
                     return InteractionResult.CONSUME;
                 }
 
                 hangingEntity = (HangingEntity)optional.get();
-            } else if (this.type == EntityType.ITEM_FRAME) {
+            } else if (this.type == EntityTypes.ITEM_FRAME) {
                 hangingEntity = new ItemFrame(level, blockPos2, direction);
             } else {
-                if (this.type != EntityType.GLOW_ITEM_FRAME) {
+                if (this.type != EntityTypes.GLOW_ITEM_FRAME) {
                     return InteractionResult.SUCCESS;
                 }
 
                 hangingEntity = new GlowItemFrame(level, blockPos2, direction);
             }
 
-            EntityType.createDefaultStackConfig(level, itemStack, player).accept(hangingEntity);
+            EntityType.createDefaultStackConfig(level, itemStack, player).apply(hangingEntity);
             if (hangingEntity.survives()) {
                 if (!level.isClientSide()) {
                     hangingEntity.playPlacementSound();
                     level.gameEvent(player, GameEvent.ENTITY_PLACE, hangingEntity.position());
-                    if ((hangingEntity.getType().equals(EntityType.ITEM_FRAME) || hangingEntity.getType().equals(EntityType.GLOW_ITEM_FRAME)) && itemStack.has(DataComponents.DYED_COLOR) && MoreFrameVariants.isFifLoaded) {
+                    if ((hangingEntity.getType().equals(EntityTypes.ITEM_FRAME) || hangingEntity.getType().equals(EntityTypes.GLOW_ITEM_FRAME)) && itemStack.has(DataComponents.DYED_COLOR) && MoreFrameVariants.isFifLoaded) {
                         MoreFrameVariantsCompatibilityFIF.attachCompatFifDataToEntity(itemStack, hangingEntity);
                     }
                     level.addFreshEntity(hangingEntity);
-                    if (hangingEntity.getType().equals(EntityType.PAINTING)){
+                    if (hangingEntity.getType().equals(EntityTypes.PAINTING)){
                         assert hangingEntity instanceof IPainting;
                         ((IPainting) hangingEntity).mframev$setPWoodVariant(this.mframevWoodType);}
-                    if (hangingEntity.getType().equals(EntityType.ITEM_FRAME) || hangingEntity.getType().equals(EntityType.GLOW_ITEM_FRAME)){
+                    if (hangingEntity.getType().equals(EntityTypes.ITEM_FRAME) || hangingEntity.getType().equals(EntityTypes.GLOW_ITEM_FRAME)){
                         assert hangingEntity instanceof IItemFrame;
                         ((IItemFrame) hangingEntity).mframev$setIFWoodVariant(this.mframevWoodType);}
                 }
@@ -96,7 +97,7 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
     @Override
     protected boolean mayPlace(Player player, Direction direction, ItemStack hangingEntityStack, BlockPos pos) {
-        if (this.type == EntityType.ITEM_FRAME || this.type == EntityType.GLOW_ITEM_FRAME) {
+        if (this.type == EntityTypes.ITEM_FRAME || this.type == EntityTypes.GLOW_ITEM_FRAME) {
             return !player.level().isOutsideBuildHeight(pos) && player.mayUseItemAt(pos, direction, hangingEntityStack);
         } else {
             return !direction.getAxis().isVertical() && player.mayUseItemAt(pos, direction, hangingEntityStack);
@@ -105,11 +106,11 @@ public class MoreFrameVariantItem extends HangingEntityItem {
 
     @Unique
     public static ItemStack stackFromIFWoodVariant(String woodVariant, Boolean isGlow, ItemStack inputStack) {
-        Tuple<Item, Item> itemFrameTuple = more_item_frames_by_wood_type.get(woodVariant);
+        Pair<Item, Item> itemFrameTuple = more_item_frames_by_wood_type.get(woodVariant);
         if (itemFrameTuple == null) {
             return isGlow ? inputStack.transmuteCopy(Items.GLOW_ITEM_FRAME) : inputStack.transmuteCopy(Items.ITEM_FRAME);
         } else {
-            return isGlow ? inputStack.transmuteCopy(itemFrameTuple.getB()) : inputStack.transmuteCopy(itemFrameTuple.getA());
+            return isGlow ? inputStack.transmuteCopy(itemFrameTuple.getFirst()) : inputStack.transmuteCopy(itemFrameTuple.getSecond());
         }
     }
 }
